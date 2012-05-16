@@ -8,6 +8,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails',      ">= 2.0.0.beta"
+  gem 'capybara'
 end
 
 # Gems used only for assets and not required

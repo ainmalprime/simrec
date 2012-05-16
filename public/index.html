@@ -50,10 +50,9 @@ a:hover, a:active, a:focus {
   text-decoration: none;
 }
 
-/* ~~ this fixed width container surrounds all other divs~~ */
 .container {
   width: 1100px;
-  margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+  margin: 0 auto; 
   overflow: hidden; 
 }
 
@@ -115,8 +114,8 @@ div.menu ul
     list-style: none;
     margin: 0px;
     padding: 0px;
-  position: relative; 
-  float: left; 
+    position: relative; 
+    float: left; 
   
   
 }
@@ -143,8 +142,8 @@ div.menu ul li a, div.menu ul li a:visited
 div.menu ul li
 {
     padding: 8px 0px 0px 0px;
-  width: 131px;
-  float: left;
+    width: 131px;
+    float: left;
 }
 
 div.menu ul li a:hover
@@ -171,11 +170,11 @@ div.menu ul li a:active
 <form id="Form1" runat="server">
   <div class="container">
   <div class="topBar"> <img src="/assets/template_pontiac/logo.jpg" width="241" height="118" />
-        <div class="menu">
+  <div id="title"></div>
+  <div class="menu">
     <ul>
-    <li> <a>Patient Search </a></li>
-    <li><a> Patient Census </a></li>
-    
+    <li><a>Patient Search </a></li>
+    <li><a>Patient Census </a></li>
     </ul>
     </div>
     <div>
