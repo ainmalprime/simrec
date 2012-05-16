@@ -8,10 +8,32 @@
 	"buffers":
 	[
 		{
-			"file": "app/models/patient.rb",
+			"file": "spec/requests/static_pages_spec.rb",
 			"settings":
 			{
-				"buffer_size": 256,
+				"buffer_size": 215,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "ENV[\"RAILS_ENV\"] = \"test\"\nrequire File.expand_path('../../config/environment', __FILE__)\nrequire 'rails/test_help'\n\n\nclass ActiveSupport::TestCase\n  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.\n  #\n  # Note: You'll currently still have to declare fixtures explicitly in integration tests\n  # -- they do not yet inherit this setting\n  fixtures :all\n\n  # Add more helper methods to be used by all tests here...\nend\n",
+			"file": "test/test_helper.rb",
+			"file_size": 479,
+			"file_write_time": 1337199845000000,
+			"settings":
+			{
+				"buffer_size": 455,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "# This file is copied to spec/ when you run 'rails generate rspec:install'\nENV[\"RAILS_ENV\"] ||= 'test'\nrequire File.expand_path(\"../../config/environment\", __FILE__)\nrequire 'rspec/rails'\nrequire 'rspec/autorun'\n\n\n# Requires supporting ruby files with custom matchers and macros, etc,\n# in spec/support/ and its subdirectories.\nDir[Rails.root.join(\"spec/support/**/*.rb\")].each {|f| require f}\n\nRSpec.configure do |config|\n  # ## Mock Framework\n  #\n  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:\n  #\n  # config.mock_with :mocha\n  # config.mock_with :flexmock\n  # config.mock_with :rr\n\n  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures\n  config.fixture_path = \"#{::Rails.root}/spec/fixtures\"\n\n  # If you're not using ActiveRecord, or you'd prefer not to run each of your\n  # examples within a transaction, remove the following line or assign false\n  # instead of true.\n  config.use_transactional_fixtures = true\n\n  # If true, the base class of anonymous controllers will be inferred\n  # automatically. This will be the default behavior in future versions of\n  # rspec-rails.\n  config.infer_base_class_for_anonymous_controllers = false\nend\n",
+			"file": "spec/spec_helper.rb",
+			"file_size": 1224,
+			"file_write_time": 1337199903000000,
+			"settings":
+			{
+				"buffer_size": 1200,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +41,23 @@
 			"file": "Gemfile",
 			"settings":
 			{
-				"buffer_size": 375,
+				"buffer_size": 465,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/administrator/.profile",
+			"settings":
+			{
+				"buffer_size": 117,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/database.yml",
+			"settings":
+			{
+				"buffer_size": 237,
 				"line_ending": "Unix"
 			}
 		}
@@ -48,8 +86,17 @@
 	},
 	"file_history":
 	[
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patinet.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/.git/COMMIT_EDITMSG",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patient.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/public/index.html",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/static_pages/home.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/Gemfile",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/index.html.erb~.rhtml",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/visit.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patinet.rb",
 		"/Users/administrator/Developer/rails_projects/demo_app/Gemfile",
 		"/Users/administrator/Developer/rails_projects/first_app/Gemfile.lock",
 		"/Users/administrator/Developer/rails_projects/first_app/README.md",
@@ -58,7 +105,7 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -72,6 +119,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"../images/"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -79,6 +127,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"/assets/"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -89,23 +138,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/models/patient.rb",
+					"file": "spec/requests/static_pages_spec.rb",
 					"settings":
 					{
-						"buffer_size": 256,
+						"buffer_size": 215,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								256,
-								256
+								215,
+								215
 							]
 						],
 						"settings":
@@ -120,23 +169,131 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Gemfile",
+					"file": "test/test_helper.rb",
 					"settings":
 					{
-						"buffer_size": 375,
+						"buffer_size": 455,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								115,
+								115
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "spec/spec_helper.rb",
+					"settings":
+					{
+						"buffer_size": 1200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								212,
+								212
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Gemfile",
+					"settings":
+					{
+						"buffer_size": 465,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								216,
+								216
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/administrator/.profile",
+					"settings":
+					{
+						"buffer_size": 117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								116,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "config/database.yml",
+					"settings":
+					{
+						"buffer_size": 237,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								221,
+								221
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -180,7 +337,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
