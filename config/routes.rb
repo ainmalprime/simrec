@@ -1,4 +1,8 @@
 DeVryEHR::Application.routes.draw do
+  resources :medical_administration_records
+
+  resources :clinician_notes
+
   get "static_pages/home"
 
   get "static_pages/help"

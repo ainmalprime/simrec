@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visit:</b>
+  <%= @medical_administration_record.visit_id %>
+</p>
+
+<p>
+  <b>Timerecorded:</b>
+  <%= @medical_administration_record.timeRecorded %>
+</p>
+
+<p>
+  <b>Actiondescription:</b>
+  <%= @medical_administration_record.actionDescription %>
+</p>
+
+<p>
+  <b>Actiondetails:</b>
+  <%= @medical_administration_record.actionDetails %>
+</p>
+
+<p>
+  <b>Cliniciansignature:</b>
+  <%= @medical_administration_record.clinicianSignature %>
+</p>
+
+<p>
+  <b>Retainonreset:</b>
+  <%= @medical_administration_record.retainOnReset %>
+</p>
+
+
+<%= link_to 'Edit', edit_medical_administration_record_path(@medical_administration_record) %> |
+<%= link_to 'Back', medical_administration_records_path %>

@@ -1,0 +1,41 @@
+<%= form_for(@clinician_note) do |f| %>
+  <% if @clinician_note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clinician_note.errors.count, "error") %> prohibited this clinician_note from being saved:</h2>
+
+      <ul>
+      <% @clinician_note.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :visit_id %><br />
+    <%= f.number_field :visit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :timeRecorded %><br />
+    <%= f.text_field :timeRecorded %>
+  </div>
+  <div class="field">
+    <%= f.label :noteType %><br />
+    <%= f.text_field :noteType %>
+  </div>
+  <div class="field">
+    <%= f.label :noteText %><br />
+    <%= f.text_field :noteText %>
+  </div>
+  <div class="field">
+    <%= f.label :clinicianSignature %><br />
+    <%= f.text_field :clinicianSignature %>
+  </div>
+  <div class="field">
+    <%= f.label :retainOnReset %><br />
+    <%= f.number_field :retainOnReset %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

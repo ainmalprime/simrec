@@ -1,0 +1,33 @@
+<h1>Listing clinician_notes</h1>
+
+<table>
+  <tr>
+    <th>Visit</th>
+    <th>Timerecorded</th>
+    <th>Notetype</th>
+    <th>Notetext</th>
+    <th>Cliniciansignature</th>
+    <th>Retainonreset</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clinician_notes.each do |clinician_note| %>
+  <tr>
+    <td><%= clinician_note.visit_id %></td>
+    <td><%= clinician_note.timeRecorded %></td>
+    <td><%= clinician_note.noteType %></td>
+    <td><%= clinician_note.noteText %></td>
+    <td><%= clinician_note.clinicianSignature %></td>
+    <td><%= clinician_note.retainOnReset %></td>
+    <td><%= link_to 'Show', clinician_note %></td>
+    <td><%= link_to 'Edit', edit_clinician_note_path(clinician_note) %></td>
+    <td><%= link_to 'Destroy', clinician_note, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clinician note', new_clinician_note_path %>

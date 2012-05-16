@@ -1,0 +1,33 @@
+<h1>Listing medical_administration_records</h1>
+
+<table>
+  <tr>
+    <th>Visit</th>
+    <th>Timerecorded</th>
+    <th>Actiondescription</th>
+    <th>Actiondetails</th>
+    <th>Cliniciansignature</th>
+    <th>Retainonreset</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @medical_administration_records.each do |medical_administration_record| %>
+  <tr>
+    <td><%= medical_administration_record.visit_id %></td>
+    <td><%= medical_administration_record.timeRecorded %></td>
+    <td><%= medical_administration_record.actionDescription %></td>
+    <td><%= medical_administration_record.actionDetails %></td>
+    <td><%= medical_administration_record.clinicianSignature %></td>
+    <td><%= medical_administration_record.retainOnReset %></td>
+    <td><%= link_to 'Show', medical_administration_record %></td>
+    <td><%= link_to 'Edit', edit_medical_administration_record_path(medical_administration_record) %></td>
+    <td><%= link_to 'Destroy', medical_administration_record, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Medical administration record', new_medical_administration_record_path %>
