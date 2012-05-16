@@ -1,241 +1,188 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ruby on Rails: Welcome aboard</title>
+    <title>SJMO *Simulated* Electronic Medical Record</title>
     <style type="text/css" media="screen">
-      body {
-        margin: 0;
-        margin-bottom: 25px;
-        padding: 0;
-        background-color: #f0f0f0;
-        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-        font-size: 13px;
-        color: #333;
-      }
+      
+@charset "UTF-8";
+body {
+  font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+  background-color:#DFE0E2; 
+  background-image:url(/assets/template_pontiac/bkg_top.jpg);
+  background-repeat:repeat-x;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
 
-      h1 {
-        font-size: 28px;
-        color: #000;
-      }
-
-      a  {color: #03c}
-      a:hover {
-        background-color: #03c;
-        color: white;
-        text-decoration: none;
-      }
+.topBar {
+  margin-top:5px;
+  background-image:url(/assets/template_pontiac/header_bkg.jpg);
+  background-repeat:no-repeat;
+  min-height: 130px;
+}
 
 
-      #page {
-        background-color: #f0f0f0;
-        width: 750px;
-        margin: 0;
-        margin-left: auto;
-        margin-right: auto;
-      }
+ul, ol, dl { 
+  padding: 0;
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;  
+  padding-right: 15px;
+  padding-left: 15px; 
+}
 
-      #content {
-        float: left;
-        background-color: white;
-        border: 3px solid #aaa;
-        border-top: none;
-        padding: 25px;
-        width: 500px;
-      }
-
-      #sidebar {
-        float: right;
-        width: 175px;
-      }
-
-      #footer {
-        clear: both;
-      }
-
-      #header, #about, #getting-started {
-        padding-left: 75px;
-        padding-right: 30px;
-      }
+a img { 
+  border: none;
+}
 
 
-      #header {
-        background-image: url("assets/rails.png");
-        background-repeat: no-repeat;
-        background-position: top left;
-        height: 64px;
-      }
-      #header h1, #header h2 {margin: 0}
-      #header h2 {
-        color: #888;
-        font-weight: normal;
-        font-size: 16px;
-      }
+a:link {
+  color: #42413C;
+  text-decoration: underline; 
+}
+a:visited {
+  color: #6E6C64;
+  text-decoration: underline;
+}
+a:hover, a:active, a:focus { 
+  text-decoration: none;
+}
+
+/* ~~ this fixed width container surrounds all other divs~~ */
+.container {
+  width: 1100px;
+  margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+  overflow: hidden; 
+}
 
 
-      #about h3 {
-        margin: 0;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-
-      #about-content {
-        background-color: #ffd;
-        border: 1px solid #fc0;
-        margin-left: -55px;
-        margin-right: -10px;
-      }
-      #about-content table {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 11px;
-        border-collapse: collapse;
-      }
-      #about-content td {
-        padding: 10px;
-        padding-top: 3px;
-        padding-bottom: 3px;
-      }
-      #about-content td.name  {color: #555}
-      #about-content td.value {color: #000}
-
-      #about-content ul {
-        padding: 0;
-        list-style-type: none;
-      }
-
-      #about-content.failure {
-        background-color: #fcc;
-        border: 1px solid #f00;
-      }
-      #about-content.failure p {
-        margin: 0;
-        padding: 10px;
-      }
+.content {
+background: #FFF;
+margin-top: 0px;
+  padding: 10px 5px 10px 5px;
+  width: 1100px;
+  float: left;
+  
 
 
-      #getting-started {
-        border-top: 1px solid #ccc;
-        margin-top: 25px;
-        padding-top: 15px;
-      }
-      #getting-started h1 {
-        margin: 0;
-        font-size: 20px;
-      }
-      #getting-started h2 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: normal;
-        color: #333;
-        margin-bottom: 25px;
-      }
-      #getting-started ol {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #getting-started li {
-        font-size: 18px;
-        color: #888;
-        margin-bottom: 25px;
-      }
-      #getting-started li h2 {
-        margin: 0;
-        font-weight: normal;
-        font-size: 18px;
-        color: #333;
-      }
-      #getting-started li p {
-        color: #555;
-        font-size: 13px;
-      }
+.content ul, .content ol { 
+  padding: 0 15px 15px 40px; 
+}
 
 
-      #sidebar ul {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #sidebar ul h3 {
-        margin-top: 25px;
-        font-size: 16px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-      }
-      #sidebar li {
-        list-style-type: none;
-      }
-      #sidebar ul.links li {
-        margin-bottom: 5px;
-      }
+ul.nav {
+  list-style: none;
+  border-top: 1px solid #666; 
+  margin-bottom: 15px; 
+}
+ul.nav li {
+  border-bottom: 1px solid #666; 
+}
+ul.nav a, ul.nav a:visited { 
+  padding: 5px 5px 5px 15px;
+  display: block; 
+  width: 160px;  
+  text-decoration: none;
+  background: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { 
+  background: #ADB96E;
+  color: #FFF;
+}
 
-      .filename {
-        font-style: italic;
-      }
+.fltrt {  
+  float: right;
+  margin-left: 8px;
+}
+.fltlft { 
+  float: left;
+  margin-right: 8px;
+}
+.clearfloat { 
+  clear:both;
+  height:0;
+  font-size: 1px;
+  line-height: 0px;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+div.menu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  position: relative; 
+  float: left; 
+  
+  
+}
+
+
+div.menu ul li a, div.menu ul li a:visited
+{
+    background-image: url(/assets/topnav_button_off.jpg);
+    background-repeat:no-repeat;
+    display: block;
+    text-decoration: none;
+    min-width: 131px;
+    min-height:32px;
+    white-space: nowrap;
+    text-align:center;
+    font-size:small;
+    font-family:Tahoma, Arial;
+    color:White;
+  
+  
+}
+
+
+div.menu ul li
+{
+    padding: 8px 0px 0px 0px;
+  width: 131px;
+  float: left;
+}
+
+div.menu ul li a:hover
+{
+    background-image: url(/assets/topnav_button_on.jpg);
+    background-repeat:no-repeat;
+    text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+    background-image: url(/assets/topnav_button_on.jpg);
+    background-repeat:no-repeat;
+    text-decoration: none;
+}
+
+
+
+
+
     </style>
-    <script type="text/javascript">
-      function about() {
-        info = document.getElementById('about-content');
-        if (window.XMLHttpRequest)
-          { xhr = new XMLHttpRequest(); }
-        else
-          { xhr = new ActiveXObject("Microsoft.XMLHTTP"); }
-        xhr.open("GET","rails/info/properties",false);
-        xhr.send("");
-        info.innerHTML = xhr.responseText;
-        info.style.display = 'block'
-      }
-    </script>
   </head>
   <body>
-    <div id="page">
-      <div id="sidebar">
-        <ul id="sidebar-items">
-          <li>
-            <h3>Browse the documentation</h3>
-            <ul class="links">
-              <li><a href="http://guides.rubyonrails.org/">Rails Guides</a></li>
-              <li><a href="http://api.rubyonrails.org/">Rails API</a></li>
-              <li><a href="http://www.ruby-doc.org/core/">Ruby core</a></li>
-              <li><a href="http://www.ruby-doc.org/stdlib/">Ruby standard library</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <div id="content">
-        <div id="header">
-          <h1>Welcome aboard</h1>
-          <h2>You&rsquo;re riding Ruby on Rails!</h2>
-        </div>
-
-        <div id="about">
-          <h3><a href="rails/info/properties" onclick="about(); return false">About your application&rsquo;s environment</a></h3>
-          <div id="about-content" style="display: none"></div>
-        </div>
-
-        <div id="getting-started">
-          <h1>Getting started</h1>
-          <h2>Here&rsquo;s how to get rolling:</h2>
-
-          <ol>
-            <li>
-              <h2>Use <code>rails generate</code> to create your models and controllers</h2>
-              <p>To see all available options, run it without parameters.</p>
-            </li>
-
-            <li>
-              <h2>Set up a default route and remove <span class="filename">public/index.html</span></h2>
-              <p>Routes are set up in <span class="filename">config/routes.rb</span>.</p>
-            </li>
-
-            <li>
-              <h2>Create your database</h2>
-              <p>Run <code>rake db:create</code> to create your database. If you're not using SQLite (the default), edit <span class="filename">config/database.yml</span> with your username and password.</p>
-            </li>
-          </ol>
-        </div>
-      </div>
-
-      <div id="footer">&nbsp;</div>
+<form id="Form1" runat="server">
+  <div class="container">
+  <div class="topBar"> <img src="images/template_pontiac/logo.jpg" width="241" height="118" />
+    <div id="title"></div>
+    <div>
+      <div class="content" ice:editable="*">
+    <h1>Electronic Health Record</h1>
+        <p>For educational and training purposes only. <br /> Only simulated patient information is available from this application. <br /> Do not enter actual patient information. </p>
+        
+        <!-- end .content --></div>
+      <!-- end .container -->
+      <div class="clearfloat"></div>
+      <br />
     </div>
-  </body>
+  </div>
+</form>
+</body>
 </html>
