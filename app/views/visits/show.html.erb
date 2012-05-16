@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Patient:</b>
+  <%= @visit.patient_id %>
+</p>
+
+<p>
+  <b>Mrnumber:</b>
+  <%= @visit.mrNumber %>
+</p>
+
+<p>
+  <b>Chiefcomplaint:</b>
+  <%= @visit.chiefComplaint %>
+</p>
+
+<p>
+  <b>Visitsubject:</b>
+  <%= @visit.visitSubject %>
+</p>
+
+<p>
+  <b>Isactivesim:</b>
+  <%= @visit.isActiveSim %>
+</p>
+
+
+<%= link_to 'Edit', edit_visit_path(@visit) %> |
+<%= link_to 'Back', visits_path %>

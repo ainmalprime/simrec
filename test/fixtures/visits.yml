@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  mrNumber: MyString
+  chiefComplaint: MyString
+  visitSubject: MyString
+  isActiveSim: 1
+
+two:
+  patient_id: 1
+  mrNumber: MyString
+  chiefComplaint: MyString
+  visitSubject: MyString
+  isActiveSim: 1

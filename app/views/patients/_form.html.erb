@@ -1,0 +1,69 @@
+<%= form_for(@patient) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstName %><br />
+    <%= f.text_field :firstName %>
+  </div>
+  <div class="field">
+    <%= f.label :lastName %><br />
+    <%= f.text_field :lastName %>
+  </div>
+    <div class="field">
+    <%= f.label :middleInitial %><br />
+    <%= f.text_field :middleInitial %>
+  </div>
+  <div class="field">
+    <%= f.label :dateOfBirth %><br />
+    <%= f.text_field :dateOfBirth %>
+  </div>
+  <div class="field">
+    <%= f.label :patientNumber %><br />
+    <%= f.text_field :patientNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone1 %><br />
+    <%= f.text_field :telephone1 %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone1type %><br />
+    <%= f.text_field :telephone1type %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone2 %><br />
+    <%= f.text_field :telephone2 %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone2type %><br />
+    <%= f.text_field :telephone2type %>
+  </div>
+  <div class="field">
+    <%= f.label :insuranceCarrier %><br />
+    <%= f.text_field :insuranceCarrier %>
+  </div>
+  <div class="field">
+    <%= f.label :primaryCarePhysician %><br />
+    <%= f.text_field :primaryCarePhysician %>
+  </div>
+  <div class="field">
+    <%= f.label :drugAllergies %><br />
+    <%= f.text_field :drugAllergies %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  firstName: MyString
+  lastName: MyString
+  dateOfBirth: MyString
+  patientNumber: MyString
+  address: MyString
+  telephone1: MyString
+  telephone1type: MyString
+  telephone2: MyString
+  telephone2type: MyString
+  insuranceCarrier: MyString
+  primaryCarePhysician: MyString
+  drugAllergies: MyString
+
+two:
+  firstName: MyString
+  lastName: MyString
+  dateOfBirth: MyString
+  patientNumber: MyString
+  address: MyString
+  telephone1: MyString
+  telephone1type: MyString
+  telephone2: MyString
+  telephone2type: MyString
+  insuranceCarrier: MyString
+  primaryCarePhysician: MyString
+  drugAllergies: MyString
