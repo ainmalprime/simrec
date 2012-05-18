@@ -1,7 +1,8 @@
 <h1>Patient Census</h1>
-
-<table>
-  <tr>
+<br />
+<br />
+<table style="border-bottom:solid;border-width:thin;">
+  <tr style="border-top:solid;border-width:thin;">
     
     <th style="width:125px;text-align:left;">Last Name</th>
     <th style="width:125px;text-align:left;">First Name</th>
@@ -10,20 +11,20 @@
     <th style="width:125px;text-align:left;">Patient Number</th>
     <th></th>
     <th></th>
-    <!--<th></th>-->
+    <th></th>
   </tr>
 
 <% @patients.each do |patient| %>
-  <tr>
+  <tr style="border-top:solid;border-width:thin;">
     
     <td><%= patient.lastName %></td>
     <td><%= patient.firstName %></td>
     <td><%= patient.middleInitial %></td>
     <td><%= patient.dateOfBirth %></td>
     <td><%= patient.patientNumber %></td>
-    <td><%= link_to 'Show', patient %></td>
-    <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-   <!-- <td><%= link_to 'Destroy', patient, :confirm => 'Are you sure?', :method => :delete %></td>-->
+    <td><%= link_to 'Show', patient %> | </td> 
+    <td><%= link_to 'Edit', edit_patient_path(patient) %> | </td> 
+    <td><%= link_to 'Destroy', patient, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

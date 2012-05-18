@@ -16,7 +16,7 @@
                   <%= @patient.telephone2type %> <strong><%= @patient.telephone2 %></strong></p></td>
             </tr>
           </table>
-<%= link_to 'Edit', edit_patient_path(@patient) %>
+<div class="nav pull-right" style="margin-right:10px;"><%= link_to 'Edit', edit_patient_path(@patient) %>  </div>
         </div>
 
         <div id="visits" class="patientInfo"> <h3>Visits</h3>
@@ -24,22 +24,21 @@
           <table style="width:100%;border-top:solid;border-width:thin;text-align:left;" border="0">
             <%= render @visits %>
           </table>
-          <%= link_to 'New Visit', new_visit_path %>
+          <div class="nav pull-right" style="margin-right:10px;"><%= link_to 'New Visit', new_visit_path %> </div>
           <% end %>
         </div>
         <div id="vitals" class="patientInfo"> Vitals and Ins/Outs </div
         ><div id="notes" class="patientInfo"> Notes </div>
         <div id="intakeDocs" class="patientInfo" >
-          <table width="500" cellpadding="4" cellspacing="0" class="ptDetailGrid">
+          <table width="425" cellpadding="4" cellspacing="0" class="ptDetailGrid">
             <tbody>
               <tr>
-                <th width="160" align="left" scope="col"><div align="center">Time Scanned</div></th>
-                <th width="219" align="left" scope="col"><div align="center">Description </div>
+                <th width="175" align="left" scope="col"><div align="center">Time Scanned</div></th>
+                <th width="250" align="left" scope="col"><div align="center">Description </div>
               </tr>
               <tr>
                 <td>11/23/2011 11:35:00 AM</td>
                 <td>Triage Record For Cole, Nicolas</td>
-                <td width="29"><a>view</a></td>
               </tr>
             </tbody>
           </table>

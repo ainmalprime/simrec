@@ -10,31 +10,33 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :firstName %><br />
-    <%= f.text_field :firstName %>
-  </div>
-  <div class="field">
-    <%= f.label :lastName %><br />
-    <%= f.text_field :lastName %>
-  </div>
+  <div style="float:left;margin-right:10px;">
     <div class="field">
-    <%= f.label :middleInitial %><br />
-    <%= f.text_field :middleInitial %>
-  </div>
-  <div class="field">
-    <%= f.label :dateOfBirth %><br />
-    <%= f.text_field :dateOfBirth %>
-  </div>
-  <div class="field">
-    <%= f.label :patientNumber %><br />
-    <%= f.text_field :patientNumber %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
+      <%= f.label :firstName %><br />
+      <%= f.text_field :firstName %>
+    </div>
+    <div class="field">
+      <%= f.label :lastName %><br />
+      <%= f.text_field :lastName %>
+    </div>
+      <div class="field">
+      <%= f.label :middleInitial %><br />
+      <%= f.text_field :middleInitial %>
+    </div>
+    <div class="field">
+      <%= f.label :dateOfBirth %><br />
+      <%= f.text_field :dateOfBirth %>
+    </div>
+    <div class="field">
+      <%= f.label :patientNumber %><br />
+      <%= f.text_field :patientNumber %>
+    </div>
+    <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_field :address %>
+    </div>
+  </div>  
+  <div style="float:left;">
   <div class="field">
     <%= f.label :telephone1 %><br />
     <%= f.text_field :telephone1 %>
@@ -63,7 +65,9 @@
     <%= f.label :drugAllergies %><br />
     <%= f.text_field :drugAllergies %>
   </div>
-  <div class="actions">
+  </div>
+
+  <div class="actions" style="clear:both">
     <%= f.submit %>
   </div>
 <% end %>
