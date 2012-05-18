@@ -19,39 +19,13 @@
 <%= link_to 'Edit', edit_patient_path(@patient) %>
         </div>
 
-        <div id="visits" class="patientInfo"> Visits 
-          <table width="500" border="0">
-            <tr>
-              <td><strong><u>05/15/2012</u></strong></td>
-              <td><strong><u>ED</u></strong></td>
-              <td><strong><u>Shortness of breath</u></strong></td>
-              <td><strong><u>Visit in progress</u></strong></td>
-            </tr>
-            <tr>
-              <td>11/05/2011</td>
-              <td><strong>Clinic</strong></td>
-              <td><strong>Well visit</strong></td>
-              <td>Dr. M. Mohammed</td>
-            </tr>
-            <tr>
-              <td>10/15/2011</td>
-              <td><strong>ED</strong></td>
-              <td><strong>Shortness of breath</strong></td>
-              <td>Staff physician</td>
-            </tr>
-            <tr>
-              <td>04/02/2010</td>
-              <td><strong>ED</strong></td>
-              <td><strong>Wrist fracture</strong></td>
-              <td>Staff physician</td>
-            </tr>
-            <tr>
-              <td>05/02/2009</td>
-              <td><strong>ED</strong></td>
-              <td><strong>Shortness of breath</strong></td>
-              <td>Staff physician</td>
-            </tr>
+        <div id="visits" class="patientInfo"> <h3>Visits</h3>
+          <% if @patient.visits.any? %>
+          <table style="width:100%;border-top:solid;border-width:thin;text-align:left;" border="0">
+            <%= render @visits %>
           </table>
+          <%= link_to 'New Visit', new_visit_path %>
+          <% end %>
         </div>
         <div id="vitals" class="patientInfo"> Vitals and Ins/Outs </div
         ><div id="notes" class="patientInfo"> Notes </div>

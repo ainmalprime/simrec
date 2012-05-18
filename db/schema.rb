@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120516173818) do
+ActiveRecord::Schema.define(:version => 20120518022222) do
+
+  create_table "clinician_notes", :force => true do |t|
+    t.integer  "visit_id"
+    t.datetime "timeRecorded"
+    t.string   "noteType"
+    t.string   "noteText"
+    t.string   "clinicianSignature"
+    t.integer  "retainOnReset"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "medical_administration_records", :force => true do |t|
+    t.integer  "visit_id"
+    t.datetime "timeRecorded"
+    t.string   "actionDescription"
+    t.string   "actionDetails"
+    t.string   "clinicianSignature"
+    t.integer  "retainOnReset"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "patients", :force => true do |t|
     t.string   "firstName"
@@ -31,13 +54,13 @@ ActiveRecord::Schema.define(:version => 20120516173818) do
   end
 
   create_table "visits", :force => true do |t|
-    t.integer  "patient_id"
+    t.integer  "patient_id",         :null => false
     t.string   "mrNumber"
     t.string   "chiefComplaint"
-    t.string   "visitSubject"
+    t.string   "dischargeDiagnosis"
     t.integer  "isActiveSim"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
 end

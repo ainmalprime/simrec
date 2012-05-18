@@ -14,7 +14,7 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
-
+    @visits = @patient.visits
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @patient }
