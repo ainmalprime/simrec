@@ -1,3 +1,41 @@
 // Place all the styles related to the Patients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@charset "UTF-8";
+/* CSS Document */
+
+.patientInfo {
+float: left;
+	
+	text-align:center;
+	width: 450px;
+	background-color:#E7E4DD;
+	border-radius: 10px;
+	
+	Margin: 5px 5px 5px 5px;
+	height: 175px;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	overflow:auto;
+}
+
+div.patientInfo table {
+	text-align:center;
+}
+
+#intakeDocs, #notes{
+	background-color: #CCCCCC;
+}
+
+#visits {
+	
+	background-color: #E7E4DD;
+}
+
+
+#vitals, #mar {
+	width: 910px;
+	background-color: #A99E5E;	
+}

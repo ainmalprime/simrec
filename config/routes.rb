@@ -1,15 +1,18 @@
 DeVryEHR::Application.routes.draw do
+  root :to => 'static_pages#home'
+
+  match '/home',    :to => 'static_pages#home'
+
+  match '/search',  :to => 'static_pages#search'
+
   resources :medical_administration_records
 
   resources :clinician_notes
 
-  get "static_pages/home"
-
-  get "static_pages/help"
-
   resources :visits
 
   resources :patients
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

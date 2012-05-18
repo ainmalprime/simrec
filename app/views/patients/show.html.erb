@@ -1,70 +1,77 @@
 <p id="notice"><%= notice %></p>
+        
+        <div class="patientInfo" id="PtDemographics">
 
-<p>
-  <b>Firstname:</b>
-  <%= @patient.firstName %>
-</p>
+          <table width="425">
+            <tr>
+              <td  colspan="2"><p>Patient Number: <strong><%= @patient.patientNumber %></strong> Date of Birth: <strong><%= @patient.dateOfBirth %></strong><br />
+                <strong><%= @patient.firstName %>  <%= @patient.middleInitial %> <%= @patient.lastName %></strong></p>
+                <p>Allergies: <strong><%= @patient.drugAllergies %></strong> PCP: <strong><%= @patient.primaryCarePhysician %></strong> <br /> Insurance: <strong><%= @patient.insuranceCarrier %></strong></p></td>
+            </tr>
+            <tr>
+              <td width="216">Address:<br />
+                <strong><%= @patient.address %></strong></td>
+              <td width="224"><p>Phone Number<br />
+                 <%= @patient.telephone1type %><strong><%= @patient.telephone1 %> </strong><br />
+                  <%= @patient.telephone2type %> <strong><%= @patient.telephone2 %></strong></p></td>
+            </tr>
+          </table>
+<%= link_to 'Edit', edit_patient_path(@patient) %>
+        </div>
 
-<p>
-  <b>Lastname:</b>
-  <%= @patient.lastName %>
-</p>
+        <div id="visits" class="patientInfo"> Visits 
+          <table width="500" border="0">
+            <tr>
+              <td><strong><u>05/15/2012</u></strong></td>
+              <td><strong><u>ED</u></strong></td>
+              <td><strong><u>Shortness of breath</u></strong></td>
+              <td><strong><u>Visit in progress</u></strong></td>
+            </tr>
+            <tr>
+              <td>11/05/2011</td>
+              <td><strong>Clinic</strong></td>
+              <td><strong>Well visit</strong></td>
+              <td>Dr. M. Mohammed</td>
+            </tr>
+            <tr>
+              <td>10/15/2011</td>
+              <td><strong>ED</strong></td>
+              <td><strong>Shortness of breath</strong></td>
+              <td>Staff physician</td>
+            </tr>
+            <tr>
+              <td>04/02/2010</td>
+              <td><strong>ED</strong></td>
+              <td><strong>Wrist fracture</strong></td>
+              <td>Staff physician</td>
+            </tr>
+            <tr>
+              <td>05/02/2009</td>
+              <td><strong>ED</strong></td>
+              <td><strong>Shortness of breath</strong></td>
+              <td>Staff physician</td>
+            </tr>
+          </table>
+        </div>
+        <div id="vitals" class="patientInfo"> Vitals and Ins/Outs </div
+        ><div id="notes" class="patientInfo"> Notes </div>
+        <div id="intakeDocs" class="patientInfo" >
+          <table width="500" cellpadding="4" cellspacing="0" class="ptDetailGrid">
+            <tbody>
+              <tr>
+                <th width="160" align="left" scope="col"><div align="center">Time Scanned</div></th>
+                <th width="219" align="left" scope="col"><div align="center">Description </div>
+              </tr>
+              <tr>
+                <td>11/23/2011 11:35:00 AM</td>
+                <td>Triage Record For Cole, Nicolas</td>
+                <td width="29"><a>view</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="orders" class="patientInfo"> Pending Orders </div>
+        <div id="reports" class="patientInfo"> Lab and diagnostic study reports </div>
+        <div id="mar" class="patientInfo"> Procedure and Medical Administration Log </div>
 
-<p>
-  <b>Middle Initial:</b>
-  <%= @patient.middleInitial %>
-</p>
-
-<p>
-  <b>Dateofbirth:</b>
-  <%= @patient.dateOfBirth %>
-</p>
-
-<p>
-  <b>Patientnumber:</b>
-  <%= @patient.patientNumber %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @patient.address %>
-</p>
-
-<p>
-  <b>Telephone1:</b>
-  <%= @patient.telephone1 %>
-</p>
-
-<p>
-  <b>Telephone1type:</b>
-  <%= @patient.telephone1type %>
-</p>
-
-<p>
-  <b>Telephone2:</b>
-  <%= @patient.telephone2 %>
-</p>
-
-<p>
-  <b>Telephone2type:</b>
-  <%= @patient.telephone2type %>
-</p>
-
-<p>
-  <b>Insurancecarrier:</b>
-  <%= @patient.insuranceCarrier %>
-</p>
-
-<p>
-  <b>Primarycarephysician:</b>
-  <%= @patient.primaryCarePhysician %>
-</p>
-
-<p>
-  <b>Drugallergies:</b>
-  <%= @patient.drugAllergies %>
-</p>
-
-
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+<!--<%= link_to 'Back', patients_path %>-->

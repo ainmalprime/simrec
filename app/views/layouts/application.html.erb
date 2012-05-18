@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DeVryEHR</title>
+  <title>DeVryEHR *Simulated EHR* No live patient data | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <header class="navbar navbar-fixed-top">
+    <div class="navbar-inner"> 
+      <div class="container">
+        <br/>
+      <div id="logo">Simulated EHR</div>
+        <nav>
+          <ul class="nav pull-right">
+            <li><%= link_to "home", home_path %></li>
+            <li><%= link_to "patient census", patients_path %></li>
+            <li><%= link_to "patient search", search_path %>
+          </ul>
+        </nav>
+      </div>
+    </div>
+ </header>
+ <div class="container">
+  <br />
+  <br />
+  <br />
+  <br />
+  <%= yield %>
+</div>
 </body>
 </html>
+
+
+
+<!-- -->
