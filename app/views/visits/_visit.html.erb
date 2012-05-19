@@ -1,5 +1,5 @@
             <tr style="border-bottom:solid;border-width:thin;">
               <td style="padding-left:8px;"><strong><%= visit.chiefComplaint %></strong></td>
               <td><strong><%= visit.dischargeDiagnosis %></td>
-              <td><%= link_to 'select', patient_path(:visit => visit) %> </td>
+              <td><%= link_to 'select', patient_path(:selectedVisit => visit) %> </td>
             </tr>

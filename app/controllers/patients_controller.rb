@@ -15,6 +15,12 @@ class PatientsController < ApplicationController
   def show
     @patient = Patient.find(params[:id])
     @visits = @patient.visits
+    if params.has_key?(:selectedVisit) 
+      selectedVisit = params[:selectedVisit]
+    else
+      selectedVisit = @patient.visits.first
+    end
+    @clinician_notes = @patient.visits.find(selectedVisit).clinician_notes
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @patient }

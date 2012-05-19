@@ -17,7 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :timeRecorded %><br />
-    <%= f.text_field :timeRecorded %>
+    <%= f.time_select :timeRecorded %>
+  </div>
+    <div class="field">
+    <%= f.label :dateRecorded %><br />
+    <%= f.date_select :dateRecorded %>
   </div>
   <div class="field">
     <%= f.label :noteType %><br />

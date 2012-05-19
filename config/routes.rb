@@ -1,4 +1,6 @@
 DeVryEHR::Application.routes.draw do
+  resources :flow_sheet_records
+
   root :to => 'static_pages#home'
 
   match '/home',    :to => 'static_pages#home'

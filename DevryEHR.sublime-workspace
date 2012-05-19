@@ -3,61 +3,103 @@
 	{
 		"selected_items":
 		[
+			[
+				"pat",
+				"patient"
+			],
+			[
+				"vi",
+				"visits"
+			],
+			[
+				"he",
+				"header	Tag"
+			],
+			[
+				"rou",
+				"routes"
+			],
+			[
+				"re",
+				"resources"
+			],
+			[
+				"me",
+				"medical_administration_records"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "spec/requests/static_pages_spec.rb",
-			"settings":
-			{
-				"buffer_size": 215,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "ENV[\"RAILS_ENV\"] = \"test\"\nrequire File.expand_path('../../config/environment', __FILE__)\nrequire 'rails/test_help'\n\n\nclass ActiveSupport::TestCase\n  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.\n  #\n  # Note: You'll currently still have to declare fixtures explicitly in integration tests\n  # -- they do not yet inherit this setting\n  fixtures :all\n\n  # Add more helper methods to be used by all tests here...\nend\n",
-			"file": "test/test_helper.rb",
-			"file_size": 479,
-			"file_write_time": 1337199845000000,
-			"settings":
-			{
-				"buffer_size": 455,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "# This file is copied to spec/ when you run 'rails generate rspec:install'\nENV[\"RAILS_ENV\"] ||= 'test'\nrequire File.expand_path(\"../../config/environment\", __FILE__)\nrequire 'rspec/rails'\nrequire 'rspec/autorun'\n\n\n# Requires supporting ruby files with custom matchers and macros, etc,\n# in spec/support/ and its subdirectories.\nDir[Rails.root.join(\"spec/support/**/*.rb\")].each {|f| require f}\n\nRSpec.configure do |config|\n  # ## Mock Framework\n  #\n  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:\n  #\n  # config.mock_with :mocha\n  # config.mock_with :flexmock\n  # config.mock_with :rr\n\n  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures\n  config.fixture_path = \"#{::Rails.root}/spec/fixtures\"\n\n  # If you're not using ActiveRecord, or you'd prefer not to run each of your\n  # examples within a transaction, remove the following line or assign false\n  # instead of true.\n  config.use_transactional_fixtures = true\n\n  # If true, the base class of anonymous controllers will be inferred\n  # automatically. This will be the default behavior in future versions of\n  # rspec-rails.\n  config.infer_base_class_for_anonymous_controllers = false\nend\n",
-			"file": "spec/spec_helper.rb",
-			"file_size": 1224,
-			"file_write_time": 1337199903000000,
-			"settings":
-			{
-				"buffer_size": 1200,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "Gemfile",
 			"settings":
 			{
-				"buffer_size": 465,
+				"buffer_size": 535,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/administrator/.profile",
+			"file": "app/views/visits/_form.html.erb",
 			"settings":
 			{
-				"buffer_size": 117,
+				"buffer_size": 951,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "config/database.yml",
+			"file": "app/views/patients/show.html.erb",
 			"settings":
 			{
-				"buffer_size": 237,
+				"buffer_size": 2928,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/visits/_visit.html.erb",
+			"settings":
+			{
+				"buffer_size": 325,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 853,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/patients.css.scss",
+			"settings":
+			{
+				"buffer_size": 640,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/patients/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 1089,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/patients/_form.html.erb",
+			"settings":
+			{
+				"buffer_size": 1986,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/visit.rb",
+			"settings":
+			{
+				"buffer_size": 254,
 				"line_ending": "Unix"
 			}
 		}
@@ -86,16 +128,42 @@
 	},
 	"file_history":
 	[
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/.git/COMMIT_EDITMSG",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120518133754_add_visit_time_to_visits.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/visits_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120518132335_addvisit_time_tovisit.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/visit.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/factories.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/models/user_spec.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patient.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120518022222_create_visits.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/patients_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/models/visit_spec.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/custom.css.scss",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/application.css",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/layouts/application.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/index.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patient.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/public/index.html",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/patients.css.scss",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/clinician_note.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120516195248_create_clinician_notes.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120516195658_create_medical_administration_records.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/routes.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/static_pages/search.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/static_pages/home.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/requests/static_pages_spec.rb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/Gemfile",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/scaffolds.css.scss",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/database.yml",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/static_pages_controller.rb",
+		"/Users/administrator/.profile",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/spec_helper.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/test/test_helper.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/.git/COMMIT_EDITMSG",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/public/index.html",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/index.html.erb~.rhtml",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/visit.rb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patinet.rb",
 		"/Users/administrator/Developer/rails_projects/demo_app/Gemfile",
 		"/Users/administrator/Developer/rails_projects/first_app/Gemfile.lock",
@@ -109,16 +177,22 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"user",
+			"User",
+			"user",
+			"micropost",
+			"user",
 			"../images/"
 		],
 		"highlight": true,
@@ -127,10 +201,15 @@
 		"regex": false,
 		"replace_history":
 		[
+			"patient",
+			"Patient",
+			"patient",
+			"visit",
+			"patient",
 			"/assets/"
 		],
 		"reverse": false,
-		"show_context": true,
+		"show_context": false,
 		"use_buffer2": true,
 		"whole_word": false,
 		"wrap": true
@@ -138,23 +217,23 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "spec/requests/static_pages_spec.rb",
+					"file": "Gemfile",
 					"settings":
 					{
-						"buffer_size": 215,
+						"buffer_size": 535,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								215,
-								215
+								0,
+								0
 							]
 						],
 						"settings":
@@ -169,23 +248,25 @@
 				},
 				{
 					"buffer": 1,
-					"file": "test/test_helper.rb",
+					"file": "app/views/visits/_form.html.erb",
 					"settings":
 					{
-						"buffer_size": 455,
+						"buffer_size": 951,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								115,
-								115
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -195,51 +276,53 @@
 				},
 				{
 					"buffer": 2,
-					"file": "spec/spec_helper.rb",
+					"file": "app/views/patients/show.html.erb",
 					"settings":
 					{
-						"buffer_size": 1200,
+						"buffer_size": 2928,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								212,
-								212
+								2636,
+								2636
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 451.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "Gemfile",
+					"file": "app/views/visits/_visit.html.erb",
 					"settings":
 					{
-						"buffer_size": 465,
+						"buffer_size": 325,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								216,
-								216
+								284,
+								284
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -249,23 +332,25 @@
 				},
 				{
 					"buffer": 4,
-					"file": "/Users/administrator/.profile",
+					"file": "app/views/layouts/application.html.erb",
 					"settings":
 					{
-						"buffer_size": 117,
+						"buffer_size": 853,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								116,
-								0
+								474,
+								452
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -275,25 +360,106 @@
 				},
 				{
 					"buffer": 5,
-					"file": "config/database.yml",
+					"file": "app/assets/stylesheets/patients.css.scss",
 					"settings":
 					{
-						"buffer_size": 237,
+						"buffer_size": 640,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								221,
-								221
+								430,
+								430
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/patients/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 1089,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								712,
+								712
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/views/patients/_form.html.erb",
+					"settings":
+					{
+						"buffer_size": 1986,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1171,
+								1207
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/models/visit.rb",
+					"settings":
+					{
+						"buffer_size": 254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								248,
+								248
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -310,7 +476,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
@@ -360,6 +526,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 211.0,
+	"side_bar_width": 360.0,
 	"status_bar_visible": true
 }

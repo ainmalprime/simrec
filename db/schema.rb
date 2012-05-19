@@ -11,17 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120518022222) do
+ActiveRecord::Schema.define(:version => 20120519180410) do
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
-    t.datetime "timeRecorded"
+    t.time     "timeRecorded"
     t.string   "noteType"
     t.string   "noteText"
     t.string   "clinicianSignature"
     t.integer  "retainOnReset"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "dateRecorded"
+  end
+
+  create_table "flow_sheet_records", :force => true do |t|
+    t.integer  "visit_id"
+    t.date     "recordingTime"
+    t.string   "temp"
+    t.string   "bloodPressure"
+    t.string   "respiratoryRate"
+    t.string   "oxygenSaturation"
+    t.string   "intakePO"
+    t.string   "intakeIV"
+    t.string   "intakeOther"
+    t.string   "intakeOtherDescription"
+    t.string   "outputUrine"
+    t.string   "outputFeces"
+    t.string   "outputBlood"
+    t.string   "outputOther"
+    t.string   "outputOtherDescription"
+    t.integer  "retainOnReset"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "medical_administration_records", :force => true do |t|
@@ -61,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20120518022222) do
     t.integer  "isActiveSim"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.datetime "visitTime"
   end
 
 end

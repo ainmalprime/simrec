@@ -1,0 +1,53 @@
+<h1>Listing flow_sheet_records</h1>
+
+<table>
+  <tr>
+    <th>Visit</th>
+    <th>Recordingtime</th>
+    <th>Temp</th>
+    <th>Bloodpressure</th>
+    <th>Respiratoryrate</th>
+    <th>Oxygensaturation</th>
+    <th>Intakepo</th>
+    <th>Intakeiv</th>
+    <th>Intakeother</th>
+    <th>Intakeotherdescription</th>
+    <th>Outputurine</th>
+    <th>Outputfeces</th>
+    <th>Outputblood</th>
+    <th>Outputother</th>
+    <th>Outputotherdescription</th>
+    <th>Retainonreset</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @flow_sheet_records.each do |flow_sheet_record| %>
+  <tr>
+    <td><%= flow_sheet_record.visit_id %></td>
+    <td><%= flow_sheet_record.recordingTime %></td>
+    <td><%= flow_sheet_record.temp %></td>
+    <td><%= flow_sheet_record.bloodPressure %></td>
+    <td><%= flow_sheet_record.respiratoryRate %></td>
+    <td><%= flow_sheet_record.oxygenSaturation %></td>
+    <td><%= flow_sheet_record.intakePO %></td>
+    <td><%= flow_sheet_record.intakeIV %></td>
+    <td><%= flow_sheet_record.intakeOther %></td>
+    <td><%= flow_sheet_record.intakeOtherDescription %></td>
+    <td><%= flow_sheet_record.outputUrine %></td>
+    <td><%= flow_sheet_record.outputFeces %></td>
+    <td><%= flow_sheet_record.outputBlood %></td>
+    <td><%= flow_sheet_record.outputOther %></td>
+    <td><%= flow_sheet_record.outputOtherDescription %></td>
+    <td><%= flow_sheet_record.retainOnReset %></td>
+    <td><%= link_to 'Show', flow_sheet_record %></td>
+    <td><%= link_to 'Edit', edit_flow_sheet_record_path(flow_sheet_record) %></td>
+    <td><%= link_to 'Destroy', flow_sheet_record, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Flow sheet record', new_flow_sheet_record_path %>

@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visit:</b>
+  <%= @flow_sheet_record.visit_id %>
+</p>
+
+<p>
+  <b>Recordingtime:</b>
+  <%= @flow_sheet_record.recordingTime %>
+</p>
+
+<p>
+  <b>Temp:</b>
+  <%= @flow_sheet_record.temp %>
+</p>
+
+<p>
+  <b>Bloodpressure:</b>
+  <%= @flow_sheet_record.bloodPressure %>
+</p>
+
+<p>
+  <b>Respiratoryrate:</b>
+  <%= @flow_sheet_record.respiratoryRate %>
+</p>
+
+<p>
+  <b>Oxygensaturation:</b>
+  <%= @flow_sheet_record.oxygenSaturation %>
+</p>
+
+<p>
+  <b>Intakepo:</b>
+  <%= @flow_sheet_record.intakePO %>
+</p>
+
+<p>
+  <b>Intakeiv:</b>
+  <%= @flow_sheet_record.intakeIV %>
+</p>
+
+<p>
+  <b>Intakeother:</b>
+  <%= @flow_sheet_record.intakeOther %>
+</p>
+
+<p>
+  <b>Intakeotherdescription:</b>
+  <%= @flow_sheet_record.intakeOtherDescription %>
+</p>
+
+<p>
+  <b>Outputurine:</b>
+  <%= @flow_sheet_record.outputUrine %>
+</p>
+
+<p>
+  <b>Outputfeces:</b>
+  <%= @flow_sheet_record.outputFeces %>
+</p>
+
+<p>
+  <b>Outputblood:</b>
+  <%= @flow_sheet_record.outputBlood %>
+</p>
+
+<p>
+  <b>Outputother:</b>
+  <%= @flow_sheet_record.outputOther %>
+</p>
+
+<p>
+  <b>Outputotherdescription:</b>
+  <%= @flow_sheet_record.outputOtherDescription %>
+</p>
+
+<p>
+  <b>Retainonreset:</b>
+  <%= @flow_sheet_record.retainOnReset %>
+</p>
+
+
+<%= link_to 'Edit', edit_flow_sheet_record_path(@flow_sheet_record) %> |
+<%= link_to 'Back', flow_sheet_records_path %>

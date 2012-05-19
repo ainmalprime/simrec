@@ -1,0 +1,81 @@
+<%= form_for(@flow_sheet_record) do |f| %>
+  <% if @flow_sheet_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flow_sheet_record.errors.count, "error") %> prohibited this flow_sheet_record from being saved:</h2>
+
+      <ul>
+      <% @flow_sheet_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :visit_id %><br />
+    <%= f.number_field :visit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :recordingTime %><br />
+    <%= f.date_select :recordingTime %>
+  </div>
+  <div class="field">
+    <%= f.label :temp %><br />
+    <%= f.text_field :temp %>
+  </div>
+  <div class="field">
+    <%= f.label :bloodPressure %><br />
+    <%= f.text_field :bloodPressure %>
+  </div>
+  <div class="field">
+    <%= f.label :respiratoryRate %><br />
+    <%= f.text_field :respiratoryRate %>
+  </div>
+  <div class="field">
+    <%= f.label :oxygenSaturation %><br />
+    <%= f.text_field :oxygenSaturation %>
+  </div>
+  <div class="field">
+    <%= f.label :intakePO %><br />
+    <%= f.text_field :intakePO %>
+  </div>
+  <div class="field">
+    <%= f.label :intakeIV %><br />
+    <%= f.text_field :intakeIV %>
+  </div>
+  <div class="field">
+    <%= f.label :intakeOther %><br />
+    <%= f.text_field :intakeOther %>
+  </div>
+  <div class="field">
+    <%= f.label :intakeOtherDescription %><br />
+    <%= f.text_field :intakeOtherDescription %>
+  </div>
+  <div class="field">
+    <%= f.label :outputUrine %><br />
+    <%= f.text_field :outputUrine %>
+  </div>
+  <div class="field">
+    <%= f.label :outputFeces %><br />
+    <%= f.text_field :outputFeces %>
+  </div>
+  <div class="field">
+    <%= f.label :outputBlood %><br />
+    <%= f.text_field :outputBlood %>
+  </div>
+  <div class="field">
+    <%= f.label :outputOther %><br />
+    <%= f.text_field :outputOther %>
+  </div>
+  <div class="field">
+    <%= f.label :outputOtherDescription %><br />
+    <%= f.text_field :outputOtherDescription %>
+  </div>
+  <div class="field">
+    <%= f.label :retainOnReset %><br />
+    <%= f.number_field :retainOnReset %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
