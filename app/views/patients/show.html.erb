@@ -34,7 +34,8 @@
               <%= render @clinician_notes %>
             </table>
           <%end%>
-          <div class="nav pull-right" style="margin-right:10px;"><%= link_to 'New Clinician Note', new_clinician_note_path %></div>
+          <div class="nav pull-right" style="margin-right:10px;">
+            <%= link_to 'New Clinician Note', new_clinician_note_path(:visit_id => @selectedVisit.id) %></div>
         </div>
         <div id="intakeDocs" class="patientInfo" > Intake Documentation
           <!-- <table width="425" cellpadding="4" cellspacing="0" class="ptDetailGrid">

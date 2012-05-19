@@ -16,11 +16,13 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
     @visits = @patient.visits
     if params.has_key?(:selectedVisit) 
-      selectedVisit = params[:selectedVisit]
+      @selectedVisit = @patient.visits.find(params[:selectedVisit])
     else
-      selectedVisit = @patient.visits.first
+      @selectedVisit = @patient.visits.first
     end
-    @clinician_notes = @patient.visits.find(selectedVisit).clinician_notes
+    @clinician_notes = @selectedVisit.clinician_notes
+    #@clinician_note = @selectedVisit.clinician_notes.build
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @patient }

@@ -24,7 +24,14 @@ class ClinicianNotesController < ApplicationController
   # GET /clinician_notes/new
   # GET /clinician_notes/new.json
   def new
-    @clinician_note = ClinicianNote.new
+    
+    if params.has_key?(:visit_id) 
+      @visit = Visit.find(params[:visit_id])
+      @clinician_note = @visit.clinician_notes.build
+
+    else
+      @clinician_note = ClinicianNote.new
+    end
 
     respond_to do |format|
       format.html # new.html.erb
