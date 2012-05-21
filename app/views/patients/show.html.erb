@@ -16,15 +16,15 @@
                   <%= @patient.telephone2type %> <strong><%= @patient.telephone2 %></strong></p></td>
             </tr>
           </table>
-<div class="nav pull-right" style="margin-right:10px;"><%= link_to 'Edit', edit_patient_path(@patient) %>  </div>
+    <div class="btn bottomButton"><%= link_to 'Edit', edit_patient_path(@patient) %>  </div>
         </div>
 
         <div id="visits" class="patientInfo"> <h3>Visits</h3>
           <% if @patient.visits.any? %>
-          <table class="patientInfoGrid" style="width:100%;border-top:solid;border-width:thin;text-align:left;" border="0">
+          <div class="row-fluid">
             <%= render @visits %>
-          </table>
-          <div class="nav pull-right" style="margin-right:10px;"><%= link_to 'New Visit', new_visit_path %> </div>
+          </div>
+          <div class="btn bottomButton"><%= link_to 'New Visit', new_visit_path %> </div>
           <% end %>
         </div>
         <div id="vitals" class="patientInfo"> Vitals and Ins/Outs </div>
@@ -34,23 +34,9 @@
               <%= render @clinician_notes %>
             </table>
           <%end%>
-          <div class="nav pull-right" style="margin-right:10px;">
-            <%= link_to 'New Clinician Note', new_clinician_note_path(:visit_id => @selectedVisit.id) %></div>
-        </div>
-        <div id="intakeDocs" class="patientInfo" > Intake Documentation
-          <!-- <table width="425" cellpadding="4" cellspacing="0" class="ptDetailGrid">
-           <tbody>
-              <tr>
-                <th width="175" align="left" scope="col"><div align="center">Time Scanned</div></th>
-                <th width="250" align="left" scope="col"><div align="center">Description </div>
-              </tr>
-              <tr>
-                <td>11/23/2011 11:35:00 AM</td>
-                <td>Triage Record For Cole, Nicolas</td>
-              </tr>
-            </tbody>
-          </table> -->
-        </div>
+          <div class="btn bottomButton"><%= link_to 'New Note', new_clinician_note_path(:visit_id => @selectedVisit.id) %></div>
+          </div>
+        <div id="intakeDocs" class="patientInfo" > Intake Documentation </div>
         <div id="orders" class="patientInfo"> Pending Orders </div>
         <div id="reports" class="patientInfo"> Lab and diagnostic study reports </div>
         <div id="mar" class="patientInfo"> Procedure and Medical Administration Log </div>

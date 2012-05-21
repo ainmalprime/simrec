@@ -8,16 +8,17 @@
 
 .patientInfo {
 float: left;
-	
+	position:relative;
 	text-align:center;
 	width: 450px;
 	background-color:#E7E4DD;
 	border-radius: 10px;
-	
 	Margin: 5px 5px 5px 5px;
 	height: 180px;
 	padding-top: 1%;
 	padding-bottom: 1%;
+	padding-left: 5px;
+	padding-right: 5px;
 	overflow:none;
 }
 
@@ -36,6 +37,6 @@ div.patientInfo table {
 
 
 #vitals, #mar {
-	width: 910px;
-	background-color: #A99E5E;	
+	width: 920px;
+	background-color: #DDDDDD;	
 }

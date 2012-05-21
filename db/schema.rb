@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519180410) do
+ActiveRecord::Schema.define(:version => 20120520043458) do
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
     t.time     "timeRecorded"
     t.string   "noteType"
-    t.string   "noteText"
+    t.text     "noteText",           :limit => 255
     t.string   "clinicianSignature"
     t.integer  "retainOnReset"
     t.datetime "created_at"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20120519180410) do
     t.integer  "retainOnReset"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+    t.string   "heartrate"
   end
 
   create_table "medical_administration_records", :force => true do |t|

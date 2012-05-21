@@ -1,5 +1,11 @@
-            <tr style="border-bottom:solid;border-width:thin;">
-              <td style="padding-left:8px;"><strong><%= visit.chiefComplaint %></strong></td>
-              <td><strong><%= visit.dischargeDiagnosis %></td>
-              <td><%= link_to 'select', patient_path(:selectedVisit => visit) %> </td>
-            </tr>
+			<div class="row-fluid dataRow">
+            	<div class="span4 dataField">
+              		<strong><%= visit.chiefComplaint %></strong>
+              	</div>
+              	<div class="span4 dataField">
+              		<strong><%= visit.dischargeDiagnosis %></strong>
+          		</div>
+          		<div class="span4">
+               		<%= link_to 'select', patient_path(:selectedVisit => visit) %>
+           		</div>
+            </div>

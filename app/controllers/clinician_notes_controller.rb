@@ -48,10 +48,12 @@ class ClinicianNotesController < ApplicationController
   # POST /clinician_notes.json
   def create
     @clinician_note = ClinicianNote.new(params[:clinician_note])
+    @Visit = Visit.find(@clinician_note.visit_id)
+    @Patient = Patient.find(@Visit.patient_id)
 
     respond_to do |format|
       if @clinician_note.save
-        format.html { redirect_to @clinician_note, :notice => 'Clinician note was successfully created.' }
+        format.html { redirect_to @Patient, :notice => 'Clinician note was successfully created.' }
         format.json { render :json => @clinician_note, :status => :created, :location => @clinician_note }
       else
         format.html { render :action => "new" }

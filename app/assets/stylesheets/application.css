@@ -8,3 +8,25 @@
  	font-size: xx-large;
  	margin-top: 5px;
  }
+
+ .dataField {
+ 	margin-top: 5px;
+ 	margin-bottom: 5px;
+ 	border-radius: 5px;
+ 	background-color: #EEE;
+ }
+
+ .dataRow {
+
+ 	border-top:solid;
+ 	border-width:thin;
+ 	border-color:gray;
+}
+
+.bottomButton {
+	margin-right:10px;
+	position:absolute;
+	bottom:5px;
+	right:5px;
+}
+

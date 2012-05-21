@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>DeVryEHR *Simulated EHR* No live patient data | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -11,14 +11,14 @@
     <div class="navbar-inner"> 
       <div class="container">
         <br/>
-      <div id="logo">Simulated EHR</div>
-        <nav>
+        <div id="logo">Simulated EHR</div>
+        <div class="nav-collapse">
           <ul class="nav pull-right">
             <li><%= link_to "home", home_path %></li>
             <li><%= link_to "patient census", patients_path %></li>
             <li><%= link_to "patient search", search_path %>
           </ul>
-        </nav>
+        </div>
       </div>
     </div>
  </header>

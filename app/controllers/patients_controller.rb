@@ -21,7 +21,10 @@ class PatientsController < ApplicationController
       @selectedVisit = @patient.visits.first
     end
     @clinician_notes = @selectedVisit.clinician_notes
-    #@clinician_note = @selectedVisit.clinician_notes.build
+    @flow_sheet_records = @selectedVisit.flow_sheet_records
+    @medical_administration_records = @selectedVisit.medical_administration_records
+    
+    
 
     respond_to do |format|
       format.html # show.html.erb
