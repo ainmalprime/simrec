@@ -1,16 +1,22 @@
 <div class="row-fluid dataRow">
-	<div class="span1 dataField">flow_sheet_record.temp</div>
-	<div class="span1 dataField">flow_sheet_record.bloodPressure</div>
-	<div class="span1 dataField">flow_sheet_record.heartrate</div>
-	<div class="span1 dataField">flow_sheet_record.respiratoryRate</div>
-	<div class="span1 dataField">flow_sheet_record.respiratoryRate</div>
-	<div class="span1 dataField">flow_sheet_record.intakePO</div>
-	<div class="span1 dataField">flow_sheet_record.intakeIV</div>
-	<div class="span1 dataField">flow_sheet_record.intakeOtherDescription</div>
-	<div class="span1 dataField">flow_sheet_record.intakeOther</div>
-	<div class="span1 dataField">flow_sheet_record.outputUrine</div>
-	<div class="span1 dataField">flow_sheet_record.outputFeces</div>
-	<div class="span1 dataField">flow_sheet_record.outputBlood</div>
-	<div class="span1 dataField">flow_sheet_record.outputOtherDescription</div>
-	<div class="span1 dataField">flow_sheet_record.outputOther</div>
+	<div class="span5">
+		Temp <span class="label label-info"><%= flow_sheet_record.temp%></span>
+		BP <span class="label label-info"><%=flow_sheet_record.bloodPressure %></span>
+		HR <span class="label label-info"><%=flow_sheet_record.heartrate %></span>
+		RR <span class="label label-info"><%=flow_sheet_record.respiratoryRate %></span>
+		O2Sat <span class="label label-info"><%=flow_sheet_record.oxygenSaturation %></span>
+	</div>
+	<div class="span3">
+		PO <span class="label label-info"><%= flow_sheet_record.intakePO %></span>
+		IV <span class="label label-info"><%=flow_sheet_record.intakeIV %></span>
+		Other <span class="label label-info"><%=flow_sheet_record.intakeOtherDescription %>
+		<%=flow_sheet_record.intakeOther %></span>
+	</div>
+	<div class="span4">
+		Urine <span class="label label-info"><%=flow_sheet_record.outputUrine %></span>
+		Feces <span class="label label-info"><%=flow_sheet_record.outputFeces %></span>
+		Blood <span class="label label-info"><%=flow_sheet_record.outputBlood %></span>
+		Other <span class="label label-info"><%=flow_sheet_record.outputOtherDescription %>
+		<%=flow_sheet_record.outputOther %></span>
+	</div>
 </div>

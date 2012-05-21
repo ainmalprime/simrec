@@ -1,44 +1,84 @@
 <p id="notice"><%= notice %></p>
-        
-        <div class="patientInfo" id="PtDemographics">
 
-          <table width="425">
-            <tr>
-              <td  colspan="2"><p>Patient Number: <strong><%= @patient.patientNumber %></strong> Date of Birth: <strong><%= @patient.dateOfBirth %></strong><br />
-                <strong><%= @patient.firstName %>  <%= @patient.middleInitial %> <%= @patient.lastName %></strong></p>
-                <p>Allergies: <strong><%= @patient.drugAllergies %></strong> PCP: <strong><%= @patient.primaryCarePhysician %></strong> <br /> Insurance: <strong><%= @patient.insuranceCarrier %></strong></p></td>
-            </tr>
-            <tr>
-              <td width="216">Address:<br />
-                <strong><%= @patient.address %></strong></td>
-              <td width="224"><p>Phone Number<br />
-                 <%= @patient.telephone1type %><strong><%= @patient.telephone1 %> </strong><br />
-                  <%= @patient.telephone2type %> <strong><%= @patient.telephone2 %></strong></p></td>
-            </tr>
-          </table>
-    <div class="btn bottomButton"><%= link_to 'Edit', edit_patient_path(@patient) %>  </div>
-        </div>
+<!--begin row 1-->
+<div class="row-fluid ">
+  <div class="patientInfo span5" id="PtDemographics"> <h3> Patient Demographics </h3>
+    <%=render @patient %>
+    <div class="btn bottomButton">
+      <%= link_to 'Edit', edit_patient_path(@patient) %>  
+    </div>
+  </div>
 
-        <div id="visits" class="patientInfo"> <h3>Visits</h3>
-          <% if @patient.visits.any? %>
-          <div class="row-fluid">
-            <%= render @visits %>
-          </div>
-          <div class="btn bottomButton"><%= link_to 'New Visit', new_visit_path %> </div>
-          <% end %>
-        </div>
-        <div id="vitals" class="patientInfo"> Vitals and Ins/Outs </div>
-        <div id="notes" class="patientInfo"> Notes 
-         <%if @clinician_notes.any? %>
-            <table class="patientInfoGrid" style="width:100%;border-top:solid;border-width:thin;text-align:left;" border="0">
-              <%= render @clinician_notes %>
-            </table>
-          <%end%>
-          <div class="btn bottomButton"><%= link_to 'New Note', new_clinician_note_path(:visit_id => @selectedVisit.id) %></div>
-          </div>
-        <div id="intakeDocs" class="patientInfo" > Intake Documentation </div>
-        <div id="orders" class="patientInfo"> Pending Orders </div>
-        <div id="reports" class="patientInfo"> Lab and diagnostic study reports </div>
-        <div id="mar" class="patientInfo"> Procedure and Medical Administration Log </div>
+  <div id="visits" class="patientInfo span6"> <h3>Visits</h3>
+   
+    <% if @patient.visits.any? %>
+      <div class="row-fluid">
+        <%= render @visits %>
+      </div>
+      <div class="dataRow"></div>
+    <% end %> 
+      <div class="btn bottomButton">
+        <%= link_to 'New Visit', new_visit_path %> 
+      </div>
+  </div>
+</div> 
+<!--end row 1-->
+<!--begin row 2-->
+<div class="row-fluid " style="margin-top:20px">
+    
+  <div id="vitals" class="patientInfo span11"> <h3>Vitals and Ins/Outs </h3>
+    <div class="row-fluid dataRow">
+      <div class="span5"> Vital Signs </div> 
+      <div class="span3"> Fluid Intake </div>
+      <div class="span4"> Fluid Output </div>
+    </div>
+    
+    <%if @flow_sheet_records.any? %>
+        <%= render @flow_sheet_records %>
+    <%end%>
+    <div class="dataRow"></div>
+    
+    <div class="btn bottomButton">
+      <%= link_to 'New Flow Sheet Record', new_flow_sheet_record_path %>
+    </div>
+  </div>
+
+</div> 
+
+<!--end row 2-->
+<!--begin row 3-->
+<div class="row-fluid " style="margin-top:20px">
+  <div id="notes" class="patientInfo span6"> <h3>Notes</h3> 
+   <%if @clinician_notes.any? %>
+      <table class="patientInfoGrid" style="width:100%;border-top:solid;border-width:thin;text-align:left;" border="0">
+        <%= render @clinician_notes %>
+      </table>
+    <%end%>
+    <div class="btn bottomButton"><%= link_to 'New Note', new_clinician_note_path(:visit_id => @selectedVisit.id) %></div>
+    </div>
+  <div id="intakeDocs" class="patientInfo span5" > <h3>Intake Documentation </h3>
+     <div class="btn bottomButton"><%= link_to 'New Intake Doc', '#' %></div>
+  </div>
+</div> 
+<!--end row 3-->
+<!--begin row 4-->
+<div class="row-fluid " style="margin-top:20px">
+  <div id="orders" class="patientInfo  span5"> <h3>Pending Orders</h3> 
+    <div class="btn bottomButton"><%= link_to 'New Order', '#' %></div>
+  </div>
+  <div id="reports" class="patientInfo span6"> <h3>Lab and diagnostic study reports</h3> 
+  <div class="btn bottomButton"><%= link_to 'New Report', '#' %></div>
+</div>
+
+</div> 
+<!--end row 3-->
+<!--begin row 5-->
+<div class="row-fluid " style="margin-top:20px;margin-bottom:20px">
+  <div id="mar" class="patientInfo span11"> <h3>Procedure and Medical Administration Log </h3>
+    <div class="btn bottomButton"><%= link_to 'New MAR Entry', '#' %></div>
+  </div>
+</div> 
+<!--end row 5-->
+
 
 <!--<%= link_to 'Back', patients_path %>-->
