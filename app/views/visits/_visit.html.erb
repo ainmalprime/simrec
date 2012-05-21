@@ -1,11 +1,14 @@
-			<div class="row-fluid dataRow">
-            	<div class="span4 ">
-              		<strong><%= visit.chiefComplaint %></strong>
-              	</div>
-              	<div class="span4">
-              		<strong><%= visit.dischargeDiagnosis %></strong>
-          		</div>
-          		<div class="span4">
-               		<%= link_to 'select', patient_path(:selectedVisit => visit) %>
-           		</div>
-            </div>
+<div class="row-fluid dataRow">
+  <div class="span3">
+    <%= visit.visitTime %>
+  </div>
+  <div class="span3 ">
+    <strong><%= visit.chiefComplaint %></strong>
+  </div>
+  <div class="span3">
+    <strong><%= visit.dischargeDiagnosis %></strong>
+  </div>
+  <div class="span3">
+  	<%= link_to 'select', patient_path(:selectedVisit => visit) %>
+  </div>
+</div>

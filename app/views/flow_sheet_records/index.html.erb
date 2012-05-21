@@ -1,9 +1,9 @@
-<h1>Listing flow_sheet_records</h1>
+<h1>Flow Sheet Records</h1>
 
 <table>
   <tr>
     <th>Visit</th>
-    <th>Recordingtime</th>
+    <th>Time Recorded</th>
     <th>Temp</th>
     <th>Bloodpressure</th>
     <th>Respiratoryrate</th>
@@ -26,7 +26,7 @@
 <% @flow_sheet_records.each do |flow_sheet_record| %>
   <tr>
     <td><%= flow_sheet_record.visit_id %></td>
-    <td><%= flow_sheet_record.recordingTime %></td>
+    <td><%= flow_sheet_record.timeRecorded %></td>
     <td><%= flow_sheet_record.temp %></td>
     <td><%= flow_sheet_record.bloodPressure %></td>
     <td><%= flow_sheet_record.respiratoryRate %></td>

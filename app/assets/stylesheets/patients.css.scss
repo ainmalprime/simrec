@@ -10,15 +10,17 @@
 
 	position:relative;
 	text-align:center;
-	/*width: 450px;*/
 	background-color:#E7E4DD;
 	border-radius: 10px;
-	
 	min-height: 200px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 5px;
+	padding-right: 5px;
 	overflow:auto;
+	h3 {
+		font-size: small;
+	}
 }
 
 div.patientInfo table {
@@ -36,6 +38,6 @@ div.patientInfo table {
 
 
 #vitals, #mar {
-	/*width: 920px;*/	
+	width: 1110px;	
 	background-color: #DDDDDD;	
 }

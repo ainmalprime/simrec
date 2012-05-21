@@ -11,23 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120520043458) do
+ActiveRecord::Schema.define(:version => 20120521174041) do
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
-    t.time     "timeRecorded"
+    t.datetime "timeRecorded"
     t.string   "noteType"
     t.text     "noteText",           :limit => 255
     t.string   "clinicianSignature"
     t.integer  "retainOnReset"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "dateRecorded"
   end
 
   create_table "flow_sheet_records", :force => true do |t|
     t.integer  "visit_id"
-    t.date     "recordingTime"
+    t.datetime "timeRecorded"
     t.string   "temp"
     t.string   "bloodPressure"
     t.string   "respiratoryRate"

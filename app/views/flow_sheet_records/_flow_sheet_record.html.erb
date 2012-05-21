@@ -1,5 +1,8 @@
 <div class="row-fluid dataRow">
-	<div class="span5">
+	<div class="span2">
+		<%= flow_sheet_record.timeRecorded%>
+	</div>
+	<div class="span4">
 		Temp <span class="label label-info"><%= flow_sheet_record.temp%></span>
 		BP <span class="label label-info"><%=flow_sheet_record.bloodPressure %></span>
 		HR <span class="label label-info"><%=flow_sheet_record.heartrate %></span>
@@ -12,7 +15,7 @@
 		Other <span class="label label-info"><%=flow_sheet_record.intakeOtherDescription %>
 		<%=flow_sheet_record.intakeOther %></span>
 	</div>
-	<div class="span4">
+	<div class="span3">
 		Urine <span class="label label-info"><%=flow_sheet_record.outputUrine %></span>
 		Feces <span class="label label-info"><%=flow_sheet_record.outputFeces %></span>
 		Blood <span class="label label-info"><%=flow_sheet_record.outputBlood %></span>

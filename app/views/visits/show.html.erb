@@ -4,7 +4,10 @@
   <b>Patient:</b>
   <%= @visit.patient_id %>
 </p>
-
+<p>
+  <b>Time of Visit:</b>
+  <%= @visit.visitTime.strftime('%m/%d/%Y %H:%M:%S') %>
+</p>
 <p>
   <b>Mrnumber:</b>
   <%= @visit.mrNumber %>

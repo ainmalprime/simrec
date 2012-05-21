@@ -1,7 +1,7 @@
 <%= form_for(@flow_sheet_record) do |f| %>
   <% if @flow_sheet_record.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@flow_sheet_record.errors.count, "error") %> prohibited this flow_sheet_record from being saved:</h2>
+      <h2><%= pluralize(@flow_sheet_record.errors.count, "error") %> prohibited this flow sheet record from being saved:</h2>
 
       <ul>
       <% @flow_sheet_record.errors.full_messages.each do |msg| %>
@@ -16,8 +16,8 @@
     <%= f.number_field :visit_id %>
   </div>
   <div class="field">
-    <%= f.label :recordingTime %><br />
-    <%= f.date_select :recordingTime %>
+    <%= f.label :timeRecorded %><br />
+    <%= f.datetime_select :timeRecorded %>
   </div>
   <div class="field">
     <%= f.label :temp %><br />
@@ -26,6 +26,10 @@
   <div class="field">
     <%= f.label :bloodPressure %><br />
     <%= f.text_field :bloodPressure %>
+  </div>
+  <div class="field">
+    <%= f.label :heartrate %><br />
+    <%= f.text_field :heartrate %>
   </div>
   <div class="field">
     <%= f.label :respiratoryRate %><br />
