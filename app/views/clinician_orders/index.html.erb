@@ -1,0 +1,35 @@
+<h1>Listing clinician_orders</h1>
+
+<table>
+  <tr>
+    <th>Visit</th>
+    <th>Ordertype</th>
+    <th>Ordernote</th>
+    <th>Timerecorded</th>
+    <th>Status</th>
+    <th>Timeprocessed</th>
+    <th>Retainonreset</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clinician_orders.each do |clinician_order| %>
+  <tr>
+    <td><%= clinician_order.visit_id %></td>
+    <td><%= clinician_order.ordertype %></td>
+    <td><%= clinician_order.ordernote %></td>
+    <td><%= clinician_order.timerecorded %></td>
+    <td><%= clinician_order.status %></td>
+    <td><%= clinician_order.timeprocessed %></td>
+    <td><%= clinician_order.retainOnReset %></td>
+    <td><%= link_to 'Show', clinician_order %></td>
+    <td><%= link_to 'Edit', edit_clinician_order_path(clinician_order) %></td>
+    <td><%= link_to 'Destroy', clinician_order, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clinician order', new_clinician_order_path %>

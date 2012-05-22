@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visit:</b>
+  <%= @lab_and_diagnostic_report.visit_id %>
+</p>
+
+<p>
+  <b>Clinician order:</b>
+  <%= @lab_and_diagnostic_report.clinician_order_id %>
+</p>
+
+<p>
+  <b>Image file:</b>
+  <%= @lab_and_diagnostic_report.image_file_id %>
+</p>
+
+<p>
+  <b>Release delay:</b>
+  <%= @lab_and_diagnostic_report.release_delay %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @lab_and_diagnostic_report.visible %>
+</p>
+
+<p>
+  <b>Result text:</b>
+  <%= @lab_and_diagnostic_report.result_text %>
+</p>
+
+
+<%= link_to 'Edit', edit_lab_and_diagnostic_report_path(@lab_and_diagnostic_report) %> |
+<%= link_to 'Back', lab_and_diagnostic_reports_path %>

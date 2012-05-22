@@ -1,4 +1,10 @@
 DeVryEHR::Application.routes.draw do
+  resources :image_files
+
+  resources :lab_and_diagnostic_reports
+
+  resources :clinician_orders
+
   resources :flow_sheet_records
 
   root :to => 'static_pages#home'

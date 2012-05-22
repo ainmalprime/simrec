@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visit:</b>
+  <%= @clinician_order.visit_id %>
+</p>
+
+<p>
+  <b>Ordertype:</b>
+  <%= @clinician_order.ordertype %>
+</p>
+
+<p>
+  <b>Ordernote:</b>
+  <%= @clinician_order.ordernote %>
+</p>
+
+<p>
+  <b>Timerecorded:</b>
+  <%= @clinician_order.timerecorded %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @clinician_order.status %>
+</p>
+
+<p>
+  <b>Timeprocessed:</b>
+  <%= @clinician_order.timeprocessed %>
+</p>
+
+<p>
+  <b>Retainonreset:</b>
+  <%= @clinician_order.retainOnReset %>
+</p>
+
+
+<%= link_to 'Edit', edit_clinician_order_path(@clinician_order) %> |
+<%= link_to 'Back', clinician_orders_path %>
