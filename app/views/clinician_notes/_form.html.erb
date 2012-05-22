@@ -11,40 +11,51 @@
     </div>
   <% end %>
 
-  <% if @clinician_note.visit_id.blank?%>
+  <div class="row_fluid">
+    <% if @clinician_note.visit_id.blank?%>
 
-      <div class="field">
-        <%= f.label :visit_id %><br />
-        <%= f.number_field :visit_id %>
-      </div>
+        <div class="span12">
+          <%= f.label :visit_id %><br />
+          <%= f.number_field :visit_id %>
+        </div>
 
-  <% else %>
-      <div class="field">
-        <%= f.hidden_field :visit_id %>
-      </div>
+    <% else %>
+        <div class="span12">
+          <%= f.hidden_field :visit_id %>
+        </div>
 
-  <% end %>
+    <% end %>
+  </div>
+  <div class="row_fluid">
+    <div class="span10">
+      <%= f.label :timeRecorded, "Time of note entry" %><br />
+      <%= f.datetime_select :timeRecorded %>
+    </div>
+  </div>
+  <div class="row_fluid"> 
+    <div class="span12">
+      <%= f.label :noteType, "Type of note" %><br />
+      <%= f.select(:noteType, options_for_select([['Progress'], ['H&P']])) %>
+    </div>
+  </div>
+  <div class="row_fluid">
+    <div class="span12">
+      <%= f.label :noteText, "Note Text" %><br />
+      <%= f.text_area :noteText, :class=>"textarea" %>
+    </div>
+    </div>
+  <div class="row_fluid">
+    <div class="span6">
+      <%= f.label :clinicianSignature %><br />
+      <%= f.text_field :clinicianSignature %>
+    </div>
+    <div class="span6">
+      <%= f.label :retainOnReset, "Keep this note on patient case reset?" %><br />
+      <%= f.select(:retainOnReset, options_for_select([['yes', 1], ['no', 0]])) %>
+    </div>
+  </div>
+<div style="row_fluid">
+<div class="btn-group span12" >
+    <%= f.submit 'Save Note', :class => "btn" %>
 
-  <div class="field">
-    <%= f.label :timeRecorded %><br />
-    <%= f.datetime_select :timeRecorded %>
-  <div class="field">
-    <%= f.label :noteType %><br />
-    <%= f.text_field :noteType %>
-  </div>
-  <div class="field">
-    <%= f.label :noteText %><br />
-    <%= f.text_field :noteText %>
-  </div>
-  <div class="field">
-    <%= f.label :clinicianSignature %><br />
-    <%= f.text_field :clinicianSignature %>
-  </div>
-  <div class="field">
-    <%= f.label :retainOnReset %><br />
-    <%= f.number_field :retainOnReset %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
