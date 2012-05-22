@@ -24,7 +24,12 @@ class VisitsController < ApplicationController
   # GET /visits/new
   # GET /visits/new.json
   def new
-    @visit = Visit.new
+    if params.has_key?(:patient_id) #if a patient ID is passed to the controller when a visit is being created, find the patient and associate a new vist to him/her
+      @patient = Patient.find(params[:patient_id]) #get reference to the selected patient based on paramenters -tg
+      @visit = @patient.visits.build #build a new visit record for selected patient -tg
+    else
+      @visit = Visit.new
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,10 +46,11 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(params[:visit])
+    @patient = Patient.find(@visit.patient_id)
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, :notice => 'Visit was successfully created.' }
+        format.html { redirect_to @patient, :notice => 'Visit was successfully created.' }
         format.json { render :json => @visit, :status => :created, :location => @visit }
       else
         format.html { render :action => "new" }

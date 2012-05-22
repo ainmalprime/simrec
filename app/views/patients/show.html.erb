@@ -17,7 +17,7 @@
       <div class="dataRow"></div>
     <% end %> 
       <div class="btn bottomButton">
-        <%= link_to 'New Visit', new_visit_path %> 
+        <%= link_to 'New Visit', new_visit_path(:patient_id => @patient.id) %> 
       </div>
   </div>
 </div> 
@@ -50,7 +50,7 @@
 <div class="row-fluid " style="margin-top:20px">
   <div id="notes" class="patientInfo span6"> <h3>Notes</h3> 
    <%if @clinician_notes.any? %>
-      <div class="row-fluid dataRow">
+      <div class="row-fluid">
         <%= render @clinician_notes %>
       </div>
     <%end%>

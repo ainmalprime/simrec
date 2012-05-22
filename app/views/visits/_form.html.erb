@@ -11,31 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :patient_id %><br />
-    <%= f.number_field :patient_id %>
+  <div class="row_fluid">
+    <% if @visit.patient_id.blank?%>
+
+        <div class="span12">
+          <%= f.label :patient_id %><br />
+          <%= f.number_field :patient_id %>
+        </div>
+
+    <% else %>
+        <div class="span12">
+          <%= f.hidden_field :patient_id %>
+        </div>
+
+    <% end %>
   </div>
-   <div class="field">
-    <%= f.label :visitTime %><br />
-    <%= f.datetime_select :visitTime %>
+  <div class="row_fluid">
+     <div class="span12">
+      <%= f.label :visitTime, "Date and time of visit" %><br />
+      <%= f.datetime_select :visitTime, :id => "datetimeselect"%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :mrNumber %><br />
-    <%= f.text_field :mrNumber %>
+  <div class="row_fluid">
+    <div class="span4">
+      <%= f.label :mrNumber, "Medical record number" %><br />
+      <%= f.text_field :mrNumber %>
+    </div>
+    <div class="span4">
+      <%= f.label :chiefComplaint, "Chief complaint" %><br />
+      <%= f.text_field :chiefComplaint %>
+    </div>
+    <div class="span4">
+      <%= f.label :dischargeDiagnosis, "Discharge diagnosis/subject of case"%><br />
+      <%= f.text_field :dischargeDiagnosis %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :chiefComplaint %><br />
-    <%= f.text_field :chiefComplaint %>
+  <div class="row_fluid">
+    <div class="span12">
+      <%= f.label :isActiveSim, "Is this the simulation case?" %><br />
+      <%= f.select(:isActiveSim, options_for_select([['no', 0], ['yes', 1]])) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :dischargeDiagnosis %><br />
-    <%= f.text_field :dischargeDiagnosis %>
-  </div>
-  <div class="field">
-    <%= f.label :isActiveSim %><br />
-    <%= f.number_field :isActiveSim %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div style="row_fluid">
+    <div class="btn-group span12" >
+      <%= f.submit 'Save visit', :class => "btn" %>
 <% end %>
