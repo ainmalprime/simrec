@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521174041) do
+ActiveRecord::Schema.define(:version => 20120522180325) do
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(:version => 20120521174041) do
     t.integer  "retainOnReset"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "clinician_orders", :force => true do |t|
+    t.integer  "visit_id"
+    t.string   "ordertype"
+    t.string   "ordernote"
+    t.datetime "timerecorded"
+    t.string   "status"
+    t.datetime "timeprocessed"
+    t.integer  "retainOnReset"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "flow_sheet_records", :force => true do |t|
@@ -44,6 +56,26 @@ ActiveRecord::Schema.define(:version => 20120521174041) do
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.string   "heartrate"
+  end
+
+  create_table "image_files", :force => true do |t|
+    t.string   "description"
+    t.string   "content_type"
+    t.string   "filename"
+    t.binary   "binary_data"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "lab_and_diagnostic_reports", :force => true do |t|
+    t.integer  "visit_id"
+    t.integer  "clinician_order_id"
+    t.integer  "image_file_id"
+    t.integer  "release_delay"
+    t.integer  "visible"
+    t.text     "result_text"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "medical_administration_records", :force => true do |t|
@@ -73,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20120521174041) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.string   "middleInitial"
+    t.integer  "image_file_id"
   end
 
   create_table "visits", :force => true do |t|

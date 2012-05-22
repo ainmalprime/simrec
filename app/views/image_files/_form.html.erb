@@ -1,7 +1,7 @@
 <%= form_for(@image_file) do |f| %>
   <% if @image_file.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@image_file.errors.count, "error") %> prohibited this image_file from being saved:</h2>
+      <h2><%= pluralize(@image_file.errors.count, "error") %> prohibited this image file from being saved:</h2>
 
       <ul>
       <% @image_file.errors.full_messages.each do |msg| %>
@@ -16,17 +16,13 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :content_type %><br />
-    <%= f.text_field :content_type %>
+    <%= f.label :image_file, "Image file" %><br />
+    <%= f.file_field :image_file %> 
+  <%if params.has_key?(:patient_id)%>
+    <%= hidden_field_tag "patient_id", params[:patient_id] %>
+  <%end%>
   </div>
-  <div class="field">
-    <%= f.label :filename %><br />
-    <%= f.text_field :filename %>
-  </div>
-  <div class="field">
-    <%= f.label :binary_data %><br />
-    <%= f.text_field :binary_data %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

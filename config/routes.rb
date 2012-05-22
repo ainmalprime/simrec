@@ -1,5 +1,7 @@
 DeVryEHR::Application.routes.draw do
+
   resources :image_files
+  match "image/:id", :to => 'image_files#code_image'
 
   resources :lab_and_diagnostic_reports
 
@@ -12,6 +14,7 @@ DeVryEHR::Application.routes.draw do
   match '/home',    :to => 'static_pages#home'
 
   match '/search',  :to => 'static_pages#search'
+
 
   resources :medical_administration_records
 

@@ -18,12 +18,14 @@ class PatientsController < ApplicationController
     if params.has_key?(:selectedVisit) 
       @selectedVisit = @patient.visits.find(params[:selectedVisit])
     else
-      @selectedVisit = @patient.visits.first
+      @selectedVisit = @patient.visits.last
     end
-    @clinician_notes = @selectedVisit.clinician_notes
-    @flow_sheet_records = @selectedVisit.flow_sheet_records
-    @medical_administration_records = @selectedVisit.medical_administration_records
     
+    unless @selectedVisit.nil?
+      @clinician_notes = @selectedVisit.clinician_notes
+      @flow_sheet_records = @selectedVisit.flow_sheet_records
+      @medical_administration_records = @selectedVisit.medical_administration_records
+    end
     
 
     respond_to do |format|

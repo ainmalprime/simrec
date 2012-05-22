@@ -21,6 +21,13 @@
 	h3 {
 		font-size: small;
 	}
+	.patientImage {
+	float:left;
+	width:100px;
+	height:100px;
+	overflow:none;
+	background-color:#CCC;
+	}
 }
 
 div.patientInfo table {

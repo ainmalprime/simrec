@@ -11,6 +11,21 @@
     </div>
   <% end %>
   <div style="float:left;margin-right:10px;">
+  <% unless params[:action] == "new" %>
+    <div class="field">
+      <%= f.label :image_file_id %><br />
+      <%= f.hidden_field :image_file_id %>
+      <% if @patient.image_file_id.blank? %>
+        <%= link_to "Add Image", new_image_file_path(:patient_id => @patient.id), :class => "btn" %>
+      <% else %>
+        <%= image_tag("/image/#{@patient.image_file_id}", :alt => "Image") %></br>
+        <span class="btn-group">
+        <%= link_to "Edit", edit_image_file_path(:id => @patient.image_file_id, :patient_id => @patient.id), :class => "btn"%> 
+        <%= link_to 'Delete', image_file_path(:id => @patient.image_file_id, :patient_id => @patient.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
+        </span>
+      <% end %>
+    </div>
+  <% end %>
     <div class="field">
       <%= f.label :firstName %><br />
       <%= f.text_field :firstName %>
@@ -65,6 +80,7 @@
     <%= f.label :drugAllergies %><br />
     <%= f.text_field :drugAllergies %>
   </div>
+
   </div>
 
   <div class="actions" style="clear:both">

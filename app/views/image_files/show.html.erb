@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <b>Binary data:</b>
-  <%= @image_file.binary_data %>
+  <b>Image:</b></br>
+  <%= image_tag("/image/#{@image_file.id}", :alt => "Image") %>
 </p>
 
 

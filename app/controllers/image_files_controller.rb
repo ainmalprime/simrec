@@ -1,4 +1,10 @@
 class ImageFilesController < ApplicationController
+
+  def code_image 
+  @image_data = ImageFile.find(params[:id]) 
+  send_data @image_data.binary_data, :type => @image_data.content_type, :disposition => 'inline'
+  end
+
   # GET /image_files
   # GET /image_files.json
   def index
@@ -41,16 +47,34 @@ class ImageFilesController < ApplicationController
   # POST /image_files.json
   def create
     @image_file = ImageFile.new(params[:image_file])
+    
+    if params.has_key?(:patient_id) #if there is an associated patient_id, update the patient in question with the new image_file_id -TG
+      @patient = Patient.find(params[:patient_id]) 
 
-    respond_to do |format|
-      if @image_file.save
-        format.html { redirect_to @image_file, notice: 'Image file was successfully created.' }
-        format.json { render json: @image_file, status: :created, location: @image_file }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @image_file.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @image_file.save
+          @patient.image_file_id = @image_file.id
+          @patient.save
+          format.html { redirect_to edit_patient_path(@patient) , notice: 'Image file was successfully created.' } #redirect to the patient editing view
+          
+          #format.json { render json: @image_file, status: :created, location: @image_file }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @image_file.errors, status: :unprocessable_entity }
+        end
+      end 
+    else
+      respond_to do |format|
+        if @image_file.save
+          format.html { redirect_to @image_file , notice: 'Image file was successfully created.' }
+          format.json { render json: @image_file, status: :created, location: @image_file }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @image_file.errors, status: :unprocessable_entity }
+        end
       end
     end
+  
   end
 
   # PUT /image_files/1
@@ -74,10 +98,20 @@ class ImageFilesController < ApplicationController
   def destroy
     @image_file = ImageFile.find(params[:id])
     @image_file.destroy
+    if params.has_key?(:patient_id) #if there is an associated patient_id, make sure the image_file_id is revmoved from the patient's attributes -TG
+      @patient = Patient.find(params[:patient_id])
+      @patient.image_file_id = nil
+      @patient.save
 
-    respond_to do |format|
-      format.html { redirect_to image_files_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to edit_patient_path(@patient) } #go back to the patient view page -TG
+        format.json { head :no_content }
+      end
+    else #if there are no identifying parameters, do the default redirect -TG
+      respond_to do |format|
+        format.html { redirect_to image_files_url }
+        format.json { head :no_content }
+      end
     end
   end
 end
