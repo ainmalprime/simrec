@@ -26,9 +26,8 @@ class ClinicianNotesController < ApplicationController
   def new
     
     if params.has_key?(:visit_id) 
-      @visit = Visit.find(params[:visit_id])
-      @clinician_note = @visit.clinician_notes.build
-
+      @visit = Visit.find(params[:visit_id]) #get reference to the selected visit based on paramenters -tg
+      @clinician_note = @visit.clinician_notes.build #build a new clinician note record from selected visit -tg
     else
       @clinician_note = ClinicianNote.new
     end
@@ -48,7 +47,7 @@ class ClinicianNotesController < ApplicationController
   # POST /clinician_notes.json
   def create
     @clinician_note = ClinicianNote.new(params[:clinician_note])
-    @Visit = Visit.find(@clinician_note.visit_id)
+    @Visit = Visit.find(@clinician_note.visit_id) #reconstruct patient and visit to redirect back to patient  -tg
     @Patient = Patient.find(@Visit.patient_id)
 
     respond_to do |format|

@@ -2,7 +2,7 @@
 <!--begin row 1-->
 <div class="row-fluid ">
   <div class="patientInfo span5" id="PtDemographics"> <h3> Patient Demographics </h3>
-    <%=render @patient %>
+    <%= render @patient %>
     <div class="btn bottomButton">
       <%= link_to 'Edit', edit_patient_path(@patient) %>  
     </div>
@@ -39,7 +39,7 @@
     <div class="dataRow"></div>
     
     <div class="btn bottomButton">
-      <%= link_to 'New Flow Sheet Record', new_flow_sheet_record_path %>
+      <%= link_to 'New Flow Sheet Record', new_flow_sheet_record_path(:visit_id => @selectedVisit.id) %>
     </div>
   </div>
 
