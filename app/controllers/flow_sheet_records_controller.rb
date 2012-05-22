@@ -26,7 +26,7 @@ class FlowSheetRecordsController < ApplicationController
   def new
     if params.has_key?(:visit_id) 
       @visit = Visit.find(params[:visit_id]) #get reference to the selected visit based on paramenters -tg
-      @flow_sheet_record = @visit.flow_sheet_record.build #build a new flow sheet record from selected visit -tg
+      @flow_sheet_record = @visit.flow_sheet_records.build #build a new flow sheet record from selected visit -tg
     else
       @flow_sheet_record = FlowSheetRecord.new
     end
@@ -46,7 +46,7 @@ class FlowSheetRecordsController < ApplicationController
   # POST /flow_sheet_records.json
   def create
     @flow_sheet_record = FlowSheetRecord.new(params[:flow_sheet_record])
-    @Visit = Visit.find(@clinician_note.visit_id) #reconstruct patient and visit to redirect back to patient view
+    @Visit = Visit.find(@flow_sheet_record.visit_id) #reconstruct patient and visit to redirect back to patient view
     @Patient = Patient.find(@Visit.patient_id)
 
     respond_to do |format|
