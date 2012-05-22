@@ -17,11 +17,15 @@
 
  }
 
- .dataRow {
+ .dataRow, .dataRowDark{
 
  	border-top:solid;
  	border-width:thin;
  	border-color:white;
+}
+ .dataRowDark {
+
+ 	border-color:black;
 }
 
 .bottomButton {
@@ -31,3 +35,10 @@
 	right:5px;
 }
 
+.alternateGray1 {
+	background:#DDD;
+}
+
+.alternateGray2 {
+	background-color: #EEE;
+}

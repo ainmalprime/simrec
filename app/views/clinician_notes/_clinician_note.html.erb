@@ -1,5 +1,6 @@
-<tr>
-	<td><%= clinician_note.timeRecorded %></td>
-	<td><%= clinician_note.noteType %></td>
-	<td><%= clinician_note.clinicianSignature %></td>
-</tr>
+<div class="row-fluid dataRow">
+	<div class="span4"><%= clinician_note.timeRecorded %></div>
+	<div class="span3"><%= clinician_note.noteType %></div>
+	<div class="span4"><%= clinician_note.clinicianSignature %></div>
+	<div class="span1"><%= link_to 'Show', clinician_note %></div>
+</div>

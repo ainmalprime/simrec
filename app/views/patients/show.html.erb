@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
-
 <!--begin row 1-->
 <div class="row-fluid ">
   <div class="patientInfo span5" id="PtDemographics"> <h3> Patient Demographics </h3>
-    <%=render @patient %>
+    <%= render @patient %>
     <div class="btn bottomButton">
       <%= link_to 'Edit', edit_patient_path(@patient) %>  
     </div>
@@ -40,7 +39,7 @@
     <div class="dataRow"></div>
     
     <div class="btn bottomButton">
-      <%= link_to 'New Flow Sheet Record', new_flow_sheet_record_path %>
+      <%= link_to 'New Flow Sheet Record', new_flow_sheet_record_path(:visit_id => @selectedVisit.id) %>
     </div>
   </div>
 
@@ -51,9 +50,9 @@
 <div class="row-fluid " style="margin-top:20px">
   <div id="notes" class="patientInfo span6"> <h3>Notes</h3> 
    <%if @clinician_notes.any? %>
-      <table class="patientInfoGrid" style="width:100%;border-top:solid;border-width:thin;text-align:left;" border="0">
+      <div class="row-fluid dataRow">
         <%= render @clinician_notes %>
-      </table>
+      </div>
     <%end%>
     <div class="btn bottomButton"><%= link_to 'New Note', new_clinician_note_path(:visit_id => @selectedVisit.id) %></div>
     </div>

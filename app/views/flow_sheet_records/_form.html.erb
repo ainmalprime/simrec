@@ -10,76 +10,102 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :visit_id %><br />
-    <%= f.number_field :visit_id %>
+<% if @flow_sheet_record.visit_id.blank? %>
+  <div class="row-fluid alternateGray1 dataRowDark">
+    <div class="span12">
+      <%= f.label :visit_id %><br />
+      <%= f.number_field :visit_id %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :timeRecorded %><br />
+<% else %>
+  <div class="span12">
+    <%= f.hidden_field :visit_id %>
+  </div>
+<% end %>
+<div class="row-fluid alternateGray2 dataRowDark">
+  <div class="span10">
+    <%= f.label :timeRecorded, "Time of flowsheet record entry" %><br />
     <%= f.datetime_select :timeRecorded %>
   </div>
-  <div class="field">
-    <%= f.label :temp %><br />
+</div>
+<div class="row-fluid alternateGray1 dataRowDark">
+  <div class="span4">
+    <%= f.label :temp, "Tempurature" %><br />
     <%= f.text_field :temp %>
   </div>
-  <div class="field">
-    <%= f.label :bloodPressure %><br />
+  <div class="span4">
+    <%= f.label :bloodPressure, "Blood Pressure" %><br />
     <%= f.text_field :bloodPressure %>
   </div>
-  <div class="field">
-    <%= f.label :heartrate %><br />
+  <div class="span4">
+    <%= f.label :heartrate, "Heart Rate" %><br />
     <%= f.text_field :heartrate %>
   </div>
-  <div class="field">
-    <%= f.label :respiratoryRate %><br />
+</div> 
+<div class="row-fluid alternateGray1">  
+  <div class="span4">
+    <%= f.label :respiratoryRate, "Respiratory Rate" %><br />
     <%= f.text_field :respiratoryRate %>
   </div>
-  <div class="field">
-    <%= f.label :oxygenSaturation %><br />
+  <div class="span4">
+    <%= f.label :oxygenSaturation, "Oxygen Saturation" %><br />
     <%= f.text_field :oxygenSaturation %>
   </div>
-  <div class="field">
-    <%= f.label :intakePO %><br />
+</div>
+<div class="row-fluid alternateGray2  dataRowDark">  
+  <div class="span4">
+    <%= f.label :intakePO, "Intake PO" %><br />
     <%= f.text_field :intakePO %>
   </div>
-  <div class="field">
-    <%= f.label :intakeIV %><br />
+  <div class="span4">
+    <%= f.label :intakeIV, "Intake by IV" %><br />
     <%= f.text_field :intakeIV %>
   </div>
-  <div class="field">
-    <%= f.label :intakeOther %><br />
+  <div class="span4">
+    <%= f.label :intakeOther, "Other Intake" %><br />
     <%= f.text_field :intakeOther %>
   </div>
-  <div class="field">
-    <%= f.label :intakeOtherDescription %><br />
+ </div>
+<div class="row-fluid alternateGray2"> 
+  <div class="span4">
+    <%= f.label :intakeOtherDescription, "Description of Other Intake" %><br />
     <%= f.text_field :intakeOtherDescription %>
   </div>
-  <div class="field">
-    <%= f.label :outputUrine %><br />
+</div>
+<div class="row-fluid alternateGray1 dataRowDark"> 
+  <div class="span4">
+    <%= f.label :outputUrine, "Urine Output" %><br />
     <%= f.text_field :outputUrine %>
   </div>
-  <div class="field">
-    <%= f.label :outputFeces %><br />
+  <div class="span4">
+    <%= f.label :outputFeces, "Fecal Output"%><br />
     <%= f.text_field :outputFeces %>
   </div>
-  <div class="field">
-    <%= f.label :outputBlood %><br />
+    <div class="span4">
+    <%= f.label :outputBlood, "Blood Output" %><br />
     <%= f.text_field :outputBlood %>
   </div>
-  <div class="field">
-    <%= f.label :outputOther %><br />
+</div>
+<div class="row-fluid alternateGray1">  
+
+  <div class="span4">
+    <%= f.label :outputOther, "Other Output" %><br />
     <%= f.text_field :outputOther %>
   </div>
-  <div class="field">
-    <%= f.label :outputOtherDescription %><br />
+  <div class="span4">
+    <%= f.label :outputOtherDescription, "Description of Other Output"%><br />
     <%= f.text_field :outputOtherDescription %>
   </div>
-  <div class="field">
+</div>
+<div class="row-fluid alternateGray2 dataRowDark">  
+  <div class="span4">
     <%= f.label :retainOnReset %><br />
-    <%= f.number_field :retainOnReset %>
+    <%= f.select(:retainOnReset, options_for_select([['yes', 1], ['no', 0]])) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
+  <div style="row_fluid">
+    <div class="btn-group span12" >
+
+      <%= f.submit "save flow sheet record", :class => "btn"%>
+
 <% end %>
