@@ -1,5 +1,5 @@
 class Visit < ActiveRecord::Base
-  	attr_accessible :chiefComplaint, :dischargeDiagnosis, :isActiveSim, :mrNumber, :patient_id, :visitTime
+  	attr_accessible :chiefComplaint, :dischargeDiagnosis, :isActiveSim, :mrNumber, :patient_id, :visittime
    	validates :patient_id, presence: true
    	validates :visitTime, presence: true
    	validates :chiefComplaint, presence: true
@@ -8,7 +8,7 @@ class Visit < ActiveRecord::Base
   	has_many :flow_sheet_records, foreign_key: "visit_id", dependent: :destroy
   	has_many :medical_administration_records, foreign_key: "visit_id", dependent: :destroy
 
- 	default_scope order: '"visits"."visitTime" DESC' 
+ 	default_scope order: '"visits"."visittime" DESC' 
 
 
 end

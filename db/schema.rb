@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522180325) do
+ActiveRecord::Schema.define(:version => 20120522234514) do
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20120522180325) do
     t.integer  "isActiveSim"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.datetime "visitTime"
+    t.datetime "visittime"
   end
 
 end
