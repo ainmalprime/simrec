@@ -10,9 +10,9 @@
   </div>
   <div class="span3">
     <% if visit.id == @selectedVisit.id %>
-    <strong>[Selected]</strong>
+    [Selected]
     <% else %>
-  	<%= link_to 'select', patient_path(:selectedVisit => visit) %>
+  	<%= link_to 'select', patient_path(:selectedVisit => visit), :class => "btn" %>
     <% end %>
   </div>
 </div>

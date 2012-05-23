@@ -1,33 +1,29 @@
 <h1>Patient Census</h1>
 <br />
 <br />
-<table style="border-bottom:solid;border-width:thin;">
-  <tr style="border-top:solid;border-width:thin;">
+<div class="row dataRowDark">
     
-    <th style="width:200px;text-align:left;">Last Name</th>
-    <th style="width:200px;text-align:left;">First Name</th>
-    <th style="width:200px;text-align:left;">Middle Initial </th>
-    <th style="width:200px;text-align:left;">DOB</th>
-    <th style="width:200px;text-align:left;">Patient Number</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <div class="span2"><strong>Last Name</strong></div>
+    <div class="span2"><strong>First Name</strong></div>
+    <div class="span2"><strong>Middle Initial </strong></div>
+    <div class="span2"><strong>DOB</strong></div>
+    <div class="span2"><strong>Patient Number</strong></div>
+    <div class="span2"><strong>Action</strong></div>
+  </div>
 
 <% @patients.each do |patient| %>
-  <tr style="border-top:solid;border-width:thin;">
+<div class="row dataRowDark">
     
-    <td><%= patient.lastName %></td>
-    <td><%= patient.firstName %></td>
-    <td><%= patient.middleInitial %></td>
-    <td><%= patient.dateOfBirth %></td>
-    <td><%= patient.patientNumber %></td>
-    <td><%= link_to 'Show', patient %> | </td> 
-    <td><%= link_to 'Delete', patient, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <div class="span2"><%= patient.lastName %></div>
+    <div class="span2"><%= patient.firstName %></div>
+    <div class="span2"><%= patient.middleInitial %></div>
+    <div class="span2"><%= patient.dateOfBirth %></div>
+    <div class="span2"><%= patient.patientNumber %></div>
+    <div class="span2 btn-group"><span class="btn"><%= link_to 'Show', patient%></span><span class="btn"><%= link_to 'Delete', patient, :confirm => 'Are you sure?', :method => :delete%></span></div>
+  </div>
 <% end %>
-</table>
+<div class="row dataRowDark"></div>
 
 <br />
 
-<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'New Patient', new_patient_path, :class => "btn" %>
