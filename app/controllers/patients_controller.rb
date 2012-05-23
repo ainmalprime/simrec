@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
     if params.has_key?(:selectedVisit) 
       @selectedVisit = @patient.visits.find(params[:selectedVisit])
     else
-      @selectedVisit = @patient.visits.last
+      @selectedVisit = @patient.visits.first
     end
     
     unless @selectedVisit.nil?
