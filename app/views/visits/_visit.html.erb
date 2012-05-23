@@ -9,6 +9,10 @@
     <strong><%= visit.dischargeDiagnosis %></strong>
   </div>
   <div class="span3">
+    <% if visit.id == @selectedVisit.id %>
+    <strong>[Selected]</strong>
+    <% else %>
   	<%= link_to 'select', patient_path(:selectedVisit => visit) %>
+    <% end %>
   </div>
 </div>
