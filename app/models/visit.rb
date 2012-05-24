@@ -1,7 +1,7 @@
 class Visit < ActiveRecord::Base
   	attr_accessible :chiefComplaint, :dischargeDiagnosis, :isActiveSim, :mrNumber, :patient_id, :visittime
    	validates :patient_id, presence: true
-   	validates :visitTime, presence: true
+   	validates :visittime, presence: true
    	validates :chiefComplaint, presence: true
   	belongs_to :patient
   	has_many :clinician_notes, foreign_key: "visit_id", dependent: :destroy
