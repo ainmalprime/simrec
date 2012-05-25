@@ -1,0 +1,16 @@
+    <div id="mar" class="patientInfo span11"> 
+    	<h3>Procedure and Medical Administration Log </h3>
+	 <%if @medical_administration_records.any? %>
+	    <div class="row-fluid">
+	      <%= render @medical_administration_records %>
+	    </div>
+	<% else %>
+	  <div class="message">
+	  <span class="label label-info">Note:</span> 
+	  	<div> 
+	  	  No medical administrations or procedures are associated with this vist.</br>
+		</div>
+	  </div>
+	<%end%>
+	  <div class="btn bottomButton"><%= link_to 'New MAR entry', new_medical_administration_record_path(:visit_id => @selectedVisit.id) %></div>
+    </div>

@@ -1,0 +1,17 @@
+<div id="intakeDocs" class="patientInfo span5"> 
+  <h3>Intake Documentation </h3>
+  <%if @intake_documents.any? %>
+    <div class="row-fluid">
+      <%= render @intake_documents %>
+    </div>
+<% else %>
+  <div class="message">
+  <span class="label label-info">Note:</span> 
+  	<div> 
+  	  No intake documents are associated with this vist.</br>
+      Use the "New Intake Doc" button below to add intake documents.
+	</div>
+  </div>
+<%end%>
+  <div class="btn bottomButton"><%= link_to 'New Intake Doc', new_intake_document_path(:visit_id => @selectedVisit.id) %></div>
+</div>

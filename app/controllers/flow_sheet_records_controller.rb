@@ -24,12 +24,9 @@ class FlowSheetRecordsController < ApplicationController
   # GET /flow_sheet_records/new
   # GET /flow_sheet_records/new.json
   def new
-    if params.has_key?(:visit_id) 
-      @visit = Visit.find(params[:visit_id]) #get reference to the selected visit based on paramenters -tg
-      @flow_sheet_record = @visit.flow_sheet_records.build #build a new flow sheet record from selected visit -tg
-    else
-      @flow_sheet_record = FlowSheetRecord.new
-    end
+
+    @flow_sheet_record = FlowSheetRecord.new
+    @flow_sheet_record.visit_id = params[:visit_id]
 
     respond_to do |format|
       format.html # new.html.erb

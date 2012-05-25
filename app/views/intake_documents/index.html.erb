@@ -1,0 +1,29 @@
+<h1>Listing intake_documents</h1>
+
+<table>
+  <tr>
+    <th>Visit</th>
+    <th>Image file</th>
+    <th>Description</th>
+    <th>Timerecorded</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @intake_documents.each do |intake_document| %>
+  <tr>
+    <td><%= intake_document.visit_id %></td>
+    <td><%= intake_document.image_file_id %></td>
+    <td><%= intake_document.description %></td>
+    <td><%= intake_document.timerecorded %></td>
+    <td><%= link_to 'Show', intake_document %></td>
+    <td><%= link_to 'Edit', edit_intake_document_path(intake_document) %></td>
+    <td><%= link_to 'Destroy', intake_document, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Intake document', new_intake_document_path %>

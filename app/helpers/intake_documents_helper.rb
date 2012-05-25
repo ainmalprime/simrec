@@ -1,0 +1,2 @@
+module IntakeDocumentsHelper
+end

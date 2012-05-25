@@ -1,0 +1,24 @@
+
+<div id="vitals" class="patientInfo span11"> <h3>Vitals and Ins/Outs </h3>
+  <%if @flow_sheet_records.any? %> 
+    <div class="row-fluid dataRow">
+      <div class="span2"> Date and Time </div>
+      <div class="span4"> Vital Signs </div> 
+      <div class="span3"> Fluid Intake </div>
+      <div class="span3"> Fluid Output </div>
+    </div>
+    <%= render @flow_sheet_records %>
+  <% else %>
+    <div class="message">
+      <span class="label label-info">Note:</span> 
+        <div> 
+          No flow sheet data are associated with this vist.</br>
+          Use the "New flow sheet record" button below to add flow sheet data.
+      </div>
+    </div>
+  <%end%>
+  <div class="btn bottomButton">
+    <%= link_to 'New Flow Sheet Record', new_flow_sheet_record_path(:visit_id => @selectedVisit.id) %>
+  </div>
+</div>
+  

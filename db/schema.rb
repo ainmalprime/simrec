@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522234514) do
+ActiveRecord::Schema.define(:version => 20120525034736) do
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(:version => 20120522234514) do
     t.string   "status"
     t.datetime "timeprocessed"
     t.integer  "retainOnReset"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "cliniciansignature"
   end
 
   create_table "flow_sheet_records", :force => true do |t|
@@ -65,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20120522234514) do
     t.binary   "binary_data"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "intake_documents", :force => true do |t|
+    t.integer  "visit_id"
+    t.integer  "image_file_id"
+    t.string   "description"
+    t.datetime "timerecorded"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "lab_and_diagnostic_reports", :force => true do |t|

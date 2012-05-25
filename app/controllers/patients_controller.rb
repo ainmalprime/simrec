@@ -23,8 +23,12 @@ class PatientsController < ApplicationController
     
     unless @selectedVisit.nil?
       @clinician_notes = @selectedVisit.clinician_notes
+      @clinician_orders = @selectedVisit.clinician_orders
       @flow_sheet_records = @selectedVisit.flow_sheet_records
       @medical_administration_records = @selectedVisit.medical_administration_records
+      @intake_documents = @selectedVisit.intake_documents
+      @lab_and_diagnostic_reports = @selectedVisit.lab_and_diagnostic_reports
+
     end
     
 

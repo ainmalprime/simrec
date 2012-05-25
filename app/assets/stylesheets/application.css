@@ -19,13 +19,17 @@
 
  .dataRow, .dataRowDark{
 
- 	border-top:solid;
+ 	border-bottom:solid;
  	border-width:thin;
- 	border-color:white;
+ 	border-color:gray;
 }
  .dataRowDark {
 
  	border-color:black;
+}
+
+.selected {
+	background-color: #DDD;
 }
 
 .bottomButton {
@@ -41,4 +45,10 @@
 
 .alternateGray2 {
 	background-color: #EEE;
+}
+
+.icon {
+	float:left;
+	width:100px;
+	height:125px;
 }

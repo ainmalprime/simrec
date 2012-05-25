@@ -1,6 +1,14 @@
 @import 'bootstrap';
 .container {
 	width:1024px;
+	
+	.elementLayoutMargin {
+		margin-top:20px;
+	}
+
+	#mar {
+		margin-bottom:20px;
+	}
 }
 
  .field, .actions{ 

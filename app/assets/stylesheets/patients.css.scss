@@ -7,26 +7,51 @@
 /* CSS Document */
 
 .patientInfo {
-
+	/*background-color:#E7E4DD;*/
+	background-image:url(image-path('Gradient.jpg'));
+	background-repeat:repeat-x;
 	position:relative;
 	text-align:center;
-	background-color:#E7E4DD;
+	border-style:solid;
+	border-color:#999;
+	border-width:thin;
 	border-radius: 10px;
 	min-height: 220px;
-	padding-top: 5px;
+	padding-top: 1px;
 	padding-bottom: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
 	overflow:auto;
+
 	h3 {
 		font-size: small;
 	}
+
 	.patientImage {
-	float:left;
-	width:100px;
-	height:100px;
-	overflow:none;
-	background-color:#CCC;
+		float:left;
+		width:100px;
+		height:100px;
+		overflow:none;
+		background-color:#CCC;
+	}
+	
+	.elementLayoutMargin {
+		margin-top:20px;
+	}
+
+	.message{
+		width:250px;
+		margin:25px auto;
+		
+		div, span {
+			float:left
+		}
+
+		div {
+			width:200px;
+			text-align:left;
+			padding-left:5px;
+		}
 	}
 }
 
@@ -35,16 +60,16 @@ div.patientInfo table {
 }
 
 #intakeDocs, #notes{
-	background-color: #CCCCCC;
+	/*background-color: #CCCCCC;*/
 }
 
 #visits {
 	
-	background-color: #E7E4DD;
+	/*background-color: #E7E4DD;*/
 }
 
 
 #vitals, #mar {
-	width: 944px;	
-	background-color: #DDDDDD;	
+	width: 947px;	
+	/*background-color: #DDDDDD;*/	
 }

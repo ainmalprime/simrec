@@ -25,12 +25,10 @@ class ClinicianNotesController < ApplicationController
   # GET /clinician_notes/new.json
   def new
     
-    if params.has_key?(:visit_id) 
-      @visit = Visit.find(params[:visit_id]) #get reference to the selected visit based on paramenters -tg
-      @clinician_note = @visit.clinician_notes.build #build a new clinician note record from selected visit -tg
-    else
-      @clinician_note = ClinicianNote.new
-    end
+
+    @clinician_note = ClinicianNote.new
+    @clinician_note.visit_id = params[:visit_id]
+
 
     respond_to do |format|
       format.html # new.html.erb

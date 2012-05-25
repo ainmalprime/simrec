@@ -1,5 +1,7 @@
 DeVryEHR::Application.routes.draw do
 
+  resources :intake_documents
+
   resources :image_files
   match "image/:id", :to => 'image_files#code_image'
 

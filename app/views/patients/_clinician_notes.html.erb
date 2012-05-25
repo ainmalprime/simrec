@@ -1,0 +1,17 @@
+<div id="notes" class="patientInfo span6"> 
+ <h3>Notes</h3> 
+ <%if @clinician_notes.any? %>
+    <div class="row-fluid">
+      <%= render @clinician_notes %>
+    </div>
+  <% else %>
+    <div class="message">
+      <span class="label label-info">Note:</span> 
+        <div> 
+          No clinician notes are associated with this vist.</br>
+          Use the "New note" button below to add a new note.
+      </div>
+    </div>
+  <%end%>
+  <div class="btn bottomButton"><%= link_to 'New Note', new_clinician_note_path(:visit_id => @selectedVisit.id) %></div>
+</div>

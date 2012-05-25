@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visit:</b>
+  <%= @intake_document.visit_id %>
+</p>
+
+<p>
+  <b>Image file:</b>
+  <%= @intake_document.image_file_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @intake_document.description %>
+</p>
+
+<p>
+  <b>Timerecorded:</b>
+  <%= @intake_document.timerecorded %>
+</p>
+
+
+<%= link_to 'Edit', edit_intake_document_path(@intake_document) %> |
+<%= link_to 'Back', intake_documents_path %>
