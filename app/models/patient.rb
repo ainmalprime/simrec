@@ -6,4 +6,5 @@ class Patient < ActiveRecord::Base
   has_many :flow_sheet_records, through: :visits, source: "visit_id"
   has_many :medical_administration_records, through: :visits, source: "visit_id"
 
+
 end

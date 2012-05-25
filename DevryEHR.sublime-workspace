@@ -4,12 +4,100 @@
 		"selected_items":
 		[
 			[
+				"la",
+				"lab_and_diagnostic_reports"
+			],
+			[
+				"par",
+				"params"
+			],
+			[
+				"clin",
+				"clinician_note"
+			],
+			[
+				"in",
+				"intake_documents"
+			],
+			[
+				"st",
+				"strong	Tag"
+			],
+			[
+				"pa",
+				"patient"
+			],
+			[
+				"se",
+				"selectedVisit"
+			],
+			[
+				"Cl",
+				"clinician_notes"
+			],
+			[
+				"ima",
+				"image_file"
+			],
+			[
+				"edit",
+				"edit_patient_path"
+			],
+			[
+				"Image",
+				"ImageFile"
+			],
+			[
 				"pat",
 				"patient"
 			],
 			[
+				"patient",
+				"patient_id"
+			],
+			[
+				"flo",
+				"flow_sheet_record"
+			],
+			[
+				"Flo",
+				"FlowSheetRecord"
+			],
+			[
+				"fl",
+				"flow_sheet_record"
+			],
+			[
+				"O",
+				"Output"
+			],
+			[
+				"backg",
+				"background	background-color: hex"
+			],
+			[
+				"al",
+				"alternateGray1"
+			],
+			[
 				"vi",
-				"visits"
+				"visit"
+			],
+			[
+				"vis",
+				"visit"
+			],
+			[
+				"visit",
+				"visit_id"
+			],
+			[
+				"fin",
+				"find"
+			],
+			[
+				"els",
+				"else"
 			],
 			[
 				"he",
@@ -32,26 +120,74 @@
 	"buffers":
 	[
 		{
-			"file": "Gemfile",
+			"file": "app/views/patients/_visits.html.erb",
 			"settings":
 			{
-				"buffer_size": 535,
+				"buffer_size": 638,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/visits/_form.html.erb",
+			"file": "app/views/patients/_intake_documents.html.erb",
 			"settings":
 			{
-				"buffer_size": 951,
+				"buffer_size": 573,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/patients/show.html.erb",
+			"file": "app/views/patients/_clinician_orders.html.erb",
 			"settings":
 			{
-				"buffer_size": 2928,
+				"buffer_size": 564,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/patients/_lab_and_diagnostic_reports.html.erb",
+			"settings":
+			{
+				"buffer_size": 566,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/patients/_medical_administration_record.html.erb",
+			"settings":
+			{
+				"buffer_size": 603,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/patients/_demographics.html.erb",
+			"settings":
+			{
+				"buffer_size": 254,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/patients/_flow_sheet_records.html.erb",
+			"settings":
+			{
+				"buffer_size": 819,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/patients/_clinician_notes.html.erb",
+			"settings":
+			{
+				"buffer_size": 560,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/clinician_orders/_clinician_order.html.erb",
+			"settings":
+			{
+				"buffer_size": 326,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,39 +195,47 @@
 			"file": "app/views/visits/_visit.html.erb",
 			"settings":
 			{
-				"buffer_size": 325,
+				"buffer_size": 525,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/layouts/application.html.erb",
+			"file": "app/views/clinician_orders/index.html.erb",
 			"settings":
 			{
-				"buffer_size": 853,
+				"buffer_size": 980,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/assets/stylesheets/patients.css.scss",
+			"file": "app/models/clinician_order.rb",
 			"settings":
 			{
-				"buffer_size": 640,
+				"buffer_size": 233,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/patients/index.html.erb",
+			"file": "app/models/lab_and_diagnostic_report.rb",
 			"settings":
 			{
-				"buffer_size": 1089,
+				"buffer_size": 217,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/patients/_form.html.erb",
+			"file": "app/models/intake_document.rb",
 			"settings":
 			{
-				"buffer_size": 1986,
+				"buffer_size": 199,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/patients_controller.rb",
+			"settings":
+			{
+				"buffer_size": 2679,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,7 +243,7 @@
 			"file": "app/models/visit.rb",
 			"settings":
 			{
-				"buffer_size": 254,
+				"buffer_size": 831,
 				"line_ending": "Unix"
 			}
 		}
@@ -128,40 +272,85 @@
 	},
 	"file_history":
 	[
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120518133754_add_visit_time_to_visits.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/visits_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120518132335_addvisit_time_tovisit.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/visit.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/factories.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/models/user_spec.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patient.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120518022222_create_visits.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/patients_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/index.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/models/visit_spec.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/custom.css.scss",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/application.css",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/layouts/application.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/index.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/show.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/patients.css.scss",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/application.css",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/patients_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/schema.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/custom.css.scss",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/_visit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/_clinician_note.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/intake_document.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/intake_documents_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/visit.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/intake_documents/_intake_document.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/clinician_notes_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120524212133_create_intake_documents.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/flow_sheet_records_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/image_file.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/visits_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/image_files_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/_flow_sheet_record.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120522234514_rename_visit_time_on_visits_tovisittime.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_patient.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patient.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/routes.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/scaffolds.css.scss",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/initializers/time_formats.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/flow_sheet_record.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120521174041_make_recording_times_standard.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120519180410_change_recording_time_name_to_time_recorded.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120521173122_change_recording_time_clinician_note.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/clinician_notes.css.scss",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/layouts/application.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120520043458_add_column_heart_rateto_flow_sheet_record.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120520042733_add_column_heart_rateto_flow_sheet_record.rb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/clinician_note.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/medical_administration_record.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120519233331_change_clinician_note_note_typeto_text.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/application_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120519175050_change_recording_time_type_on_clinician_note.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/Gemfile",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120518133754_add_visit_time_to_visits.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120518132335_addvisit_time_tovisit.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/factories.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/models/user_spec.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120518022222_create_visits.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/models/visit_spec.rb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120516195248_create_clinician_notes.rb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120516195658_create_medical_administration_records.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/routes.rb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/static_pages/search.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/static_pages/home.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/requests/static_pages_spec.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/Gemfile",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/scaffolds.css.scss",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/database.yml",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/static_pages_controller.rb",
 		"/Users/administrator/.profile",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/spec/spec_helper.rb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/test/test_helper.rb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/.git/COMMIT_EDITMSG",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_form.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/public/index.html",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/index.html.erb~.rhtml",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patinet.rb",
@@ -177,7 +366,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			""
@@ -188,6 +377,37 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"lab_and_diagnostic_report",
+			"clinician_order",
+			"intake doc",
+			"intake_document",
+			"@",
+			"</p>",
+			"<p>",
+			"datarow",
+			"data",
+			":('/",
+			"</th>",
+			"</td>",
+			"<td>",
+			"<th style=\"width:200px;text-align:left;\">",
+			"edit_image_file_path",
+			"width:125px",
+			"span3",
+			"number_spa",
+			"<div class=\"field\">",
+			"field",
+			"</span>",
+			"<span class=\"label\">",
+			":",
+			"flow_sheet_record",
+			";",
+			"right",
+			"padding",
+			"span5",
+			"patientInfo",
+			"</td>",
+			"<td>",
 			"user",
 			"User",
 			"user",
@@ -198,9 +418,28 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"medical_administration_record",
+			"lab_and_diagnostic_report",
+			"clinician order",
+			"clinician_order",
+			"",
+			"</div>",
+			"<div class=\"span2\">",
+			"</div>",
+			"<div class=\"span2\">",
+			"width:200px",
+			"span4",
+			"<div class=\"span3\">",
+			"span3",
+			"",
+			"</span>",
+			"",
+			"patientInfo span5",
+			"</div>",
+			"<div class=\"span1 dataField\">",
 			"patient",
 			"Patient",
 			"patient",
@@ -217,28 +456,30 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Gemfile",
+					"file": "app/views/patients/_visits.html.erb",
 					"settings":
 					{
-						"buffer_size": 535,
+						"buffer_size": 638,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								173,
+								173
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -248,25 +489,23 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/views/visits/_form.html.erb",
+					"file": "app/views/patients/_intake_documents.html.erb",
 					"settings":
 					{
-						"buffer_size": 951,
+						"buffer_size": 573,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								566,
+								82
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -276,53 +515,49 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/views/patients/show.html.erb",
+					"file": "app/views/patients/_clinician_orders.html.erb",
 					"settings":
 					{
-						"buffer_size": 2928,
+						"buffer_size": 564,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2636,
-								2636
+								553,
+								74
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 451.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "app/views/visits/_visit.html.erb",
+					"file": "app/views/patients/_lab_and_diagnostic_reports.html.erb",
 					"settings":
 					{
-						"buffer_size": 325,
+						"buffer_size": 566,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								284,
-								284
+								554,
+								92
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -332,25 +567,23 @@
 				},
 				{
 					"buffer": 4,
-					"file": "app/views/layouts/application.html.erb",
+					"file": "app/views/patients/_medical_administration_record.html.erb",
 					"settings":
 					{
-						"buffer_size": 853,
+						"buffer_size": 603,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								474,
-								452
+								603,
+								603
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -360,24 +593,23 @@
 				},
 				{
 					"buffer": 5,
-					"file": "app/assets/stylesheets/patients.css.scss",
+					"file": "app/views/patients/_demographics.html.erb",
 					"settings":
 					{
-						"buffer_size": 640,
+						"buffer_size": 254,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								430,
-								430
+								246,
+								254
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -387,18 +619,18 @@
 				},
 				{
 					"buffer": 6,
-					"file": "app/views/patients/index.html.erb",
+					"file": "app/views/patients/_flow_sheet_records.html.erb",
 					"settings":
 					{
-						"buffer_size": 1089,
+						"buffer_size": 819,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								712,
-								712
+								381,
+								381
 							]
 						],
 						"settings":
@@ -415,18 +647,44 @@
 				},
 				{
 					"buffer": 7,
-					"file": "app/views/patients/_form.html.erb",
+					"file": "app/views/patients/_clinician_notes.html.erb",
 					"settings":
 					{
-						"buffer_size": 1986,
+						"buffer_size": 560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1171,
-								1207
+								560,
+								560
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/views/clinician_orders/_clinician_order.html.erb",
+					"settings":
+					{
+						"buffer_size": 326,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								326,
+								326
 							]
 						],
 						"settings":
@@ -442,19 +700,187 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "app/models/visit.rb",
+					"buffer": 9,
+					"file": "app/views/visits/_visit.html.erb",
 					"settings":
 					{
-						"buffer_size": 254,
+						"buffer_size": 525,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								248,
-								248
+								492,
+								492
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/views/clinician_orders/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 980,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 11,
+					"file": "app/models/clinician_order.rb",
+					"settings":
+					{
+						"buffer_size": 233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								228,
+								228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/models/lab_and_diagnostic_report.rb",
+					"settings":
+					{
+						"buffer_size": 217,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								212,
+								212
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "app/models/intake_document.rb",
+					"settings":
+					{
+						"buffer_size": 199,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								172
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "app/controllers/patients_controller.rb",
+					"settings":
+					{
+						"buffer_size": 2679,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								650,
+								650
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "app/models/visit.rb",
+					"settings":
+					{
+						"buffer_size": 831,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								830,
+								830
 							]
 						],
 						"settings":
@@ -487,6 +913,12 @@
 				0,
 				1,
 				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
 			]
 		],
 		"cols":
@@ -497,6 +929,7 @@
 		"rows":
 		[
 			0.0,
+			0.5,
 			1.0
 		]
 	},
@@ -526,6 +959,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 360.0,
+	"side_bar_width": 435.0,
 	"status_bar_visible": true
 }

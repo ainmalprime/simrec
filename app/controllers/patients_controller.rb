@@ -1,8 +1,16 @@
 class PatientsController < ApplicationController
+  
+
+    
+
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    if params.has_key?(:search)
+      @patients = Patient.find :all, :conditions => ["lower(lastName) like ?", "%" + params[:search].downcase + "%"]
+    else
+      @patients = Patient.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +21,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
+
     @patient = Patient.find(params[:id])
     @visits = @patient.visits
     if params.has_key?(:selectedVisit) 
