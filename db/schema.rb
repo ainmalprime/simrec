@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525204300) do
+ActiveRecord::Schema.define(:version => 20120525211500) do
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
-    t.datetime "timeRecorded"
-    t.string   "noteType"
-    t.text     "noteText",           :limit => 255
-    t.string   "clinicianSignature"
-    t.integer  "retainOnReset"
+    t.datetime "time_recorded"
+    t.string   "note_type"
+    t.text     "note_text",           :limit => 255
+    t.string   "clinician_signature"
+    t.integer  "retain_on_reset"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

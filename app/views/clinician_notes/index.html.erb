@@ -16,11 +16,11 @@
 <% @clinician_notes.each do |clinician_note| %>
   <tr>
     <td><%= clinician_note.visit_id %></td>
-    <td><%= clinician_note.timeRecorded %></td>
-    <td><%= clinician_note.noteType %></td>
-    <td><%= clinician_note.noteText %></td>
-    <td><%= clinician_note.clinicianSignature %></td>
-    <td><%= clinician_note.retainOnReset %></td>
+    <td><%= clinician_note.time_recorded %></td>
+    <td><%= clinician_note.note_type %></td>
+    <td><%= clinician_note.note_text %></td>
+    <td><%= clinician_note.clincian_signature %></td>
+    <td><%= clinician_note.retain_on_reset %></td>
     <td><%= link_to 'Show', clinician_note %></td>
     <td><%= link_to 'Edit', edit_clinician_note_path(clinician_note) %></td>
     <td><%= link_to 'Destroy', clinician_note, :confirm => 'Are you sure?', :method => :delete %></td>
