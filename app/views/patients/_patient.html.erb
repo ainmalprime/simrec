@@ -9,7 +9,7 @@
         <%= image_tag("/image/#{@patient.image_file_id}", :alt => "Image") %>
       <% end %>
     </div>
-    <strong><%= @patient.firstName %>  <%= @patient.middleInitial %> <%= @patient.lastName %></strong>
+    <strong><%= @patient.firstName %>  <%= @patient.middleInitial %> <%= @patient.last_name %></strong>
 
     <p>Patient Number: <strong><%= @patient.patientNumber %></strong> Date of Birth: <strong><%= @patient.dateOfBirth %></strong><br />
    Allergies: <strong><%= @patient.drugAllergies %></strong> PCP: <strong><%= @patient.primaryCarePhysician %></strong> <br /> Insurance: <strong><%= @patient.insuranceCarrier %></strong></p>

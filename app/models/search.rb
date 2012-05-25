@@ -6,7 +6,7 @@ class Search # < ActiveRecord::Base
   end
 
   def lastName
-  	options[:lastName]
+  	options[:last_name]
   end
 
   def mrNumber
@@ -17,5 +17,5 @@ class Search # < ActiveRecord::Base
   	lastName.present?
   end
 
-  
+
 end

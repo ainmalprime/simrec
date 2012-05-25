@@ -7,7 +7,7 @@ class PatientsController < ApplicationController
   # GET /patients.json
   def index
     if params.has_key?(:search)
-      @patients = Patient.find :all, :conditions => ["lower(lastName) like ?", "%" + params[:search].downcase + "%"]
+      @patients = Patient.find :all, :conditions => ["lower(last_name) like ?", "%" + params[:search].downcase + "%"]
     else
       @patients = Patient.all
     end
