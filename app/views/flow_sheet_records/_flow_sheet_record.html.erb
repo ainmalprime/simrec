@@ -1,32 +1,32 @@
 <div class="row-fluid dataRow">
 	<div class="span2">
-		<%= flow_sheet_record.timeRecorded%>
+		<%= flow_sheet_record.time_recorded%>
 	</div>
 	<div class="span4">
 		<span class="label">Temp</span><span class="label label-info"><%= flow_sheet_record.temp%></span>
-		<span class="label">BP</span><span class="label label-info"><%=flow_sheet_record.bloodPressure %></span> <br />
-		<span class="label">HR</span><span class="label label-info"><%=flow_sheet_record.heartrate %></span>
-		<span class="label">RR</span><span class="label label-info"><%=flow_sheet_record.respiratoryRate %></span>
-		<span class="label">SaO2</span><span class="label label-info"><%=flow_sheet_record.oxygenSaturation %></span>
+		<span class="label">BP</span><span class="label label-info"><%=flow_sheet_record.blood_pressure %></span> <br />
+		<span class="label">HR</span><span class="label label-info"><%=flow_sheet_record.heart_rate %></span>
+		<span class="label">RR</span><span class="label label-info"><%=flow_sheet_record.respiratory_rate %></span>
+		<span class="label">SaO2</span><span class="label label-info"><%=flow_sheet_record.oxygen_saturation %></span>
 	</div>
 
 	<div class="span3">
-		<% if not((flow_sheet_record.intakePO.blank?) && (flow_sheet_record.intakeIV.blank?) && (flow_sheet_record.intakeOther.blank?)) %>
-			<% if not flow_sheet_record.intakePO.blank?%><span class="label">PO<span class="label"><span class="label label-info"><%= flow_sheet_record.intakePO %></span><%end%>
-			<% if not flow_sheet_record.intakeIV.blank?%><span class="label">IV</span><span class="label label-info"><%=flow_sheet_record.intakeIV %></span><% end %>
-			<% if not flow_sheet_record.intakeOther.blank?%><span class="label">Other</span><span class="label label-info"><%=flow_sheet_record.intakeOtherDescription %>
-			<%=flow_sheet_record.intakeOther %></span><% end %>
+		<% if not((flow_sheet_record.intake_po.blank?) && (flow_sheet_record.intake_iv.blank?) && (flow_sheet_record.intake_other.blank?)) %>
+			<% if not flow_sheet_record.intake_po.blank?%><span class="label">PO<span class="label"><span class="label label-info"><%= flow_sheet_record.intake_po %></span><%end%>
+			<% if not flow_sheet_record.intake_iv.blank?%><span class="label">IV</span><span class="label label-info"><%=flow_sheet_record.intake_iv %></span><% end %>
+			<% if not flow_sheet_record.intake_other.blank?%><span class="label">Other</span><span class="label label-info"><%=flow_sheet_record.intake_other_description %>
+			<%=flow_sheet_record.intake_other %></span><% end %>
 		<% else %>
 			----
 		<% end %>
 	</div>
 	<div class="span3">
-		<% if not((flow_sheet_record.outputUrine.blank?) && (flow_sheet_record.outputFeces.blank?) && (flow_sheet_record.outputBlood.blank?) && (flow_sheet_record.outputOther.blank?)) %>
-			<% if not flow_sheet_record.outputUrine.blank?%><span class="label">Urine</span><span class="label label-info"><%=flow_sheet_record.outputUrine %></span><% end %>
-			<% if not flow_sheet_record.outputFeces.blank?%><span class="label">Feces</span><span class="label label-info"><%=flow_sheet_record.outputFeces %></span><% end %>
-			<% if not flow_sheet_record.outputBlood.blank?%><span class="label">Blood</span><span class="label label-info"><%=flow_sheet_record.outputBlood %></span><% end %>
-			<% if not flow_sheet_record.outputOther.blank?%><span class="label">Other</span><span class="label label-info"><%=flow_sheet_record.outputOtherDescription %>
-			<%=flow_sheet_record.outputOther %></span> <%end%>
+		<% if not((flow_sheet_record.output_urine.blank?) && (flow_sheet_record.output_feces.blank?) && (flow_sheet_record.output_blood.blank?) && (flow_sheet_record.output_other.blank?)) %>
+			<% if not flow_sheet_record.output_urine.blank?%><span class="label">Urine</span><span class="label label-info"><%=flow_sheet_record.output_urine %></span><% end %>
+			<% if not flow_sheet_record.output_feces.blank?%><span class="label">Feces</span><span class="label label-info"><%=flow_sheet_record.output_feces %></span><% end %>
+			<% if not flow_sheet_record.output_blood.blank?%><span class="label">Blood</span><span class="label label-info"><%=flow_sheet_record.output_blood %></span><% end %>
+			<% if not flow_sheet_record.output_other.blank?%><span class="label">Other</span><span class="label label-info"><%=flow_sheet_record.output_other_description %>
+			<%=flow_sheet_record.output_other %></span> <%end%>
 		<% else %>
 			----
 		<% end %>

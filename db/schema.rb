@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525211500) do
+ActiveRecord::Schema.define(:version => 20120526033827) do
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
@@ -26,37 +26,37 @@ ActiveRecord::Schema.define(:version => 20120525211500) do
 
   create_table "clinician_orders", :force => true do |t|
     t.integer  "visit_id"
-    t.string   "ordertype"
-    t.string   "ordernote"
-    t.datetime "timerecorded"
+    t.string   "order_type"
+    t.string   "note"
+    t.datetime "time_recorded"
     t.string   "status"
-    t.datetime "timeprocessed"
-    t.integer  "retainOnReset"
+    t.datetime "time_processed"
+    t.integer  "retain_on_reset"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.string   "cliniciansignature"
+    t.string   "clincian_signature"
   end
 
   create_table "flow_sheet_records", :force => true do |t|
     t.integer  "visit_id"
-    t.datetime "timeRecorded"
+    t.datetime "time_recorded"
     t.string   "temp"
-    t.string   "bloodPressure"
-    t.string   "respiratoryRate"
-    t.string   "oxygenSaturation"
-    t.string   "intakePO"
-    t.string   "intakeIV"
-    t.string   "intakeOther"
-    t.string   "intakeOtherDescription"
-    t.string   "outputUrine"
-    t.string   "outputFeces"
-    t.string   "outputBlood"
-    t.string   "outputOther"
-    t.string   "outputOtherDescription"
-    t.integer  "retainOnReset"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-    t.string   "heartrate"
+    t.string   "blood_pressure"
+    t.string   "respiratory_rate"
+    t.string   "oxygen_saturation"
+    t.string   "intake_po"
+    t.string   "intake_iv"
+    t.string   "intake_other"
+    t.string   "intake_other_description"
+    t.string   "output_urine"
+    t.string   "output_feces"
+    t.string   "output_blood"
+    t.string   "output_other"
+    t.string   "output_other_description"
+    t.integer  "retain_on_reset"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.string   "heart_rate"
   end
 
   create_table "image_files", :force => true do |t|
@@ -116,11 +116,6 @@ ActiveRecord::Schema.define(:version => 20120525211500) do
     t.datetime "updated_at",           :null => false
     t.string   "middleInitial"
     t.integer  "image_file_id"
-  end
-
-  create_table "searches", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "visits", :force => true do |t|
