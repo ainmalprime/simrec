@@ -27,6 +27,7 @@ DeVryEHR::Application.routes.draw do
   resources :medical_administration_records
 
   resources :clinician_notes
+  match '/clinician_notes_ajax_new', :to => 'clinician_notes#ajax_new'
 
   resources :visits
 

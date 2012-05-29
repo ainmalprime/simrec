@@ -15,3 +15,26 @@
  float: left;
  margin: 10px;
  }
+
+ .popover {
+
+	background-image:url('/assets/Gradient.jpg');
+	background-repeat:repeat-x;
+	position: absolute;
+	display: none;
+	border-radius: 10px;
+	border-width:thin;
+	border-style:solid;
+	border-color:gray;
+	z-index: 2;
+	height: 750px;
+	width: 1100px;
+	background-color: #dfdfdf;
+	padding-top:1px;
+	
+	h3 {
+		font-size: small;
+	}
+
+
+}

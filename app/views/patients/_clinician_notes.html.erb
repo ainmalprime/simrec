@@ -13,5 +13,5 @@
       </div>
     </div>
   <%end%>
-  <div class="btn bottomButton"><%= link_to 'New Note', new_clinician_note_path(:visit_id => @selectedVisit.id) %></div>
+  <div class="btn bottomButton"><%= link_to 'New Note', new_clinician_note_path(:visit_id => @selectedVisit.id), remote: true%></div>
 </div>

@@ -1,6 +1,6 @@
 class ClinicianNotesController < ApplicationController
   #before_filter :make_sim_copy 
-
+  layout "popover", :only => [:ajax_new]
   #def make_sim_copy
   #  if session[:simulation_mode]
       
@@ -32,15 +32,20 @@ class ClinicianNotesController < ApplicationController
   # GET /clinician_notes/new.json
   def new
     
-
     @clinician_note = ClinicianNote.new
     @clinician_note.visit_id = params[:visit_id]
 
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js
       format.json { render :json => @clinician_note }
     end
+  end
+
+  def ajax_new
+    
+    new
   end
 
   # GET /clinician_notes/1/edit
