@@ -1,7 +1,6 @@
 class PatientsController < ApplicationController
-  
 
-    
+  
 
   # GET /patients
   # GET /patients.json
@@ -18,13 +17,20 @@ class PatientsController < ApplicationController
     end
   end
 
+  def lab_reports
+    @selectedVisit = Visit.find(params[:id])
+    @lab_and_diagnostic_reports = @selectedVisit.lab_and_diagnostic_reports
+    render :partial => "lab_and_diagnostic_reports"
+  end
+
   # GET /patients/1
   # GET /patients/1.json
   def show
-
     @patient = Patient.find(params[:id])
+    
     @visits = @patient.visits
     if params.has_key?(:selectedVisit) 
+
       @selectedVisit = @patient.visits.find(params[:selectedVisit])
     else
       @selectedVisit = @patient.visits.first
@@ -37,15 +43,19 @@ class PatientsController < ApplicationController
       @medical_administration_records = @selectedVisit.medical_administration_records
       @intake_documents = @selectedVisit.intake_documents
       @lab_and_diagnostic_reports = @selectedVisit.lab_and_diagnostic_reports
-
     end
-    
+
+
 
     respond_to do |format|
+
       format.html # show.html.erb
+      #format.js
       format.json { render :json => @patient }
     end
   end
+
+
 
   # GET /patients/new
   # GET /patients/new.json
@@ -85,6 +95,7 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
 
     respond_to do |format|
+
       if @patient.update_attributes(params[:patient])
         format.html { redirect_to @patient, :notice => 'Patient was successfully updated.' }
         format.json { head :no_content }
@@ -106,4 +117,5 @@ class PatientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

@@ -1,3 +1,4 @@
+<% content_for :title, "Patients"%>
 <h1>Patient Census</h1>
 <br />
 <br />
@@ -19,7 +20,11 @@
     <div class="span2"><%= patient.middleInitial %></div>
     <div class="span2"><%= patient.dateOfBirth %></div>
     <div class="span2"><%= patient.patientNumber %></div>
-    <div class="span2 btn-group"><span class="btn"><%= link_to 'Show', patient%></span><span class="btn"><%= link_to 'Delete', patient, :confirm => 'Are you sure?', :method => :delete%></span></div>
+    <div class="span2 btn-group"><span class="btn"><%= link_to 'Show', patient%></span>
+    <% if !session[:simulation_mode] %>
+        <span class="btn"><%= link_to 'Delete', patient, :confirm => 'Are you sure?', :method => :delete%></span>
+    <% end %>
+    </div>
   </div>
 <% end %>
 

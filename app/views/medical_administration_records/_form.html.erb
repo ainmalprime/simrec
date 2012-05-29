@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :timeRecorded %><br />
-    <%= f.text_field :timeRecorded %>
+    <%= f.datetime_select :timeRecorded %>
   </div>
   <div class="field">
     <%= f.label :actionDescription %><br />
@@ -28,8 +28,8 @@
     <%= f.text_field :actionDetails %>
   </div>
   <div class="field">
-    <%= f.label :clincian_signature %><br />
-    <%= f.text_field :clincian_signature %>
+    <%= f.label :clinicianSignature %><br />
+    <%= f.text_field :clinicianSignature %>
   </div>
   <div class="field">
     <%= f.label :retainOnReset %><br />

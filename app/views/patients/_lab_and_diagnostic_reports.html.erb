@@ -1,15 +1,16 @@
-    <div id="reports" class="patientInfo span6"> <h3>Lab and diagnostic study reports</h3> 
+    <div  class="patientInfo span6"> <h3>Lab and diagnostic study reports</h3> 
 	 <%if @lab_and_diagnostic_reports.any? %>
-	    <div class="row-fluid">
+	    <div >
 	      <%= render @lab_and_diagnostic_reports %>
 	    </div>
 	<% else %>
 	  <div class="message">
 	  <span class="label label-info">Note:</span> 
 	  	<div> 
-	  	  No lab or diagnostic reports are associated with this vist.</br>
+	  	  No lab or diagnostic reports have been released for this visit</br>
 		</div>
 	  </div>
 	<%end%>
-	  <div class="btn bottomButton"><%= link_to 'New report', new_lab_and_diagnostic_report_path(:visit_id => @selectedVisit.id) %></div>	
+	<div class="bottom">As of <%= Time.now().to_s %></div>
+	  	<div class="btn bottomButton"> <%= link_to 'New report',  new_lab_and_diagnostic_report_path(:visit_id => @selectedVisit.id)%></div>	
     </div>

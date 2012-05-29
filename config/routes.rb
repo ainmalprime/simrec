@@ -1,5 +1,7 @@
 DeVryEHR::Application.routes.draw do
 
+  resources :order_types
+
   resources :intake_documents
 
   resources :image_files
@@ -17,6 +19,10 @@ DeVryEHR::Application.routes.draw do
 
   match '/search',  :to => 'static_pages#search'
 
+  match '/patients/lab_reports/:id', :to => 'patients#lab_reports'
+
+  match '/simulation', :to => 'Application#simulation_mode'
+  match '/edit', :to => 'Application#edit_mode'
 
   resources :medical_administration_records
 

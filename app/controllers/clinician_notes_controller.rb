@@ -1,4 +1,11 @@
 class ClinicianNotesController < ApplicationController
+  #before_filter :make_sim_copy 
+
+  #def make_sim_copy
+  #  if session[:simulation_mode]
+      
+  #end
+
   # GET /clinician_notes
   # GET /clinician_notes.json
   def index

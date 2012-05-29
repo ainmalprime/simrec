@@ -3,14 +3,16 @@
     <div class="row-fluid">
       <%= render @clinician_orders %>
     </div>
+
 <% else %>
   <div class="message">
   <span class="label label-info">Note:</span> 
   	<div> 
   	  No clinician orders are associated with this vist.</br>
-      Use the "New order" button below to add clinician orderuments.
+      Use the "New order" button below to write an order.
 	</div>
   </div>
 <%end%>
+
   <div class="btn bottomButton"><%= link_to 'New order', new_clinician_order_path(:visit_id => @selectedVisit.id) %></div>
     </div>

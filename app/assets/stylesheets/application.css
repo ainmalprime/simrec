@@ -9,6 +9,12 @@
  	margin-top: 5px;
  }
 
+ #mode_status {
+ 	Color: gray;
+ 	width:500px;
+ 	margin-top:20px;
+ }
+
  .dataField {
  	margin-top: 5px;
  	margin-bottom: 5px;
@@ -37,6 +43,13 @@
 	position:absolute;
 	bottom:5px;
 	right:5px;
+}
+
+.bottom {
+	margin-right:10px;
+	position:absolute;
+	bottom:5px;
+
 }
 
 .alternateGray1 {

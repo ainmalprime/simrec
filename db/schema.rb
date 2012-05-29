@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526033827) do
+ActiveRecord::Schema.define(:version => 20120528161910) do
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20120526033827) do
     t.text     "result_text"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "description"
+    t.datetime "time_released"
   end
 
   create_table "medical_administration_records", :force => true do |t|
@@ -97,6 +99,12 @@ ActiveRecord::Schema.define(:version => 20120526033827) do
     t.integer  "retainOnReset"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "order_types", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "patients", :force => true do |t|
@@ -117,6 +125,21 @@ ActiveRecord::Schema.define(:version => 20120526033827) do
     t.string   "middleInitial"
     t.integer  "image_file_id"
   end
+
+  create_table "searches", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "visits", :force => true do |t|
     t.integer  "patient_id",         :null => false

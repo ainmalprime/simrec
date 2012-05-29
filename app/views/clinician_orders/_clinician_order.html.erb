@@ -1,19 +1,19 @@
+<div class="row-fluid dataRow">
 <div class="span2">
-  <%= clinician_order.timerecorded %>
+  <%= clinician_order.time_recorded %>
 </div>
 
-<div class="span2">
-  <%= clinician_order.ordertype %>
+<div class="span3">
+  <%= clinician_order.order_type %>
+
+</div>
+<div class="span3">
+  <%= clinician_order.clincian_signature %>
 </div>
 
-<div class="span2">
-  <%= clinician_order.cliniciansignature %>
+<div class="span4">
+  <%= clinician_order.time_processed %>
+   <br/> <%= clinician_order.status %>
 </div>
 
-<div class="span2">
-  <%= clinician_order.status %>
-</div>
-
-<div class="span2">
-  <%= clinician_order.timeprocessed %>
 </div>

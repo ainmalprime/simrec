@@ -16,28 +16,32 @@
     <%= f.number_field :visit_id %>
   </div>
   <div class="field">
-    <%= f.label :ordertype %><br />
-    <%= f.text_field :ordertype %>
+    <%= f.label :order_type %><br />
+    <%= f.collection_select :order_type, OrderType.all, :description, :description%>
   </div>
   <div class="field">
-    <%= f.label :ordernote %><br />
-    <%= f.text_field :ordernote %>
+    <%= f.label :note %><br />
+    <%= f.text_field :note %>
   </div>
   <div class="field">
-    <%= f.label :timerecorded %><br />
-    <%= f.datetime_select :timerecorded %>
+    <%= f.label :time_recorded %><br />
+    <%= f.datetime_select :time_recorded %>
   </div>
   <div class="field">
     <%= f.label :status %><br />
     <%= f.text_field :status %>
   </div>
   <div class="field">
-    <%= f.label :timeprocessed %><br />
-    <%= f.datetime_select :timeprocessed %>
+    <%= f.label :time_processed %><br />
+    <%= f.datetime_select :time_processed %>
   </div>
   <div class="field">
-    <%= f.label :retainOnReset %><br />
-    <%= f.number_field :retainOnReset %>
+    <%= f.label :retain_on_reset %><br />
+    <%= f.number_field :retain_on_reset %>
+  </div>
+  <div class="field">
+    <%= f.label :clincian_signature %><br />
+    <%= f.text_field :clincian_signature %>
   </div>
   <div class="actions">
     <%= f.submit %>

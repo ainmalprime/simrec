@@ -41,14 +41,17 @@ class LabAndDiagnosticReportsController < ApplicationController
   # POST /lab_and_diagnostic_reports.json
   def create
     @lab_and_diagnostic_report = LabAndDiagnosticReport.new(params[:lab_and_diagnostic_report])
+    @lab_and_diagnostic_report.result_text = "test report"
 
     respond_to do |format|
       if @lab_and_diagnostic_report.save
         format.html { redirect_to @lab_and_diagnostic_report, notice: 'Lab and diagnostic report was successfully created.' }
-        format.json { render json: @lab_and_diagnostic_report, status: :created, location: @lab_and_diagnostic_report }
+        format.js
+        #format.json { render json: @lab_and_diagnostic_report, status: :created, location: @lab_and_diagnostic_report }
       else
         format.html { render action: "new" }
-        format.json { render json: @lab_and_diagnostic_report.errors, status: :unprocessable_entity }
+        format.js
+        #format.json { render json: @lab_and_diagnostic_report.errors, status: :unprocessable_entity }
       end
     end
   end
