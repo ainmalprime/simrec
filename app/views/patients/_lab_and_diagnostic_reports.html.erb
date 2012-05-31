@@ -12,5 +12,7 @@
 	  </div>
 	<%end%>
 	<div class="bottom">As of <%= Time.now().to_s %></div>
-	  	<div class="btn bottomButton"> <%= link_to 'New report',  new_lab_and_diagnostic_report_path(:visit_id => @selectedVisit.id)%></div>	
+		<% unless session[:simulation_mode] %>
+	  	<div class="btn bottomButton"> <%= link_to 'New report',  new_lab_and_diagnostic_report_path(:visit_id => @selectedVisit.id)%></div>
+	  	<% end %>
     </div>

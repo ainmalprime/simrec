@@ -12,6 +12,7 @@ DeVryEHR::Application.routes.draw do
   resources :clinician_orders
 
   resources :flow_sheet_records
+  match '/flow_sheet_records_ajax_new', :to => 'flow_sheet_records#ajax_new'
 
   root :to => 'static_pages#home'
 

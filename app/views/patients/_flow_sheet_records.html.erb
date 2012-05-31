@@ -18,7 +18,7 @@
     </div>
   <%end%>
   <div class="btn bottomButton">
-    <%= link_to 'New Flow Sheet Record', new_flow_sheet_record_path(:visit_id => @selectedVisit.id) %>
+    <%= link_to 'New Flow Sheet Record', new_flow_sheet_record_path(:visit_id => @selectedVisit.id), remote: true %>
   </div>
 </div>
   

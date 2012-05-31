@@ -1,4 +1,5 @@
 class FlowSheetRecordsController < ApplicationController
+  layout "popover", :only => [:ajax_new]
   # GET /flow_sheet_records
   # GET /flow_sheet_records.json
   def index
@@ -30,8 +31,13 @@ class FlowSheetRecordsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js
       format.json { render json: @flow_sheet_record }
     end
+  end
+
+  def ajax_new
+    new
   end
 
   # GET /flow_sheet_records/1/edit

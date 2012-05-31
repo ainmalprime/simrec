@@ -13,5 +13,7 @@
 	</div>
   </div>
 <%end%>
+<% unless session[:simulation_mode]%>
   <div class="btn bottomButton"><%= link_to 'New Intake Doc', new_intake_document_path(:visit_id => @selectedVisit.id) %></div>
+<% end %>
 </div>

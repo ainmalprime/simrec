@@ -12,7 +12,9 @@
       </div>
 
     <% end %> 
-      <div class="btn bottomButton">
-        <%= link_to 'New Visit', new_visit_path(:patient_id => @patient.id) %> 
-      </div>
+      <% if !session["simulation_mode"] %>
+        <div class="btn bottomButton">
+          <%= link_to 'New Visit', new_visit_path(:patient_id => @patient.id) %> 
+        </div>
+      <% end %>
   </div>
