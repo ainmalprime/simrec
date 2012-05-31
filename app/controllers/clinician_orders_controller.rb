@@ -1,4 +1,5 @@
 class ClinicianOrdersController < ApplicationController
+  layout "popover", :only => [:ajax_new]
   # GET /clinician_orders
   # GET /clinician_orders.json
   def index
@@ -17,19 +18,28 @@ class ClinicianOrdersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+ 
       format.json { render json: @clinician_order }
     end
   end
+
+
 
   # GET /clinician_orders/new
   # GET /clinician_orders/new.json
   def new
     @clinician_order = ClinicianOrder.new
+    @clinician_order.visit_id = params[:visit_id]
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js
       format.json { render json: @clinician_order }
     end
+  end
+
+  def ajax_new
+    new
   end
 
   # GET /clinician_orders/1/edit

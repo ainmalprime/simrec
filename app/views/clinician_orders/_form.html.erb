@@ -10,40 +10,57 @@
       </ul>
     </div>
   <% end %>
+  <div class="row-fluid">
+    <% if @clinician_order.visit_id.blank?%> 
+      <div class="span12">
+        <%= f.label :visit_id %><br />
+        <%= f.number_field :visit_id %>
+      </div>
+     <% else %>
+      <div class="span12">
+        <%= f.hidden_field :visit_id %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :order_type, "Lab study or procedure" %><br />
+      <%= f.collection_select :order_type, OrderType.all, :description, :description%>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :time_recorded %><br />
+      <%= f.datetime_select :time_recorded %>
+    </div>
+  </span>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :note %><br />
+      <%= f.text_field :note %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :visit_id %><br />
-    <%= f.number_field :visit_id %>
+  <% if !session[:simulation_mode]%>
+    <div class="row-fluid">
+      <div class="span6">
+        <%= f.label :status %><br />
+        <%= f.text_field :status %>
+      </div>
+      <div class="span6">
+        <%= f.label :time_processed %><br />
+        <%= f.datetime_select :time_processed %>
+      </div>
+    </div>
+  <% end %>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :clincian_signature %><br />
+      <%= f.text_field :clincian_signature %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :order_type %><br />
-    <%= f.collection_select :order_type, OrderType.all, :description, :description%>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_field :note %>
-  </div>
-  <div class="field">
-    <%= f.label :time_recorded %><br />
-    <%= f.datetime_select :time_recorded %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :time_processed %><br />
-    <%= f.datetime_select :time_processed %>
-  </div>
-  <div class="field">
-    <%= f.label :retain_on_reset %><br />
-    <%= f.number_field :retain_on_reset %>
-  </div>
-  <div class="field">
-    <%= f.label :clincian_signature %><br />
-    <%= f.text_field :clincian_signature %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="row-fluid">
+  <div class="btn-group span12">
+    <%= f.submit 'place order', :class => "btn"  %>
+
 <% end %>

@@ -10,6 +10,7 @@ DeVryEHR::Application.routes.draw do
   resources :lab_and_diagnostic_reports
 
   resources :clinician_orders
+  match '/clinician_orders_ajax_new', :to => 'clinician_orders#ajax_new'
 
   resources :flow_sheet_records
   match '/flow_sheet_records_ajax_new', :to => 'flow_sheet_records#ajax_new'
