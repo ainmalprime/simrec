@@ -12,17 +12,16 @@
   <% end %>
 
   <div class="row_fluid">
-
-  <% if @clinician_note.visit_id.blank?%> 
-    <div class="span12">
-      <%= f.label :visit_id %><br />
-      <%= f.number_field :visit_id %>
-    </div>
-   <% else %>
-    <div class="span12">
-      <%= f.hidden_field :visit_id %>
-    </div>
-  <% end %>
+    <% if @clinician_note.visit_id.blank?%> 
+      <div class="span12">
+        <%= f.label :visit_id %><br />
+        <%= f.number_field :visit_id %>
+      </div>
+     <% else %>
+      <div class="span12">
+        <%= f.hidden_field :visit_id %>
+      </div>
+    <% end %>
   </div>
   <div class="row_fluid">
     <div class="span10">

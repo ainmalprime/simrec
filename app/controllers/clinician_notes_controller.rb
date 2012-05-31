@@ -1,5 +1,4 @@
 class ClinicianNotesController < ApplicationController
-  #before_filter :make_sim_copy 
   layout "popover", :only => [:ajax_new]
   #def make_sim_copy
   #  if session[:simulation_mode]

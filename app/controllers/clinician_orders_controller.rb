@@ -51,10 +51,12 @@ class ClinicianOrdersController < ApplicationController
   # POST /clinician_orders.json
   def create
     @clinician_order = ClinicianOrder.new(params[:clinician_order])
+    @Visit = Visit.find(@clinician_order.visit_id) #reconstruct patient and visit to redirect back to patient  -tg
+    @Patient = Patient.find(@Visit.patient_id)
 
     respond_to do |format|
       if @clinician_order.save
-        format.html { redirect_to @clinician_order, notice: 'Clinician order was successfully created.' }
+        format.html { redirect_to @Patient, notice: 'Clinician order was successfully created.' }
         format.json { render json: @clinician_order, status: :created, location: @clinician_order }
       else
         format.html { render action: "new" }
@@ -67,10 +69,12 @@ class ClinicianOrdersController < ApplicationController
   # PUT /clinician_orders/1.json
   def update
     @clinician_order = ClinicianOrder.find(params[:id])
+    @Visit = Visit.find(@clinician_order.visit_id) #reconstruct patient and visit to redirect back to patient  -tg
+    @Patient = Patient.find(@Visit.patient_id)
 
     respond_to do |format|
       if @clinician_order.update_attributes(params[:clinician_order])
-        format.html { redirect_to @clinician_order, notice: 'Clinician order was successfully updated.' }
+        format.html { redirect_to @Patient, notice: 'Clinician order was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

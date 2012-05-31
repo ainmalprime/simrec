@@ -1,5 +1,14 @@
 DeVryEHR::Application.routes.draw do
 
+  match '/home',    :to => 'static_pages#home'
+
+  match '/search',  :to => 'static_pages#search'
+
+  match '/patients/lab_reports/:id', :to => 'patients#lab_reports'
+
+  match '/simulation', :to => 'Application#simulation_mode'
+  match '/edit', :to => 'Application#edit_mode'
+  
   resources :order_types
 
   resources :intake_documents
@@ -17,16 +26,9 @@ DeVryEHR::Application.routes.draw do
 
   root :to => 'static_pages#home'
 
-  match '/home',    :to => 'static_pages#home'
-
-  match '/search',  :to => 'static_pages#search'
-
-  match '/patients/lab_reports/:id', :to => 'patients#lab_reports'
-
-  match '/simulation', :to => 'Application#simulation_mode'
-  match '/edit', :to => 'Application#edit_mode'
 
   resources :medical_administration_records
+  match '/medical_administration_records_ajax_new', :to => 'medical_administration_records#ajax_new'
 
   resources :clinician_notes
   match '/clinician_notes_ajax_new', :to => 'clinician_notes#ajax_new'
