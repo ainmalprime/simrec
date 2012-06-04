@@ -20,23 +20,32 @@
             <li><%= link_to "patient search", search_path %>
           </ul>
         </div>
-        <div id="mode_status">
-          <% if session[:simulation_mode] %>
-            Simulation mode active
-          <% else %>
-            Editing mode active (changes will be commited to database)
-          <% end %>
-        </div>
+        <% if @patient %>
+          <div id="patient-info">
+          
+            Patient ID: 
+            <strong><%= @patient.patientNumber %></strong> 
+            Name: 
+            <strong><%= @patient.firstName %> 
+            <%= @patient.middleInitial %> 
+            <%= @patient.last_name %></strong>
+            DOB: 
+            <strong><%= @patient.dateOfBirth %></strong>
+          
+          </div>
+        <% end %>
+        <% if !session[:simulation_mode] %>
+          <div id="mode_status">
+          
+            <span class="label label-warning">Attention:</span> Editing mode active. 
+            Changes will be reflected in simulation view
+            and retained when the case is reset.
+          </div>
+        <% end %>
       </div>
     </div>
  </header>
- <div class="container">
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+ <div class="container main">
   <%= yield %>
 </div>
 <div id="pop" class="popover" align="center"><a href="javascript:closePopOver('pop');">CLOSE ME</a>

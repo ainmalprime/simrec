@@ -1,5 +1,10 @@
 class FlowSheetRecordsController < ApplicationController
   layout "popover", :only => [:ajax_new]
+  before_filter :record_referrer
+  def record_referrer
+    session[:return_to] = request.url
+  end
+
   # GET /flow_sheet_records
   # GET /flow_sheet_records.json
   def index

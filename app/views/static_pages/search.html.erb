@@ -1,27 +1,5 @@
+<h1> Patient Search </h1>
+
 <div class="searchBox">
    <%= render "patients/search" %>
-
-   <% if @patients %>
-<div class="row dataRowDark">
-    
-    <div class="span2"><strong>Last Name</strong></div>
-    <div class="span2"><strong>First Name</strong></div>
-    <div class="span2"><strong>Middle Initial </strong></div>
-    <div class="span2"><strong>DOB</strong></div>
-    <div class="span2"><strong>Patient Number</strong></div>
-    <div class="span2"><strong>Action</strong></div>
-  </div>
-
-<% @patients.each do |patient| %>
-<div class="row dataRowDark">
-    
-    <div class="span2"><%= patient.last_name %></div>
-    <div class="span2"><%= patient.firstName %></div>
-    <div class="span2"><%= patient.middleInitial %></div>
-    <div class="span2"><%= patient.dateOfBirth %></div>
-    <div class="span2"><%= patient.patientNumber %></div>
-    <div class="span2 btn-group"><span class="btn"><%= link_to 'Show', patient%></span><span class="btn"><%= link_to 'Delete', patient, :confirm => 'Are you sure?', :method => :delete%></span></div>
-  </div>
-  <% end %>
-<% end %>
- </div>
+</div>

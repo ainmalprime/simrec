@@ -1,4 +1,4 @@
-<h1>New image_file</h1>
+<h1>Upload an image</h1>
 
 <% if params.has_key?(:patient_id) %>
 	<% @patient = Patient.find(params[:patient_id]) %>
@@ -7,4 +7,5 @@
 	<%= render 'form'%>
 <% end %>
 
-<%= link_to 'Back', image_files_path %>
+<%= link_to 'cancel', image_files_path, class: "btn" %>
+</div>

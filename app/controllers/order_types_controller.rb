@@ -1,4 +1,9 @@
 class OrderTypesController < ApplicationController
+   before_filter :record_referrer
+  def record_referrer
+    session[:return_to] = request.url
+  end
+ 
   # GET /order_types
   # GET /order_types.json
   def index

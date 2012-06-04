@@ -1,15 +1,22 @@
 class PatientsController < ApplicationController
-
+  before_filter :record_referrer, except: [:lab_reports]
+  def record_referrer
+    session[:return_to] = request.url
+  end
   
 
   # GET /patients
   # GET /patients.json
   def index
+    session[:current_patient_id] = false
+    @patient = nil
+    
     if params.has_key?(:search)
       @patients = Patient.find :all, :conditions => ["lower(last_name) like ?", "%" + params[:search].downcase + "%"]
     else
       @patients = Patient.all
     end
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,6 +34,7 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
+    session[:current_patient_id] = @patient.id
     
     @visits = @patient.visits
     if params.has_key?(:selectedVisit) 

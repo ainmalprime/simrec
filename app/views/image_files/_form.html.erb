@@ -10,20 +10,25 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="span12">
+      <%= f.label :description %><br />
+      <%= f.text_field :description %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <%= f.label :image_file, "Image file" %><br />
+      <%= f.file_field :image_file %> 
+    <%if params.has_key?(:patient_id)%>
+      <%= hidden_field_tag "patient_id", params[:patient_id] %>
+    <%elsif params.has_key?(:intake_document_id)%>
+      <%= hidden_field_tag "intake_document_id", params[:intake_document_id] %>
+    <%end%>
+    </div>
+  </div>
+<p></p><p></p>  
+  <div class="btn-group" >
+    <%= f.submit "Upload File", class: "btn" %>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :image_file, "Image file" %><br />
-    <%= f.file_field :image_file %> 
-  <%if params.has_key?(:patient_id)%>
-    <%= hidden_field_tag "patient_id", params[:patient_id] %>
-  <%end%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

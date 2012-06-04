@@ -2,4 +2,7 @@
   <%= link_to image_tag("Document.png", :border=>0), lab_and_diagnostic_report %><br />
   <%= lab_and_diagnostic_report.description %> <br />
   <%= lab_and_diagnostic_report.time_released %>
+  <% unless session[:simulation_mode] %>
+  	<%= link_to 'Edit', edit_lab_and_diagnostic_report_path(@lab_and_diagnostic_report), class: "btn" %> 
+  <% end %>
 </div>

@@ -1,4 +1,8 @@
 class LabAndDiagnosticReportsController < ApplicationController
+  before_filter :record_referrer
+  def record_referrer
+    session[:return_to] = request.url
+  end
   # GET /lab_and_diagnostic_reports
   # GET /lab_and_diagnostic_reports.json
   def index

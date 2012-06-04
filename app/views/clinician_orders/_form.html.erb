@@ -22,11 +22,23 @@
       </div>
     <% end %>
   </div>
-  <div class="row-fluid">
-    <div class="span12">
-      <%= f.label :order_type, "Lab study or procedure" %><br />
-      <%= f.collection_select :order_type, OrderType.all, :description, :description%>
-    </div>
+
+  search: <input type="text" id="order_search" size="30" />
+
+  <% @order_type_categories.keys.sort.each do |category| %>
+    [<a id="<%=category%>" ><%=category%></a>]
+  <% end %>
+
+  <div class="search-window">
+    <% @order_type_categories.keys.sort.each do |category| %>
+      <div><h3><%=category%></h3></div>
+      <% for order_type in @order_type_categories[category] %>
+      <div>
+        <%= check_box_tag 'order_types[]', order_type.description %>
+        <%= order_type.description %>
+      </div>
+      <% end %>
+    <% end %>
   </div>
   <div class="row-fluid">
     <div class="span12">

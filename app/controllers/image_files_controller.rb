@@ -1,8 +1,12 @@
 class ImageFilesController < ApplicationController
-
+  before_filter :record_referrer, except: [:code_image, :edit]
+  def record_referrer
+    session[:return_to] = request.url
+  end
+  
   def code_image 
-  @image_data = ImageFile.find(params[:id]) 
-  send_data @image_data.binary_data, :type => @image_data.content_type, :disposition => 'inline'
+    @image_data = ImageFile.find(params[:id]) 
+    send_data @image_data.binary_data, :type => @image_data.content_type, :disposition => 'inline'
   end
 
   # GET /image_files
@@ -48,32 +52,34 @@ class ImageFilesController < ApplicationController
   def create
     @image_file = ImageFile.new(params[:image_file])
     
+    saved = @image_file.save
+
     if params.has_key?(:patient_id) #if there is an associated patient_id, update the patient in question with the new image_file_id -TG
       @patient = Patient.find(params[:patient_id]) 
-
-      respond_to do |format|
-        if @image_file.save
-          @patient.image_file_id = @image_file.id
-          @patient.save
-          format.html { redirect_to edit_patient_path(@patient) , notice: 'Image file was successfully created.' } #redirect to the patient editing view
-          
-          #format.json { render json: @image_file, status: :created, location: @image_file }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @image_file.errors, status: :unprocessable_entity }
-        end
-      end 
+      @patient.image_file_id = @image_file.id
+      @patient.save
+      redirect_location = edit_patient_path(@patient)
+    elsif params.has_key?(:intake_document_id)
+      @intake_document = IntakeDocument.find(params[:intake_document_id]) 
+      @intake_document.image_file_id = @image_file.id
+      @intake_document.save
+      redirect_location = edit_intake_document_path(@intake_document)
     else
-      respond_to do |format|
-        if @image_file.save
-          format.html { redirect_to @image_file , notice: 'Image file was successfully created.' }
+      redirect_location = @image_file
+    end
+
+    respond_to do |format|
+      if saved 
+        format.html { redirect_to redirect_location , notice: 'Image file was successfully created.' }
+        if redirect_location == @image_file
           format.json { render json: @image_file, status: :created, location: @image_file }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @image_file.errors, status: :unprocessable_entity }
         end
+      else
+        format.html { render action: "new" }
+        format.json { render json: @image_file.errors, status: :unprocessable_entity }
       end
     end
+
   
   end
 
@@ -102,16 +108,21 @@ class ImageFilesController < ApplicationController
       @patient = Patient.find(params[:patient_id])
       @patient.image_file_id = nil
       @patient.save
-
-      respond_to do |format|
-        format.html { redirect_to edit_patient_path(@patient) } #go back to the patient view page -TG
-        format.json { head :no_content }
-      end
-    else #if there are no identifying parameters, do the default redirect -TG
-      respond_to do |format|
-        format.html { redirect_to image_files_url }
-        format.json { head :no_content }
-      end
+      redirect_location = @patient
+    elsif params.has_key?(:intake_document_id)
+      @intake_document = IntakeDocument.find(params[:intake_document_id])
+      @intake_document.image_file_id = nil
+      @intake_document.save
+      redirect_location = @intake_document
+    else
+      redirect_location = image_files_url
     end
+
+
+    respond_to do |format|
+      format.html { redirect_to redirect_location }
+      format.json { head :no_content }
+    end
+
   end
 end

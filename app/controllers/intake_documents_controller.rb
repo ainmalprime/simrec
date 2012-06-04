@@ -1,4 +1,9 @@
 class IntakeDocumentsController < ApplicationController
+  before_filter :record_referrer
+  def record_referrer
+    session[:return_to] = request.url
+  end
+
   # GET /intake_documents
   # GET /intake_documents.json
   def index

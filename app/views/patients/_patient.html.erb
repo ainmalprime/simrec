@@ -4,7 +4,7 @@
   <div class="span12 ">
       <div class="patientImage">
       <% if @patient.image_file_id.blank? %> 
-        <%= link_to "Add Image", new_image_file_path(:patient_id => @patient.id, :rte=> "patient"), :class => "btn" %>
+        No image supplied
       <%else%> 
         <%= image_tag("/image/#{@patient.image_file_id}", :alt => "Image") %>
       <% end %>

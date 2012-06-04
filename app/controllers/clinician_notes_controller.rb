@@ -1,9 +1,9 @@
 class ClinicianNotesController < ApplicationController
   layout "popover", :only => [:ajax_new]
-  #def make_sim_copy
-  #  if session[:simulation_mode]
-      
-  #end
+  before_filter :record_referrer
+  def record_referrer
+    session[:return_to] = request.url
+  end
 
   # GET /clinician_notes
   # GET /clinician_notes.json
@@ -61,7 +61,7 @@ class ClinicianNotesController < ApplicationController
 
     respond_to do |format|
       if @clinician_note.save
-        format.html { redirect_to @Patient, :notice => 'Clinician note was successfully created.' }
+        format.html { redirect_to session[:return_to], :notice => 'Clinician note was successfully created.' }
         format.json { render :json => @clinician_note, :status => :created, :location => @clinician_note }
       else
         format.html { render :action => "new" }
@@ -77,7 +77,7 @@ class ClinicianNotesController < ApplicationController
 
     respond_to do |format|
       if @clinician_note.update_attributes(params[:clinician_note])
-        format.html { redirect_to @clinician_note, :notice => 'Clinician note was successfully updated.' }
+        format.html { redirect_to session[:return_to], :notice => 'Clinician note was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

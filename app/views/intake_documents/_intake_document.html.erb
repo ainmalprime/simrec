@@ -1,5 +1,8 @@
 <div class="icon">
   <%= link_to image_tag("Document.png", :border=>0), intake_document %><br />
   <%= intake_document.description %> <br />
-  <%= intake_document.timerecorded %>
+  <%= intake_document.timerecorded %> <br />
+  <% unless session[:simulation_mode] %>
+  	<%= link_to 'Edit', edit_intake_document_path(intake_document), class: "btn" %> 
+  <% end %>
 </div>

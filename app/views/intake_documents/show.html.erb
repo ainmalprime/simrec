@@ -1,25 +1,40 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Visit:</b>
-  <%= @intake_document.visit_id %>
-</p>
-
-<p>
-  <b>Image file:</b>
-  <%= @intake_document.image_file_id %>
-</p>
-
 <p>
   <b>Description:</b>
   <%= @intake_document.description %>
 </p>
 
 <p>
-  <b>Timerecorded:</b>
+  <b>Time posted:</b>
   <%= @intake_document.timerecorded %>
 </p>
+      
+      <% if @intake_document.image_file_id.blank? %> 
+      <% unless session[:simulation_mode] %>
+	      <div id="instruction">Step 2: Upload intake document image</div>
+	       	<%= link_to "Add Image", new_image_file_path(:intake_document_id => @intake_document.id), :class => "btn" %>	
+   	  <% end %>
+      <%else%> 
+      <div class="intake-doc-image">
+        <%= image_tag("/image/#{@intake_document.image_file_id}", :alt => "Image") %> </div>
+        <div class="btn-toolbar">
+        <% unless session[:simulation_mode] %>
+	        <div class="btn-group">
+	        <%= link_to "Change Image", edit_image_file_path(:id => @intake_document.image_file_id, :intake_document_id => @intake_document.id), :class => "btn"%> 
+	        <%= link_to 'Delete Image', image_file_path(:id => @intake_document.image_file_id, :intake_document_id => @intake_document.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
+	        </div>
+        <% end %>
+      <% end %>
 
 
-<%= link_to 'Edit', edit_intake_document_path(@intake_document) %> |
-<%= link_to 'Back', intake_documents_path %>
+
+<% if !session[:simulation_mode] %>
+	<div class="btn-group">
+	<%= link_to 'Edit header', edit_intake_document_path(@intake_document), class: "btn" %>
+	<%= link_to 'Cancel', :back, class: "btn" %>
+	</div>
+<% else %>
+	<%= link_to 'Back', :back, class: "btn" %>
+<% end %>
+</div>
+<p></p>

@@ -1,5 +1,10 @@
 class MedicalAdministrationRecordsController < ApplicationController
   layout "popover", :only => [:ajax_new]
+  before_filter :record_referrer
+  def record_referrer
+    session[:return_to] = request.url
+  end
+
   # GET /medical_administration_records
   # GET /medical_administration_records.json
   def index

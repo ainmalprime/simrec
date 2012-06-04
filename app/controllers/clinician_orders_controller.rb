@@ -1,5 +1,10 @@
 class ClinicianOrdersController < ApplicationController
   layout "popover", :only => [:ajax_new]
+  before_filter :record_referrer
+  def record_referrer
+    session[:return_to] = request.url
+  end
+
   # GET /clinician_orders
   # GET /clinician_orders.json
   def index
@@ -30,6 +35,8 @@ class ClinicianOrdersController < ApplicationController
   def new
     @clinician_order = ClinicianOrder.new
     @clinician_order.visit_id = params[:visit_id]
+    @order_types = OrderType.all
+    @order_type_categories = @order_types.group_by(&:category)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -50,12 +57,19 @@ class ClinicianOrdersController < ApplicationController
   # POST /clinician_orders
   # POST /clinician_orders.json
   def create
-    @clinician_order = ClinicianOrder.new(params[:clinician_order])
+
+    params[:order_types].each do |order_type|
+      @clinician_order = ClinicianOrder.new(params[:clinician_order])
+      @clinician_order.order_type = order_type
+      success = @clinician_order.save
+    end
+    
     @Visit = Visit.find(@clinician_order.visit_id) #reconstruct patient and visit to redirect back to patient  -tg
     @Patient = Patient.find(@Visit.patient_id)
 
+
     respond_to do |format|
-      if @clinician_order.save
+      if 
         format.html { redirect_to @Patient, notice: 'Clinician order was successfully created.' }
         format.json { render json: @clinician_order, status: :created, location: @clinician_order }
       else

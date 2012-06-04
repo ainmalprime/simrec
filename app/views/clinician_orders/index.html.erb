@@ -17,12 +17,12 @@
 <% @clinician_orders.each do |clinician_order| %>
   <tr>
     <td><%= clinician_order.visit_id %></td>
-    <td><%= clinician_order.ordertype %></td>
-    <td><%= clinician_order.ordernote %></td>
-    <td><%= clinician_order.timerecorded %></td>
+    <td><%= clinician_order.order_type %></td>
+    <td><%= clinician_order.note %></td>
+    <td><%= clinician_order.time_recorded %></td>
     <td><%= clinician_order.status %></td>
-    <td><%= clinician_order.timeprocessed %></td>
-    <td><%= clinician_order.retainOnReset %></td>
+    <td><%= clinician_order.time_processed %></td>
+    <td><%= clinician_order.retain_on_reset %></td>
     <td><%= link_to 'Show', clinician_order %></td>
     <td><%= link_to 'Edit', edit_clinician_order_path(clinician_order) %></td>
     <td><%= link_to 'Destroy', clinician_order, confirm: 'Are you sure?', method: :delete %></td>
