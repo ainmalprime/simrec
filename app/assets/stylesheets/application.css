@@ -78,8 +78,9 @@
 
 .bottom {
 	margin-right:10px;
-	position:absolute;
+	position:fixed;
 	bottom:5px;
+	display: block;
 
 }
 
@@ -97,5 +98,11 @@
 	height:125px;
 }
 
+.float-left {
+	float:left;
+}
 
+.clear-both {
+	clear:both;
+}
 

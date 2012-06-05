@@ -1,0 +1,29 @@
+<%= form_for(@lab_report_template) do |f| %>
+  <% if @lab_report_template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lab_report_template.errors.count, "error") %> prohibited this lab_report_template from being saved:</h2>
+
+      <ul>
+      <% @lab_report_template.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row-fluid">
+  <div class="span12">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+</div>
+
+<div class="search-window">
+  <%= f.fields_for :lab_report_fields do |builder| %>
+    <%= render "lab_report_fields", f: builder %>
+  <% end %>
+</div>
+<p><%= link_to_add_fields "Add report field", f, :lab_report_fields %></p>
+<div class="row-fluid">
+  <div class="span12">
+    <%= f.submit "Save", class: "btn" %>
+<% end %>

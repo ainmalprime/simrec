@@ -1,5 +1,7 @@
 DeVryEHR::Application.routes.draw do
 
+  resources :lab_report_templates
+
   match '/home',    :to => 'static_pages#home'
 
   match '/search',  :to => 'static_pages#search'

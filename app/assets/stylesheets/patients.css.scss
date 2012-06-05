@@ -16,13 +16,15 @@
 	border-color:#999;
 	border-width:thin;
 	border-radius: 10px;
-	min-height: 220px;
+	height: 230px;
 	padding-top: 1px;
 	padding-bottom: 2px;
 	padding-left: 2px;
 	padding-right: 2px;
 
 	overflow:auto;
+	
+
 
 	h3 {
 		font-size: small;
@@ -64,5 +66,7 @@ div.patientInfo table {
 #visits, #intakeDocs, #lab_and_diagnostic_reports { 
 margin-left: 10px; 
 }
+
+
 
 
