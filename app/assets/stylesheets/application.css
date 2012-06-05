@@ -78,9 +78,8 @@
 
 .bottom {
 	margin-right:10px;
-	position:fixed;
+	position:absolute;
 	bottom:5px;
-	display: block;
 
 }
 
