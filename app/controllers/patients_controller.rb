@@ -21,23 +21,30 @@ class PatientsController < ApplicationController
     end
     
     unless @selectedVisit.nil?
-      @clinician_notes = get_sim_or_edit_version( "clinician_notes")
-      @clinician_orders = @selectedVisit.clinician_orders.paginate(page: params[:clinician_orders_page], per_page:4)
-      @flow_sheet_records = @selectedVisit.flow_sheet_records.paginate(page: params[:flow_sheet_records_page], per_page:4)
-      @medical_administration_records = @selectedVisit.medical_administration_records.paginate(page: params[:medical_administration_records_page], per_page:4)
+      @clinician_notes = get_sim_or_edit_version("clinician_notes")
+      @clinician_orders = get_sim_or_edit_version("clinician_orders")
+      @flow_sheet_records = get_sim_or_edit_version("flow_sheet_records")
+      @medical_administration_records = get_sim_or_edit_version("medical_administration_records")
+      @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports")
+
       @intake_documents = @selectedVisit.intake_documents.paginate(page: params[:intake_documents_page], per_page:4)
-      @lab_and_diagnostic_reports = @selectedVisit.lab_and_diagnostic_reports.paginate(page: params[:lab_and_diagnostic_reports_page], per_page:4)
     end
   end
 
   def create_resetable_simulation
     get_emr_objects_from_database
     if session[:simulation_mode] && !session[:emr_objects_in_simulation] 
-          @clinician_notes.each do |clinician_note|
-          @clinician_note_copy = clinician_note.dup
-          @clinician_note_copy.sim_session = request.session_options[:id]
-          @clinician_note_copy.save
-          session[:emr_objects_in_simulation] = true
+      copy_objects [@clinician_notes, @clinician_orders, @flow_sheet_records, @lab_and_diagnostic_reports, @medical_administration_records]
+      session[:emr_objects_in_simulation] = true
+    end
+  end
+
+  def copy_objects(objects)
+    objects.each do |collection|
+      collection.each do |item|
+        item_copy = item.dup
+        item_copy.sim_session = request.session_options[:id]
+        item_copy.save
       end
     end
   end
@@ -72,7 +79,7 @@ class PatientsController < ApplicationController
 
   def lab_reports
     @selectedVisit = Visit.find(params[:id])
-    @lab_and_diagnostic_reports = @selectedVisit.lab_and_diagnostic_reports
+    @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports")
     render :partial => "lab_and_diagnostic_reports"
   end
 

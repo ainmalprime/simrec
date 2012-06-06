@@ -21,7 +21,6 @@
   <!--begin row 4-->
   <div class="row-fluid elementLayoutMargin">
     <%= render "clinician_orders" %>
-    <% lab_and_diagnostic_reports = render "lab_and_diagnostic_reports" %>
     <%= javascript_tag "$(document).ready( function(){setInterval(function(){ $('#reports').load('lab_reports/#{@selectedVisit.id}'); }, 9000);})" %>
     <div id="reports">
       <%=render "lab_and_diagnostic_reports"%>
