@@ -1,5 +1,5 @@
 class Visit < ActiveRecord::Base
-  	attr_accessible :chiefComplaint, :dischargeDiagnosis, :isActiveSim, :mrNumber, :patient_id, :visittime
+  	attr_accessible :chiefComplaint, :dischargeDiagnosis, :mrNumber, :patient_id, :visittime
    	validates :patient_id, presence: true
    	validates :visittime, presence: true
    	validates :chiefComplaint, presence: true

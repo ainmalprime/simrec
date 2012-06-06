@@ -46,12 +46,6 @@
       <%= f.text_field :dischargeDiagnosis %>
     </div>
   </div>
-  <div class="row_fluid">
-    <div class="span12">
-      <%= f.label :isActiveSim, "Is this the simulation case?" %><br />
-      <%= f.select(:isActiveSim, options_for_select([['no', 0], ['yes', 1]])) %>
-    </div>
-  </div>
   <div style="row_fluid">
     <div class="btn-group span12" >
       <%= f.submit 'Save visit', :class => "btn" %>

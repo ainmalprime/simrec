@@ -1,9 +1,55 @@
 class PatientsController < ApplicationController
   before_filter :record_referrer, except: [:lab_reports]
+  before_filter :create_resetable_simulation, except: [:index]
+
+
   def record_referrer
     session[:return_to] = request.url
   end
   
+
+  def get_emr_objects_from_database
+    @patient = Patient.find(params[:id])
+    session[:current_patient_id] = @patient.id
+    
+    @visits = @patient.visits
+    if params.has_key?(:selectedVisit) 
+
+      @selectedVisit = @patient.visits.find(params[:selectedVisit])
+    else
+      @selectedVisit = @patient.visits.first
+    end
+    
+    unless @selectedVisit.nil?
+      @clinician_notes = get_sim_or_edit_version( "clinician_notes")
+      @clinician_orders = @selectedVisit.clinician_orders.paginate(page: params[:clinician_orders_page], per_page:4)
+      @flow_sheet_records = @selectedVisit.flow_sheet_records.paginate(page: params[:flow_sheet_records_page], per_page:4)
+      @medical_administration_records = @selectedVisit.medical_administration_records.paginate(page: params[:medical_administration_records_page], per_page:4)
+      @intake_documents = @selectedVisit.intake_documents.paginate(page: params[:intake_documents_page], per_page:4)
+      @lab_and_diagnostic_reports = @selectedVisit.lab_and_diagnostic_reports.paginate(page: params[:lab_and_diagnostic_reports_page], per_page:4)
+    end
+  end
+
+  def create_resetable_simulation
+    get_emr_objects_from_database
+    if session[:simulation_mode] && !session[:emr_objects_in_simulation] 
+          @clinician_notes.each do |clinician_note|
+          @clinician_note_copy = clinician_note.dup
+          @clinician_note_copy.sim_session = request.session_options[:id]
+          @clinician_note_copy.save
+          session[:emr_objects_in_simulation] = true
+      end
+    end
+  end
+
+  def get_sim_or_edit_version(collection)
+    if !session[:simulation_mode] or !session[:emr_objects_in_simulation]
+      object = @selectedVisit.send(collection).find(:all, conditions: ["sim_session IS NULL"])
+    else
+      object = @selectedVisit.send(collection).find(:all, conditions: ["sim_session = ?", request.session_options[:id]])
+    end
+  end
+
 
   # GET /patients
   # GET /patients.json
@@ -33,27 +79,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
-    @patient = Patient.find(params[:id])
-    session[:current_patient_id] = @patient.id
-    
-    @visits = @patient.visits
-    if params.has_key?(:selectedVisit) 
-
-      @selectedVisit = @patient.visits.find(params[:selectedVisit])
-    else
-      @selectedVisit = @patient.visits.first
-    end
-    
-    unless @selectedVisit.nil?
-      @clinician_notes = @selectedVisit.clinician_notes
-      @clinician_orders = @selectedVisit.clinician_orders
-      @flow_sheet_records = @selectedVisit.flow_sheet_records
-      @medical_administration_records = @selectedVisit.medical_administration_records
-      @intake_documents = @selectedVisit.intake_documents
-      @lab_and_diagnostic_reports = @selectedVisit.lab_and_diagnostic_reports
-    end
-
-
+    get_emr_objects_from_database
 
     respond_to do |format|
 

@@ -1,6 +1,7 @@
 class ClinicianNotesController < ApplicationController
   layout "popover", :only => [:ajax_new]
-  before_filter :record_referrer
+  before_filter :record_referrer, except: [:create, :new, :ajax_new]
+
   def record_referrer
     session[:return_to] = request.url
   end
@@ -56,6 +57,15 @@ class ClinicianNotesController < ApplicationController
   # POST /clinician_notes.json
   def create
     @clinician_note = ClinicianNote.new(params[:clinician_note])
+    
+    #if simulation mode is active, add the session id to the note so that 
+    #it is only available to the current sim session and will be deleted 
+    #when the sim session is reset -tg
+    if session[:simulation_mode] 
+      @clinician_note.sim_session = request.session_options[:id]
+      @action_log_entry = ActionLogEntry.create({description: "clinician note entered", content: "type: #{@clinician_note.note_type}<br /> note: <br /> #{@clinician_note.note_text} <br /> signature: <br /> #{@clinician_note.clinician_signature}", sim_session: request.session_options[:id]})
+    end
+    
     @Visit = Visit.find(@clinician_note.visit_id) #reconstruct patient and visit to redirect back to patient  -tg
     @Patient = Patient.find(@Visit.patient_id)
 

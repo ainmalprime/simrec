@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605175345) do
+ActiveRecord::Schema.define(:version => 20120606194227) do
+
+  create_table "action_log_entries", :force => true do |t|
+    t.string   "description"
+    t.text     "content"
+    t.text     "sim_session"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "clinician_notes", :force => true do |t|
     t.integer  "visit_id"
@@ -19,9 +27,9 @@ ActiveRecord::Schema.define(:version => 20120605175345) do
     t.string   "note_type"
     t.text     "note_text",           :limit => 255
     t.string   "clinician_signature"
-    t.integer  "retain_on_reset"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sim_session"
   end
 
   create_table "clinician_orders", :force => true do |t|
@@ -31,10 +39,10 @@ ActiveRecord::Schema.define(:version => 20120605175345) do
     t.datetime "time_recorded"
     t.string   "status"
     t.datetime "time_processed"
-    t.integer  "retain_on_reset"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "clincian_signature"
+    t.string   "sim_session"
   end
 
   create_table "flow_sheet_records", :force => true do |t|
@@ -53,10 +61,10 @@ ActiveRecord::Schema.define(:version => 20120605175345) do
     t.string   "output_blood"
     t.string   "output_other"
     t.string   "output_other_description"
-    t.integer  "retain_on_reset"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
     t.string   "heart_rate"
+    t.string   "sim_session"
   end
 
   create_table "image_files", :force => true do |t|
@@ -88,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20120605175345) do
     t.datetime "updated_at",         :null => false
     t.string   "description"
     t.datetime "time_released"
+    t.string   "sim_session"
   end
 
   create_table "lab_report_fields", :force => true do |t|
@@ -109,9 +118,9 @@ ActiveRecord::Schema.define(:version => 20120605175345) do
     t.string   "actionDescription"
     t.string   "actionDetails"
     t.string   "clinicianSignature"
-    t.integer  "retainOnReset"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "sim_session"
   end
 
   create_table "order_types", :force => true do |t|
@@ -160,7 +169,6 @@ ActiveRecord::Schema.define(:version => 20120605175345) do
     t.string   "mrNumber"
     t.string   "chiefComplaint"
     t.string   "dischargeDiagnosis"
-    t.integer  "isActiveSim"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.datetime "visittime"

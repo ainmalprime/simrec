@@ -10,6 +10,8 @@ DeVryEHR::Application.routes.draw do
 
   match '/simulation', :to => 'Application#simulation_mode'
   match '/edit', :to => 'Application#edit_mode'
+  match '/reset_sim', to: 'Application#reset_sim'
+  match '/review', to: 'Application#review'
   
   resources :order_types
 

@@ -7,7 +7,6 @@
     <th>Note type</th>
     <th>Note text</th>
     <th>Clinician Signature</th>
-    <th>Retain On Reset</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,7 +19,6 @@
     <td><%= clinician_note.note_type %></td>
     <td><%= clinician_note.note_text %></td>
     <td><%= clinician_note.clinician_signature %></td>
-    <td><%= clinician_note.retain_on_reset %></td>
     <td><%= link_to 'Show', clinician_note %></td>
     <td><%= link_to 'Edit', edit_clinician_note_path(clinician_note) %></td>
     <td><%= link_to 'Destroy', clinician_note, :confirm => 'Are you sure?', :method => :delete %></td>

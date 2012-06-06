@@ -1,0 +1,10 @@
+<h1> Simulation Session Recap </h1>
+
+<p> The following information was recorded in the EMR during this simulation: </p>
+
+<% @action_log_entries.each do |log_entry| %>
+	<h2><%=raw log_entry.description%></h2>
+	<p><%=raw log_entry.content%></p>
+<% end %>
+
+<%= link_to 'reset simulation', reset_sim_path %>
