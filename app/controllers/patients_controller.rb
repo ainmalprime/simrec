@@ -21,11 +21,12 @@ class PatientsController < ApplicationController
     end
     
     unless @selectedVisit.nil?
-      @clinician_notes = get_sim_or_edit_version("clinician_notes")
-      @clinician_orders = get_sim_or_edit_version("clinician_orders")
-      @flow_sheet_records = get_sim_or_edit_version("flow_sheet_records")
-      @medical_administration_records = get_sim_or_edit_version("medical_administration_records")
-      @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports")
+      @clinician_notes = get_sim_or_edit_version("clinician_notes", false)
+      @clinician_orders = get_sim_or_edit_version("clinician_orders", false)
+      @flow_sheet_records = get_sim_or_edit_version("flow_sheet_records", false)
+      @medical_administration_records = get_sim_or_edit_version("medical_administration_records", false)
+      find_releasable_reports
+      @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports", true)
 
       @intake_documents = @selectedVisit.intake_documents.paginate(page: params[:intake_documents_page], per_page:4)
     end
@@ -49,11 +50,15 @@ class PatientsController < ApplicationController
     end
   end
 
-  def get_sim_or_edit_version(collection)
+  def get_sim_or_edit_version(collection, checkvisibility)
     if !session[:simulation_mode] or !session[:emr_objects_in_simulation]
       object = @selectedVisit.send(collection).find(:all, conditions: ["sim_session IS NULL"])
     else
-      object = @selectedVisit.send(collection).find(:all, conditions: ["sim_session = ?", request.session_options[:id]])
+      if checkvisibility
+        object = @selectedVisit.send(collection).find(:all, conditions: ["sim_session = ? and visible = 1", request.session_options[:id]])
+      else
+        object = @selectedVisit.send(collection).find(:all, conditions: ["sim_session = ?", request.session_options[:id]])
+      end
     end
   end
 
@@ -78,9 +83,32 @@ class PatientsController < ApplicationController
   end
 
   def lab_reports
+    #called by the lab reports pane when it automatically refreshes to see if any reports
+    #are available -tg
     @selectedVisit = Visit.find(params[:id])
-    @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports")
+    find_releasable_reports
+    @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports", true)
     render :partial => "lab_and_diagnostic_reports"
+  end
+
+  def find_releasable_reports
+    @clinician_orders = @selectedVisit.clinician_orders.find(:all, conditions: ["sim_session = ?", request.session_options[:id]])
+   
+   @clinician_orders.each do |clinician_order|
+      #if a clinician order's order_type matches the lab report's order_type, 
+      #check to see if the proper amount of time has elapsed since the order
+      #was placed -tg
+      @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports", false)
+      if @lab_and_diagnostic_reports 
+        @lab_and_diagnostic_reports.each do |lab_report|
+          if (clinician_order.time_recorded < lab_report.release_delay.to_i.minutes.ago)
+            lab_report.visible = true
+            lab_report.time_released = Time.now
+            lab_report.save
+          end
+        end
+      end
+    end
   end
 
   # GET /patients/1

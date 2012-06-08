@@ -10,16 +10,17 @@
       </ul>
     </div>
   <% end %>
-      <% if @intake_document.visit_id.blank?%> 
-      <div class="span12">
-        <%= f.label :visit_id %><br />
-        <%= f.number_field :visit_id %>
-      </div>
-     <% else %>
-      <div class="span12">
-        <%= f.hidden_field :visit_id %>
-      </div>
-    <% end %>
+  
+  <%if @intake_document.visit_id.blank?%> 
+    <div class="span12">
+      <%= f.label :visit_id %><br />
+      <%= f.number_field :visit_id %>
+    </div>
+   <% else %>
+    <div class="span12">
+      <%= f.hidden_field :visit_id %>
+    </div>
+  <% end %>
   
   <div class="span12">
     <%= f.label :timerecorded, "Document time stamp" %><br />

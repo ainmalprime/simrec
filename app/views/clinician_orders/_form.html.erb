@@ -63,31 +63,42 @@ function filter(selector, query) {
     <% end %>
   </div>
 
+<% unless params[:action] == "edit" %>
 
-
-<div id="search">
-  <label for="filter">Search Order Types</label> <input type="text" name="filter" value="" id="filter" />
-</div>
-  <div id="search-window">
-  <table cellpadding="1" cellspacing="1" id="resultTable">
-    <thead>
-      <tr>
-        <th>Order Type</th>
-      </tr> 
-    </thead>
-    <tbody>
-      <% @order_type_categories.keys.sort.each do |category| %>
-        <tr><td><h3><%=category%></h3></td></tr>
-        <% for order_type in @order_type_categories[category] %>
-        <tr><td>
-          <%= check_box_tag 'order_types[]', order_type.description %> 
-          <%= order_type.description %>
-       </td></tr>
+  <div id="search">
+    <label for="filter">Search Order Types</label> <input type="text" name="filter" value="" id="filter" />
+  </div>
+    <div id="search-window">
+    <table cellpadding="1" cellspacing="1" id="resultTable">
+      <thead>
+        <tr>
+          <th>Order Type</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <% @order_type_categories.keys.sort.each do |category| %>
+          <tr><td><h3><%=category%></h3></td></tr>
+          <% for order_type in @order_type_categories[category] %>
+          <tr><td>
+            <%= check_box_tag 'order_types[]', order_type.description %> 
+            <%= order_type.description %>
+         </td></tr>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
- </div>
+      </tbody>
+    </table>
+   </div>
+ <%else%>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :order_type %><br />
+      <%= f.hidden_field :order_type%>
+      <div class="uneditable-data">
+        <%= @clinician_order.order_type %>
+      </div>
+    </div>
+  </div>
+ <%end%>
   <div class="row-fluid">
     <div class="span12">
       <%= f.label :time_recorded %><br />
@@ -97,17 +108,17 @@ function filter(selector, query) {
   <div class="row-fluid">
     <div class="span12">
       <%= f.label :note %><br />
-      <%= f.text_field :note %>
+      <%= f.text_area :note, rows: 5 %>
     </div>
   </div>
 
   <% if !session[:simulation_mode]%>
     <div class="row-fluid">
-      <div class="span6">
+      <div class="span4">
         <%= f.label :status %><br />
         <%= f.text_field :status %>
       </div>
-      <div class="span6">
+      <div class="span8">
         <%= f.label :time_processed %><br />
         <%= f.datetime_select :time_processed %>
       </div>

@@ -2,21 +2,14 @@
  *= require_self
  *= require_tree
  */
+
+
+
 .main {
 	margin: 80px 0px 20px 0px;
 }
 
-h1, h2, h3, h4, h5 {
-	color:gray;
-}
 
-h1 {
-	font-size:18px;
-}
-
-h2 {
-	font-size:14px;
-}
 
 #logo {
  	Color: white;
@@ -41,6 +34,7 @@ h2 {
 
 #patient-info {
 	margin-top:10px;
+	padding-right:10px;
     border-style:solid;
     border-width:thin;	
     border-color:gray;
@@ -103,11 +97,7 @@ h2 {
 	background-color: #EEE;
 }
 
-.icon {
-	float:left;
-	width:150px;
-	height:125px;
-}
+
 
 .float-left {
 	float:left;
@@ -115,6 +105,15 @@ h2 {
 
 .clear-both {
 	clear:both;
+}
+
+.uneditable-data {
+	border-color:gray;
+	border-width:thin;
+	border-style:solid;
+	margin-bottom:20px;
+	min-width:100px;
+	width:50%;
 }
 
 #search-window {

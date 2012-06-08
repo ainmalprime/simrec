@@ -1,43 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Visit:</b>
-  <%= @lab_and_diagnostic_report.visit_id %>
-</p>
+<h2>  <%= @lab_and_diagnostic_report.order_type %></h2>
 
-<p>
-  <b>Clinician order:</b>
-  <%= @lab_and_diagnostic_report.clinician_order_id %>
-</p>
 
-<p>
-  <b>Image file:</b>
-  <%= @lab_and_diagnostic_report.image_file_id %>
-</p>
 
-<p>
-  <b>Release delay:</b>
-  <%= @lab_and_diagnostic_report.release_delay %>
-</p>
-
-<p>
-  <b>Visible:</b>
-  <%= @lab_and_diagnostic_report.visible %>
-</p>
-<p>
-  <b>Description:</b>
-  <%= @lab_and_diagnostic_report.description %>
-</p>
 <p>
   <b>released at:</b>
   <%= @lab_and_diagnostic_report.time_released %>
 </p>
 
+
+
+      <% if @lab_and_diagnostic_report.image_file_id.blank? %> 
+      <% unless session[:simulation_mode] %>
+        <div id="instruction">Step 2: Upload intake document image</div>
+          <%= link_to "Add Image", new_image_file_path(:lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), :class => "btn" %>  
+      <% end %>
+      <%else%> 
+      <div class="intake-doc-image">
+        <%= image_tag("/image/#{@lab_and_diagnostic_report.image_file_id}", :alt => "Image") %> </div>
+        <div class="btn-toolbar">
+        <% unless session[:simulation_mode] %>
+          <div class="btn-group">
+          <%= link_to "Change Image", edit_image_file_path(:id => @lab_and_diagnostic_report.image_file_id, :lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), :class => "btn"%> 
+          <%= link_to 'Delete Image', image_file_path(:id => @lab_and_diagnostic_report.image_file_id, :lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
+          </div>
+        <% end %>
+      <% end %>
 <p>
-  <b>Result text:</b>
-  <%= @lab_and_diagnostic_report.result_text %>
+  <h3>Note</h3>
+  <div class="note">
+    <%= @lab_and_diagnostic_report.result_text %>
+  </div>  
 </p>
 
 
 <%= link_to 'Edit', edit_lab_and_diagnostic_report_path(@lab_and_diagnostic_report) %> |
-<%= link_to 'Back', lab_and_diagnostic_reports_path %>
+<%= link_to 'Back', :back %>

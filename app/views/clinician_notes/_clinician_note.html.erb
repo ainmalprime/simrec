@@ -1,6 +1,11 @@
 <div class="row-fluid dataRow">
 	<div class="span4"><%= clinician_note.time_recorded %></div>
-	<div class="span3"><%= clinician_note.note_type %></div>
+	<div class="span1"><%= clinician_note.note_type %></div>
 	<div class="span4"><%= clinician_note.clinician_signature %></div>
-	<div class="span1"><%= link_to 'Show', clinician_note %></div>
+	<div class="span3"><%= link_to 'Show', clinician_note %>
+		<% unless session[:simulation_mode] %>
+			<%= link_to 'Edit', edit_clinician_note_path(clinician_note) %>
+			<%= link_to 'Delete', clinician_note, confirm: 'Are you sure?', method: :delete %>
+		<% end %>
+	</div>
 </div>

@@ -1,10 +1,5 @@
 class ClinicianNotesController < ApplicationController
-  layout "popover", :only => [:ajax_new]
-  before_filter :record_referrer, except: [:create, :new, :ajax_new]
-
-  def record_referrer
-    session[:return_to] = request.url
-  end
+  layout "popover", only: [:ajax_new]
 
   # GET /clinician_notes
   # GET /clinician_notes.json

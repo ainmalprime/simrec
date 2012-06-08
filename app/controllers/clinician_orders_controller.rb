@@ -1,9 +1,6 @@
 class ClinicianOrdersController < ApplicationController
   layout "popover", :only => [:ajax_new]
-  before_filter :record_referrer
-  def record_referrer
-    session[:return_to] = request.url
-  end
+
 
   # GET /clinician_orders
   # GET /clinician_orders.json
@@ -61,9 +58,17 @@ class ClinicianOrdersController < ApplicationController
     params[:order_types].each do |order_type|
       @clinician_order = ClinicianOrder.new(params[:clinician_order])
       @clinician_order.order_type = order_type
+      if session[:simulation_mode] 
+        @clinician_order.sim_session = request.session_options[:id]
+        @action_log_entry = ActionLogEntry.create({description: "order entered", content: "<h3>type:</h3> #{@clinician_order.order_type} <h3> note: </h3> #{@clinician_order.note} <h3> signature: </h3> #{@clinician_order.clincian_signature}", sim_session: request.session_options[:id]}) 
+      end   
       success = @clinician_order.save
     end
-    
+    #if simulation mode is active, add the session id to the note so that 
+    #it is only available to the current sim session and will be deleted 
+    #when the sim session is reset -tg
+
+
     @Visit = Visit.find(@clinician_order.visit_id) #reconstruct patient and visit to redirect back to patient  -tg
     @Patient = Patient.find(@Visit.patient_id)
 
@@ -104,7 +109,7 @@ class ClinicianOrdersController < ApplicationController
     @clinician_order.destroy
 
     respond_to do |format|
-      format.html { redirect_to clinician_orders_url }
+      format.html { redirect_to session[:return_to] }
       format.json { head :no_content }
     end
   end

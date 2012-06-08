@@ -64,6 +64,11 @@ class ImageFilesController < ApplicationController
       @intake_document.image_file_id = @image_file.id
       @intake_document.save
       redirect_location = edit_intake_document_path(@intake_document)
+    elsif params.has_key?(:lab_and_diagnostic_report_id)
+      @lab_and_diagnostic_report = LabAndDiagnosticReport.find(params[:lab_and_diagnostic_report_id]) 
+      @lab_and_diagnostic_report.image_file_id = @image_file.id
+      @lab_and_diagnostic_report.save
+      redirect_location = edit_lab_and_diagnostic_report_path(@lab_and_diagnostic_report)
     else
       redirect_location = @image_file
     end
@@ -114,6 +119,11 @@ class ImageFilesController < ApplicationController
       @intake_document.image_file_id = nil
       @intake_document.save
       redirect_location = @intake_document
+    elsif params.has_key?(:lab_and_diagnostic_report_id)
+      @lab_and_diagnostic_report = LabAndDiagnosticReport.find(params[:lab_and_diagnostic_report_id])
+      @lab_and_diagnostic_report.image_file_id = nil
+      @lab_and_diagnostic_report.save
+      redirect_location = @lab_and_diagnostic_report
     else
       redirect_location = image_files_url
     end

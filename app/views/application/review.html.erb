@@ -3,8 +3,13 @@
 <p> The following information was recorded in the EMR during this simulation: </p>
 
 <% @action_log_entries.each do |log_entry| %>
-	<h2><%=raw log_entry.description%></h2>
+	<div class="action-log-entry">
+	<h2><%=log_entry.created_at %></h2>
+	<h3><%=raw log_entry.description%></h3>
 	<p><%=raw log_entry.content%></p>
+	</div>
+
 <% end %>
+
 
 <%= link_to 'reset simulation', reset_sim_path %>

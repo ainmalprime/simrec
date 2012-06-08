@@ -1,3 +1,42 @@
+<%= javascript_tag "
+
+$(document).ready(function() {
+  
+  $('tbody tr').hover(function(){
+    $(this).find('td').addClass('hovered');
+  }, function(){
+    $(this).find('td').removeClass('hovered');
+  });
+  
+  $('tbody tr').addClass('visible');
+  
+  $('#search').show();
+  
+  $('#filter').keyup(function(event) {
+    
+    if (event.keyCode == 27 || $(this).val() == '') {
+      
+      $(this).val('');
+      
+      $('tbody tr').removeClass('visible').show().addClass('visible');
+    }
+
+    //if there is text, lets filter
+    else {
+      filter('tbody tr', $(this).val());
+    }
+  });
+});
+
+function filter(selector, query) {
+  query = $.trim(query); 
+  query = query.replace(/ /gi, '|'); 
+
+  $(selector).each(function() {
+    ($(this).text().search(new RegExp(query, 'i')) < 0) ? $(this).hide().removeClass('visible') : $(this).show().addClass('visible');
+  });
+}
+" %>
 <%= form_for(@lab_and_diagnostic_report) do |f| %>
   <% if @lab_and_diagnostic_report.errors.any? %>
     <div id="error_explanation">
@@ -11,39 +50,108 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :visit_id %><br />
-    <%= f.number_field :visit_id %>
+<div class="row-fluid">
+  <%if @lab_and_diagnostic_report.visit_id.blank?%> 
+    <div class="span12">
+      <%= f.label :visit_id %><br />
+      <%= f.number_field :visit_id %>
+    </div>
+   <% else %>
+    <div class="span12">
+      <%= f.hidden_field :visit_id %>
+    </div>
+  <% end %>
   </div>
-  <div class="field">
-    <%= f.label :clinician_order_id %><br />
-    <%= f.number_field :clinician_order_id %>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :time_released %><br />
+      <%= f.datetime_select :time_released %>
+    </div> 
   </div>
-  <div class="field">
-    <%= f.label :image_file_id %><br />
-    <%= f.number_field :image_file_id %>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :visible %><br />
+      <%= f.select :visible, [["yes", 1], ["no", 0]]%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :release_delay %><br />
-    <%= f.number_field :release_delay %>
+
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :release_delay %><br />
+      <%= f.number_field :release_delay, size: 5%> minutes
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :visible %><br />
-    <%= f.number_field :visible %>
+
+<% unless params[:action] == "edit" %>
+<div id="search">
+  <label for="filter">Search Order Types</label> <input type="text" name="filter" value="" id="filter" />
+</div>
+
+  <div id="search-window">
+  <table cellpadding="1" cellspacing="1" id="resultTable">
+    <thead>
+      <tr>
+        <th>Order Type</th>
+      </tr> 
+    </thead>
+    <tbody>
+      <% @order_type_categories.keys.sort.each do |category| %>
+        <tr><td><h3><%=category%></h3></td></tr>
+        <% for order_type in @order_type_categories[category] %>
+        <tr><td>
+          <%= check_box_tag 'order_types[]', order_type.description %> 
+          <%= order_type.description %>
+       </td></tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+ </div>
+
+<% else %>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :order_type %><br />
+      <%= f.hidden_field :order_type%>
+      <div class="uneditable-data">
+        <%= @lab_and_diagnostic_report.order_type %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+<% end %>
+
+
+  <div class="row-fluid">
+    <div class="span12">
+      <%= f.label :result_text %><br />
+      <%= f.text_area :result_text %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :time_released %><br />
-    <%= f.datetime_select :time_released %>
-  </div> 
-  <div class="field">
-    <%= f.label :result_text %><br />
-    <%= f.text_area :result_text %>
+
+    <% unless params[:action] == "new" %>
+    
+  <div class="row-fluid">
+    <div class="span12">  
+        <%= f.label :image_file_id %><br />
+        <%= f.hidden_field :image_file_id %>
+        <% if @lab_and_diagnostic_report.image_file_id.blank? %>
+          <%= link_to "Add Image", new_image_file_path(:lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), :class => "btn" %>
+        <% else %>
+          <%= image_tag("/image/#{@lab_and_diagnostic_report.image_file_id}", :alt => "Image") %>
+          <div class="btn-toolbar" style="position:relative;">
+            <div class="btn-group" style="top:-9px;">
+            <%= link_to "change image", edit_image_file_path(:id => @lab_and_diagnostic_report.image_file_id, :lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), :class => "btn"%> 
+            <%= link_to 'Delete image', image_file_path(:id => @lab_and_diagnostic_report.image_file_id, :lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
+            </div>
+        <% end %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+    
+  <% end %>
+  <div class="row-fluid">
+    <div class="span12">
+    <%= f.submit "save", class: "btn" %>
   </div>
 <% end %>

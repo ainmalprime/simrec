@@ -1,19 +1,23 @@
 <div class="row-fluid dataRow" style="height:35px;overflow:hidden;">
-<div class="span2">
+<div class="span3">
   <%= clinician_order.time_recorded %>
 </div>
 
-<div class="span3">
-  <%= clinician_order.order_type %>
-
-</div>
-<div class="span3">
-  <%= clinician_order.clincian_signature %>
-</div>
-
 <div class="span4">
-  <%= clinician_order.time_processed %>
-   <br/> <%= clinician_order.status %>
+  <%= clinician_order.order_type %><br />
+  <%= clinician_order.note %>
+</div>
+<div class="span2">
+  <%= clinician_order.clincian_signature %><br />
+  <%= clinician_order.status %>
 </div>
 
+
+<div class"span3">
+<%= link_to 'Show', clinician_order %> 
+<% unless session[:simulation_mode] %>
+	<%= link_to 'Edit', edit_clinician_order_path(clinician_order) %>
+	<%= link_to 'Delete', clinician_order, confirm: 'Are you sure?', method: :delete %>
+<% end %>
+</div>
 </div>

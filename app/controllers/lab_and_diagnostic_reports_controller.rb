@@ -1,8 +1,5 @@
 class LabAndDiagnosticReportsController < ApplicationController
-  before_filter :record_referrer
-  def record_referrer
-    session[:return_to] = request.url
-  end
+
   # GET /lab_and_diagnostic_reports
   # GET /lab_and_diagnostic_reports.json
   def index
@@ -29,6 +26,9 @@ class LabAndDiagnosticReportsController < ApplicationController
   # GET /lab_and_diagnostic_reports/new.json
   def new
     @lab_and_diagnostic_report = LabAndDiagnosticReport.new
+    @lab_and_diagnostic_report.visit_id = params[:visit_id]
+    @order_types = OrderType.all
+    @order_type_categories = @order_types.group_by(&:category)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,8 +44,13 @@ class LabAndDiagnosticReportsController < ApplicationController
   # POST /lab_and_diagnostic_reports
   # POST /lab_and_diagnostic_reports.json
   def create
-    @lab_and_diagnostic_report = LabAndDiagnosticReport.new(params[:lab_and_diagnostic_report])
-    @lab_and_diagnostic_report.result_text = "test report"
+    #@lab_and_diagnostic_report = LabAndDiagnosticReport.new(params[:lab_and_diagnostic_report])
+    #@lab_and_diagnostic_report.result_text = "test report"
+    params[:order_types].each do |order_type|
+      @lab_and_diagnostic_report = LabAndDiagnosticReport.new(params[:lab_and_diagnostic_report])
+      @lab_and_diagnostic_report.order_type = order_type
+      success = @lab_and_diagnostic_report.save
+    end
 
     respond_to do |format|
       if @lab_and_diagnostic_report.save
@@ -67,7 +72,7 @@ class LabAndDiagnosticReportsController < ApplicationController
 
     respond_to do |format|
       if @lab_and_diagnostic_report.update_attributes(params[:lab_and_diagnostic_report])
-        format.html { redirect_to @lab_and_diagnostic_report, notice: 'Lab and diagnostic report was successfully updated.' }
+        format.html { redirect_to session[:return_to], notice: 'Lab and diagnostic report was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -83,7 +88,7 @@ class LabAndDiagnosticReportsController < ApplicationController
     @lab_and_diagnostic_report.destroy
 
     respond_to do |format|
-      format.html { redirect_to lab_and_diagnostic_reports_url }
+      format.html { redirect_to session[:return_to] }
       format.json { head :no_content }
     end
   end

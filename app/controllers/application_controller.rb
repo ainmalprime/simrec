@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
 
 
   def prepare_session
-    # session[:emr_objects_in_simulation] = false
   	if session[:simulation_mode].nil?
   		session[:simulation_mode] = true
 
@@ -36,12 +35,7 @@ class ApplicationController < ActionController::Base
   end
 
   def simulation_mode
-  	session[:simulation_mode] = true
-
-  	respond_to do |format|
-      format.html {redirect_to session[:return_to], :notice => 'simulation mode activated'}
-      #format.json { render :json => 'simulation_mode' }
-    end
+    reset_sim
   end
  
   def edit_mode
@@ -49,7 +43,6 @@ class ApplicationController < ActionController::Base
 
   	respond_to do |format|
       format.html {redirect_to session[:return_to], :notice => 'edit mode activated'}
-      #format.json { render :json => 'simulation_mode' }
     end
   end
 

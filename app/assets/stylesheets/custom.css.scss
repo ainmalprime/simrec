@@ -11,6 +11,30 @@
 	#mar {
 		margin-bottom:20px;
 	}
+	h1, h2, h3, h4, h5 {
+		color:gray;
+	}
+
+	h1 {
+		font-size:18px;
+	}
+
+	h2 {
+		font-size:14px;
+	}
+
+	h3 {
+		font-size:12px;
+	}
+
+	.note {
+		border-width:thin;
+		border-style:solid;
+		border-color:gray;
+		min-width:700px;
+		widht:80%;
+		min-height:400px;
+	}
 }
 
  .field, .actions{ 
@@ -39,4 +63,12 @@
 	}
 
 
+}
+
+.action-log-entry{
+	border-style:solid;
+	border-color:#999;
+	border-width:thin;
+	border-radius: 10px;
+	padding: 10px;	
 }
