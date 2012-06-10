@@ -41,6 +41,8 @@ DeVryEHR::Application.routes.draw do
 
   resources :patients
 
+  resources :sessions
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

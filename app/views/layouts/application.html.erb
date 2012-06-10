@@ -23,13 +23,13 @@
         <% if @patient %>
           <div id="patient-info">
             Patient ID: 
-            <strong><%= @patient.patientNumber %></strong> 
+            <strong><%= @patient.patient_number %></strong> 
             Name: 
-            <strong><%= @patient.firstName %> 
-            <%= @patient.middleInitial %> 
+            <strong><%= @patient.first_name %> 
+            <%= @patient.middle_initial %> 
             <%= @patient.last_name %></strong>
             DOB: 
-            <strong><%= @patient.dateOfBirth %></strong>
+            <strong><%= @patient.date_of_birth %></strong>
             <%= link_to 'display', @patient, class: "nav pull-right" %>
           </div>
         <% end %>

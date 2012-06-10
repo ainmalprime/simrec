@@ -108,7 +108,8 @@ function filter(selector, query) {
   <div class="row-fluid">
     <div class="span12">
       <%= f.label :note %><br />
-      <%= f.text_area :note, rows: 5 %>
+      <%= f.text_area :note, :class => "tinymce textarea"%>
+      <%= tinymce %>
     </div>
   </div>
 

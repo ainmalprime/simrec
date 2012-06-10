@@ -126,7 +126,8 @@ function filter(selector, query) {
   <div class="row-fluid">
     <div class="span12">
       <%= f.label :result_text %><br />
-      <%= f.text_area :result_text %>
+      <%= f.text_area :result_text, :class => "tinymce textarea"%>
+      <%= tinymce %>
     </div>
   </div>
 

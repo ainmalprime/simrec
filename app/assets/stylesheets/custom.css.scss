@@ -35,6 +35,14 @@
 		widht:80%;
 		min-height:400px;
 	}
+
+	label {
+		margin-top:15px;
+		mrgin-bottom:5px;
+		font-size:14px;	
+		font-weight:bold;
+		color:#555;
+	}
 }
 
  .field, .actions{ 
@@ -70,5 +78,18 @@
 	border-color:#999;
 	border-width:thin;
 	border-radius: 10px;
-	padding: 10px;	
+	padding:10px;
+	padding-top:0px;
+	margin: 10px;
+	h2 {
+		margin-left: -5px;
+		margin-top:-5px;
+		}
+	h3 {
+		margin-bottom:-5px;
+		margin-top:-5px;
+	}
+	p {
+		margin-top:-5px;
+	}
 }

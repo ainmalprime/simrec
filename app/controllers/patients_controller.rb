@@ -9,7 +9,11 @@ class PatientsController < ApplicationController
   
 
   def get_emr_objects_from_database
-    @patient = Patient.find(params[:id])
+    if params.has_key?(:id)
+      @patient = Patient.find(params[:id])
+    else
+      @patient = Patient.new
+    end
     session[:current_patient_id] = @patient.id
     
     @visits = @patient.visits

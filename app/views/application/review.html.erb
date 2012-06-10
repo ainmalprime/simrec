@@ -4,8 +4,8 @@
 
 <% @action_log_entries.each do |log_entry| %>
 	<div class="action-log-entry">
-	<h2><%=log_entry.created_at %></h2>
-	<h3><%=raw log_entry.description%></h3>
+	<h2><%=log_entry.created_at %>-- 
+	<%=raw log_entry.description%></h2>
 	<p><%=raw log_entry.content%></p>
 	</div>
 

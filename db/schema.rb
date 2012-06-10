@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120608213029) do
+ActiveRecord::Schema.define(:version => 20120609231848) do
 
   create_table "action_log_entries", :force => true do |t|
     t.string   "description"
@@ -131,21 +131,21 @@ ActiveRecord::Schema.define(:version => 20120608213029) do
   end
 
   create_table "patients", :force => true do |t|
-    t.string   "firstName"
+    t.string   "first_name"
     t.string   "last_name"
-    t.string   "dateOfBirth"
-    t.string   "patientNumber"
+    t.string   "date_of_birth"
+    t.string   "patient_number"
     t.string   "address"
-    t.string   "telephone1"
-    t.string   "telephone1type"
-    t.string   "telephone2"
-    t.string   "telephone2type"
-    t.string   "insuranceCarrier"
-    t.string   "primaryCarePhysician"
-    t.string   "drugAllergies"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-    t.string   "middleInitial"
+    t.string   "telephone_1"
+    t.string   "telephone_1_type"
+    t.string   "telephone_2"
+    t.string   "telephone_2_type"
+    t.string   "insurance_carrier"
+    t.string   "primary_care_physician"
+    t.string   "drug_allergies"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "middle_initial"
     t.integer  "image_file_id"
   end
 

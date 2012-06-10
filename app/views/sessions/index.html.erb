@@ -1,0 +1,15 @@
+<h1>Sessions</h1>
+
+<% @sessions.each do |session| %>
+	<div>
+		<p>
+			<table border="1"> 
+				<tr><td>ID:</td><td> <%=session.id%> <%= link_to 'Destroy', session, confirm: 'Are you sure?', method: :delete, class: "pull-right"%> </td></tr>
+				<tr><td>SESSION_ID:</td><td> <%=session.session_id%> </td></tr>
+				<tr><td>DATA:</td><td> <%=session.data%> </td></tr>
+				<tr><td>CREATED:</td><td> <%=session.created_at%> </td></tr>
+				<tr><td>UPDATED:</td><td> <%=session.updated_at%> </td></tr>
+			</table>
+		</P>
+	</div>
+<% end%>
