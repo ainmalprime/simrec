@@ -1,42 +1,4 @@
-<%= javascript_tag "
-
-$(document).ready(function() {
-  
-  $('tbody tr').hover(function(){
-    $(this).find('td').addClass('hovered');
-  }, function(){
-    $(this).find('td').removeClass('hovered');
-  });
-  
-  $('tbody tr').addClass('visible');
-  
-  $('#search').show();
-  
-  $('#filter').keyup(function(event) {
-    
-    if (event.keyCode == 27 || $(this).val() == '') {
-      
-      $(this).val('');
-      
-      $('tbody tr').removeClass('visible').show().addClass('visible');
-    }
-
-    //if there is text, lets filter
-    else {
-      filter('tbody tr', $(this).val());
-    }
-  });
-});
-
-function filter(selector, query) {
-  query = $.trim(query); 
-  query = query.replace(/ /gi, '|'); 
-
-  $(selector).each(function() {
-    ($(this).text().search(new RegExp(query, 'i')) < 0) ? $(this).hide().removeClass('visible') : $(this).show().addClass('visible');
-  });
-}
-" %>
+<%= javascript_include_tag "dyanmicfilter"%>
 <%= form_for(@lab_and_diagnostic_report) do |f| %>
   <% if @lab_and_diagnostic_report.errors.any? %>
     <div id="error_explanation">
@@ -85,30 +47,24 @@ function filter(selector, query) {
   </div>
 
 <% unless params[:action] == "edit" %>
-<div id="search">
-  <label for="filter">Search Order Types</label> <input type="text" name="filter" value="" id="filter" />
-</div>
+  <div id="search">
+    <label for="filter">Search Order Types</label> <input type="text" name="filter" value="" id="filter" onkeypress="return noenter()"/>
+  </div>
 
-  <div id="search-window">
-  <table cellpadding="1" cellspacing="1" id="resultTable">
-    <thead>
-      <tr>
-        <th>Order Type</th>
-      </tr> 
-    </thead>
-    <tbody>
+<div id="search-window">
+  <h2>Order Type</h2>
+  <ol>        
       <% @order_type_categories.keys.sort.each do |category| %>
-        <tr><td><h3><%=category%></h3></td></tr>
+        <li><h3><%=category%></h3></li>
         <% for order_type in @order_type_categories[category] %>
-        <tr><td>
+        <li>
           <%= check_box_tag 'order_types[]', order_type.description %> 
           <%= order_type.description %>
-       </td></tr>
+       </li>
         <% end %>
       <% end %>
-    </tbody>
-  </table>
- </div>
+  </ol>
+</div>
 
 <% else %>
   <div class="row-fluid">
@@ -126,7 +82,7 @@ function filter(selector, query) {
   <div class="row-fluid">
     <div class="span12">
       <%= f.label :result_text %><br />
-      <%= f.text_area :result_text, :class => "tinymce textarea"%>
+      <%= f.text_area :result_text, :class => "tinymce", :rows => 15%>
       <%= tinymce %>
     </div>
   </div>

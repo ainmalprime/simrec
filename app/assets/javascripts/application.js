@@ -14,7 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require tinymce-jquery
+//= require tinymce
 
 function showPopOver(divID) {
 	loadScreen();
