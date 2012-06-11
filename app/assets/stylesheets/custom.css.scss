@@ -67,10 +67,21 @@
 	background-color: #dfdfdf;
 	padding-top:1px;
 	
-	h3 {
-		font-size: small;
+	h1, h2, h3, h4, h5 {
+		color:gray;
 	}
 
+	h1 {
+		font-size:18px;
+	}
+
+	h2 {
+		font-size:14px;
+	}
+
+	h3 {
+		font-size:12px;
+	}
 
 }
 
@@ -107,3 +118,4 @@
 		list-style:none;
 	}
 }
+

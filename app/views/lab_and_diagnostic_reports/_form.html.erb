@@ -1,5 +1,30 @@
-<%= javascript_include_tag "dyanmicfilter"%>
-<%= form_for(@lab_and_diagnostic_report) do |f| %>
+<%= javascript_tag "$(document).ready(function() {
+  
+  $('#filter').keyup(function(event) {
+    
+    if (event.keyCode == 27 || $(this).val() == '') {
+      
+      $(this).val('');
+      
+      $('tbody tr').removeClass('visible').show().addClass('visible');
+    }
+    else {
+      filter('ol li', $(this).val());
+    }
+  });
+});
+
+function filter(selector, query) {
+  query = $.trim(query); 
+  query = query.replace(/ /gi, '|'); 
+
+  $(selector).each(function() {
+    ($(this).text().search(new RegExp(query, 'i')) < 0) ? $(this).hide().removeClass('visible') : $(this).show().addClass('visible');
+  });
+}
+
+function noenter() {
+  return !(window.event && window.event.keyCode == 13); }"%>
   <% if @lab_and_diagnostic_report.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@lab_and_diagnostic_report.errors.count, "error") %> prohibited this lab_and_diagnostic_report from being saved:</h2>
