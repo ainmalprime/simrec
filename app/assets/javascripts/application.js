@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require tinymce
-//= require dynamicfilter
 
 function showPopOver(divID) {
 	loadScreen();

@@ -3,9 +3,9 @@
   <%if @flow_sheet_records.any? %> 
     <div class="row-fluid dataRow">
       <div class="span2"> Date and Time </div>
-      <div class="span4"> Vital Signs </div> 
-      <div class="span3"> Fluid Intake </div>
-      <div class="span3"> Fluid Output </div>
+      <div class="span3"> Vital Signs </div> 
+      <div class="span2"> Fluid Intake </div>
+      <div class="span2"> Fluid Output </div>
     </div>
     <%= render @flow_sheet_records %>
   <% else %>

@@ -98,7 +98,7 @@ class ClinicianNotesController < ApplicationController
     @clinician_note.destroy
 
     respond_to do |format|
-      format.html { redirect_to clinician_notes_url }
+      format.html { redirect_to session[:return_to] }
       format.json { head :no_content }
     end
   end

@@ -2,7 +2,7 @@
 	<div class="span2">
 		<%= flow_sheet_record.time_recorded%>
 	</div>
-	<div class="span4">
+	<div class="span3">
 		<span class="label">Temp</span><span class="label label-info"><%= flow_sheet_record.temp%></span>
 		<span class="label">BP</span><span class="label label-info"><%=flow_sheet_record.blood_pressure %></span> <br />
 		<span class="label">HR</span><span class="label label-info"><%=flow_sheet_record.heart_rate %></span>
@@ -10,7 +10,7 @@
 		<span class="label">SaO2</span><span class="label label-info"><%=flow_sheet_record.oxygen_saturation %></span>
 	</div>
 
-	<div class="span3">
+	<div class="span2">
 		<% if not((flow_sheet_record.intake_po.blank?) && (flow_sheet_record.intake_iv.blank?) && (flow_sheet_record.intake_other.blank?)) %>
 			<% if not flow_sheet_record.intake_po.blank?%><span class="label">PO<span class="label"><span class="label label-info"><%= flow_sheet_record.intake_po %></span><%end%>
 			<% if not flow_sheet_record.intake_iv.blank?%><span class="label">IV</span><span class="label label-info"><%=flow_sheet_record.intake_iv %></span><% end %>
@@ -20,7 +20,7 @@
 			----
 		<% end %>
 	</div>
-	<div class="span3">
+	<div class="span2">
 		<% if not((flow_sheet_record.output_urine.blank?) && (flow_sheet_record.output_feces.blank?) && (flow_sheet_record.output_blood.blank?) && (flow_sheet_record.output_other.blank?)) %>
 			<% if not flow_sheet_record.output_urine.blank?%><span class="label">Urine</span><span class="label label-info"><%=flow_sheet_record.output_urine %></span><% end %>
 			<% if not flow_sheet_record.output_feces.blank?%><span class="label">Feces</span><span class="label label-info"><%=flow_sheet_record.output_feces %></span><% end %>
@@ -29,6 +29,13 @@
 			<%=flow_sheet_record.output_other %></span> <%end%>
 		<% else %>
 			----
+		<% end %>
+	</div>
+	<div class="span3">
+		<%= link_to 'Show', flow_sheet_record %>
+		<% unless session[:simulation_mode] %>
+			<%= link_to 'Edit', edit_flow_sheet_record_path(flow_sheet_record) %>
+			<%= link_to 'Delete', flow_sheet_record, confirm: 'Are you sure?', method: :delete %>
 		<% end %>
 	</div>
 </div>

@@ -1,17 +1,24 @@
 <div class="row-fluid dataRow">
-<div class="span3">
-  <%= medical_administration_record.timeRecorded %>
-</div>
+	<div class="span2">
+	  <%= medical_administration_record.timeRecorded %>
+	</div>
 
-<div class="span3">
-  <%= medical_administration_record.actionDescription %>
-</div>
+	<div class="span3">
+	  <%= medical_administration_record.actionDescription %>
+	</div>
 
-<div class="span3">
-  <%= medical_administration_record.actionDetails %>
-</div>
+	<div class="span3">
+	  <%= medical_administration_record.actionDetails %>
+	</div>
 
-<div class="span3">
-  <%= medical_administration_record.clinicianSignature %>
-</div>
+	<div class="span2">
+	  <%= medical_administration_record.clinicianSignature %>
+	</div>
+	<div class="span2">
+		<%= link_to 'Show', medical_administration_record %>
+		<% unless session[:simulation_mode] %>
+			<%= link_to 'Edit', edit_medical_administration_record_path(medical_administration_record) %>
+			<%= link_to 'Delete', medical_administration_record, confirm: 'Are you sure?', method: :delete %>
+		<% end %>
+	</div>
 </div>

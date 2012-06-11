@@ -1,9 +1,6 @@
 class MedicalAdministrationRecordsController < ApplicationController
   layout "popover", :only => [:ajax_new]
-  before_filter :record_referrer
-  def record_referrer
-    session[:return_to] = request.url
-  end
+
 
   # GET /medical_administration_records
   # GET /medical_administration_records.json
@@ -92,7 +89,7 @@ class MedicalAdministrationRecordsController < ApplicationController
     @medical_administration_record.destroy
 
     respond_to do |format|
-      format.html { redirect_to medical_administration_records_url }
+      format.html { redirect_to session[:return_to] }
       format.json { head :no_content }
     end
   end
