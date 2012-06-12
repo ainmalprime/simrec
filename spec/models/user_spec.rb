@@ -1,17 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer         not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  created_at      :datetime        not null
+#  updated_at      :datetime        not null
+#  password_digest :string(255)
+#
+
 require 'spec_helper'
 
-describe Patient do
-
-  before { @patient = Patient.new(firstName: "Example Patient") }
-
-  subject { @patient }
-
-  it { should respond_to(:firstName) }
-
-  it { should be_valid }
-
-  describe "when firstName is not present" do
-    before { @patient.firstName = " " }
-    it { should_not be_valid }
-  end
+describe User do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

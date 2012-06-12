@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: visits
+#
+#  id                 :integer         primary key
+#  patient_id         :integer         not null
+#  mrNumber           :string(255)
+#  chiefComplaint     :string(255)
+#  dischargeDiagnosis :string(255)
+#  created_at         :timestamp       not null
+#  updated_at         :timestamp       not null
+#  visittime          :timestamp
+#
+
 class Visit < ActiveRecord::Base
   	attr_accessible :chiefComplaint, :dischargeDiagnosis, :mrNumber, :patient_id, :visittime
    	validates :patient_id, presence: true
