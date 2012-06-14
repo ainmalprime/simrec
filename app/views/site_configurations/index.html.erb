@@ -1,0 +1,27 @@
+<h1>Listing site_configurations</h1>
+
+<table>
+  <tr>
+    <th>Location name</th>
+    <th>Image file</th>
+    <th>Logo text</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @site_configurations.each do |site_configuration| %>
+  <tr>
+    <td><%= site_configuration.location_name %></td>
+    <td><%= site_configuration.image_file_id %></td>
+    <td><%= site_configuration.logo_text %></td>
+    <td><%= link_to 'Select', config_path(site_configuration) %></td>
+    <td><%= link_to 'Edit', edit_site_configuration_path(site_configuration) %></td>
+    <td><%= link_to 'Destroy', site_configuration, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Site configuration', new_site_configuration_path %>

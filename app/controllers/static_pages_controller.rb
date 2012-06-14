@@ -7,6 +7,9 @@ class StaticPagesController < ApplicationController
   def home
   	session[:current_patient_id] = false
     @patient = nil
+    if !cookies[:site_configuration_id]
+      redirect_to site_configurations_path
+    end
   end
 
   def search

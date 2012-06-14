@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612190330) do
+ActiveRecord::Schema.define(:version => 20120613204012) do
 
   create_table "action_log_entries", :force => true do |t|
     t.string    "description"
@@ -43,6 +43,22 @@ ActiveRecord::Schema.define(:version => 20120612190330) do
     t.timestamp "updated_at",         :null => false
     t.string    "clincian_signature"
     t.string    "sim_session"
+  end
+
+  create_table "configurations", :force => true do |t|
+    t.string   "location_name"
+    t.integer  "image_file_id"
+    t.string   "logo_text"
+    t.string   "logo_text_color"
+    t.string   "top_bar_gradient_start_color"
+    t.string   "top_bar_gradient_end_color"
+    t.string   "secondary_bar_gradient_start_color"
+    t.string   "secondary_bar_gradient_end_color"
+    t.string   "page_background_color"
+    t.string   "secondary_header_text_color"
+    t.string   "patient_info_box_background_color"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "flow_sheet_records", :force => true do |t|
@@ -163,6 +179,22 @@ ActiveRecord::Schema.define(:version => 20120612190330) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "site_configurations", :force => true do |t|
+    t.string   "location_name"
+    t.integer  "image_file_id"
+    t.string   "logo_text"
+    t.string   "logo_text_color"
+    t.string   "top_bar_gradient_start_color"
+    t.string   "top_bar_gradient_end_color"
+    t.string   "secondary_bar_gradient_start_color"
+    t.string   "secondary_bar_gradient_end_color"
+    t.string   "page_background_color"
+    t.string   "secondary_header_text_color"
+    t.string   "patient_info_box_background_color"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

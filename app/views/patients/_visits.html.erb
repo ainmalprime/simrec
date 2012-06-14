@@ -1,20 +1,24 @@
-  <div id="visits" class="patientInfo span6"> 
-    <h3>Visits</h3>
-    <% if @patient.visits.any? %>
-      <div class="row-fluid">
-        <%= render @visits %>
-      </div>
-    <% else %>
-      <div class="message">
-      <p><span class="label label-alert">Alert:</span> To record clinical data for this patient, you must </br>
-        first create a visit record to which to associate the data. <br />
-        Use the "New Visit" button below to record this visit.</p>
-      </div>
-
-    <% end %> 
-      <% if !session["simulation_mode"] %>
-        <div class="btn bottomButton">
-          <%= link_to 'New Visit', new_visit_path(:patient_id => @patient.id) %> 
+   <div class="span6" >
+    <div class="patient-info-header" id="visits_header">
+      <h3>Visits</h3>
+    </div>
+    <div id="visits" class="patientInfo" > 
+      <% if @patient.visits.any? %>
+        <div class="row-fluid">
+          <%= render @visits %>
         </div>
-      <% end %>
+      <% else %>
+        <div class="message">
+        <p><span class="label label-alert">Alert:</span> To record clinical data for this patient, you must </br>
+          first create a visit record to which to associate the data. <br />
+          Use the "New Visit" button below to record this visit.</p>
+        </div>
+
+      <% end %> 
+        <% if !session["simulation_mode"] %>
+          <div class="btn bottomButton">
+            <%= link_to 'New Visit', new_visit_path(patient_id: @patient.id) %> 
+          </div>
+        <% end %>
+    </div>
   </div>

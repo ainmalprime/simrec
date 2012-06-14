@@ -1,9 +1,10 @@
-<div id="notes" class="patientInfo span7"> 
- <h3>Notes</h3> 
- <%if @clinician_notes.any? %>
+<div class="patient-info-header" > 
+  <h3>Notes</h3> 
+</div>
+<div id="notes" class="patientInfo"> 
+  <%if @clinician_notes.any? %>
     <div class="row-fluid">
       <%= render @clinician_notes %>
-      
     </div>
   <% else %>
     <div class="message">
@@ -14,5 +15,7 @@
       </div>
     </div>
   <%end%>
-  <div class="btn bottomButton"><%= link_to 'New Note', new_clinician_note_path(:visit_id => @selectedVisit.id), remote: true%></div>
+  <div class="btn bottomButton">
+    <%= link_to 'New Note', new_clinician_note_path(:visit_id => @selectedVisit.id), remote: true%>
+  </div>
 </div>

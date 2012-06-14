@@ -1,19 +1,22 @@
-<div id="intakeDocs" class="patientInfo span5"> 
-  <h3>Intake Documentation </h3>
-  <%if @intake_documents.any? %>
-    <div class="row-fluid">
-      <%= render @intake_documents %>
-    </div>
-<% else %>
-  <div class="message">
-  <span class="label label-info">Note:</span> 
-  	<div> 
-  	  No intake documents are associated with this vist.</br>
-      Use the "New Intake Doc" button below to add intake documents.
-	</div>
+
+  <div class="patient-info-header" id="intake_documentation_header">
+    <h3>Intake Documentation</h3>
   </div>
-<%end%>
-<% unless session[:simulation_mode]%>
-  <div class="btn bottomButton"><%= link_to 'New Intake Doc', new_intake_document_path(:visit_id => @selectedVisit.id) %></div>
-<% end %>
-</div>
+  <div id="intakeDocs" class="patientInfo">
+    <%if @intake_documents.any? %>
+      <div class="row-fluid">
+        <%= render @intake_documents %>
+      </div>
+    <% else %>
+      <div class="message">
+        <span class="label label-info">Note:</span> 
+      	<div> 
+      	  No intake documents are associated with this vist.</br>
+          Use the "New Intake Doc" button below to add intake documents.
+        </div>
+      </div>
+    <%end%>
+    <% unless session[:simulation_mode]%>
+      <div class="btn bottomButton"><%= link_to 'New Intake Doc', new_intake_document_path(:visit_id => @selectedVisit.id) %></div>
+    <% end %>
+  </div>

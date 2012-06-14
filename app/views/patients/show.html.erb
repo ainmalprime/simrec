@@ -5,34 +5,47 @@
   <%= render "demographics" %>
   <%= render "visits"%>
 </div> 
+<!--end row 1-->
 <% unless @selectedVisit.nil?%>
-  <!--end row 1-->
+
+  
   <!--begin row 2-->
   <div class="row-fluid elementLayoutMargin">
-    <%= render "flow_sheet_records" %>
-  </div> 
+    <div class="span12">
+      <%= render "flow_sheet_records" %>
+    </div>
+  </div>
   <!--end row 2-->
+  
   <!--begin row 3-->
   <div class="row-fluid elementLayoutMargin" >
-    <%= render "clinician_notes" %>
-    <%= render "intake_documents" %>
-  </div> 
-  <!--end row 3-->
-  <!--begin row 4-->
-  <div class="row-fluid elementLayoutMargin">
-    <%= render "clinician_orders" %>
-    <%= javascript_tag "$(document).ready( function(){setInterval(function(){ $('#reports').load('lab_reports/#{@selectedVisit.id}'); }, 9000);})" %>
-    <div id="reports">
-      <%=render "lab_and_diagnostic_reports"%>
+    <div class="span7" id="cn">
+      <%= render "clinician_notes" %>
+    </div>
+    <div class="span5" id="itd">
+      <%= render "intake_documents" %>
     </div>
   </div> 
   <!--end row 3-->
+
+  <!--begin row 4-->
+  <div class="row-fluid elementLayoutMargin">
+    <div class="span6" id="co">
+      <%= render "clinician_orders" %>
+    </div>
+    <%= javascript_tag "$(document).ready( function(){setInterval(function(){ $('#ladr').load('lab_reports/#{@selectedVisit.id}'); }, 9000);})" %>
+    <div class="span6" id="ladr">
+      <%=render "lab_and_diagnostic_reports"%>
+    </div>
+  </div> 
+  <!--end row 4-->
+
   <!--begin row 5-->
   <div class="row-fluid elementLayoutMargin">
-    <%= render "medical_administration_record" %>
+    <div class="span12">
+      <%= render "medical_administration_record" %>
+    </div>
   </div> 
   <!--end row 5-->
 <%end%>
 
-
-  <!--<%= link_to 'Back', patients_path %>-->

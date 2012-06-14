@@ -1,5 +1,8 @@
 DeVryEHR::Application.routes.draw do
 
+  resources :site_configurations
+  match "config/:id", to: 'site_configurations#set_config', as: :config
+
   get "users/new"
 
   resources :lab_report_templates

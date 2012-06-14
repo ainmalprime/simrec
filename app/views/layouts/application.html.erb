@@ -5,13 +5,58 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+<style>
+<%  
+  logo_text_color = @site_configuration.logo_text_color
+  top_bar_gradient_start_color = @site_configuration.top_bar_gradient_start_color
+  top_bar_gradient_end_color = @site_configuration.top_bar_gradient_end_color
+  secondary_bar_gradient_start_color = @site_configuration.secondary_bar_gradient_start_color 
+  secondary_bar_gradient_end_color = @site_configuration.secondary_bar_gradient_end_color
+  secondary_header_text_color = @site_configuration.secondary_header_text_color 
+  page_background_color = @site_configuration.page_background_color
+  patient_info_box_background_color = 'FFFFFF'
+%>
+.main {
+  background-color:#<%= page_background_color %>;
+}
+
+  h1, h2, h3, h4, h5, h6 {
+    color:#<%= secondary_header_text_color %>
+  }
+
+.navbar-gradient {
+  background: -webkit-gradient(linear, left top, left bottom, from(#<%= top_bar_gradient_start_color %>), to(#<%= top_bar_gradient_end_color %>));
+}
+
+.patient-info-header {
+  background: -webkit-gradient(linear, left top, left bottom, from(#<%= secondary_bar_gradient_start_color %>), to(#<%= secondary_bar_gradient_end_color %>));
+}
+
+.patientInfo {
+  background-color:#<%= patient_info_box_background_color %>;
+}
+
+#logo {
+  Color:#<%= logo_text_color %>;
+}
+
+</style>
+
 </head>
-<body<%= " onload='#{@onload}'"%>>
+<body>
   <header class="navbar navbar-fixed-top" >
-    <div class="navbar-inner" > 
+    <div class=" navbar-gradient navbar-inner"  > 
       <div class="container" >
+
         <br/>
-        <div id="logo">Simulated EHR</div>
+        <div id="logo">
+          <% unless @site_configuration.logo_text %>
+            Simulated EHR
+          <% else %>
+            <%= @site_configuration.logo_text %>
+          <% end %>
+        </div>
 
         <div class="nav-collapse">
           <ul class="nav pull-right">
@@ -20,32 +65,19 @@
             <li><%= link_to "patient search", search_path %>
           </ul>
         </div>
-        <% if @patient %>
-          <div id="patient-info">
-            Patient ID: 
-            <strong><%= @patient.patient_number %></strong> 
-            Name: 
-            <strong><%= @patient.first_name %> 
-            <%= @patient.middle_initial %> 
-            <%= @patient.last_name %></strong>
-            DOB: 
-            <strong><%= @patient.date_of_birth %></strong>
-            <%= link_to 'display', @patient, class: "nav pull-right" %>
-          </div>
-        <% end %>
-        <% if !session[:simulation_mode] %>
-          <div id="mode_status">
-            <span class="label label-warning">Attention:</span> Editing mode active. 
-            Changes will be reflected in simulation view
-            and retained when the case is reset.
-            <%= link_to "switch to sim mode", "/simulation" %>
-          </div>
-        <% end %>
+        <%= render "header_controls" %>
       </div>
     </div>
  </header>
- <div class="container main">
+ <div class="main">
+ <div class="container ">
   <%= yield %>
+
+</div>
+  <%= debug(params) if Rails.env.development? %>
+  <%= debug(cookies) if Rails.env.development? %>
+  <%= debug(session) if Rails.env.development? %>
+  <%= debug @site_configuration if Rails.env.development? %>
 </div>
 <div id="pop" class="popover" align="center"><a href="javascript:closePopOver('pop');">CLOSE ME</a>
 </div></a>
@@ -53,7 +85,3 @@
 
 </body>
 </html>
-
-
-
-<!-- -->

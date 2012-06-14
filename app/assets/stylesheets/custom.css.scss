@@ -1,4 +1,14 @@
 @import 'bootstrap';
+@charset "UTF-8";
+
+
+
+#logo {
+ 	font-size: xx-large;
+ 	margin-top: 5px;
+ }
+
+
 
 
 .container {
@@ -67,9 +77,7 @@
 	background-color: #dfdfdf;
 	padding-top:1px;
 	
-	h1, h2, h3, h4, h5 {
-		color:gray;
-	}
+
 
 	h1 {
 		font-size:18px;
@@ -118,4 +126,194 @@
 		list-style:none;
 	}
 }
+
+
+
+
+.patient-info-header {
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	text-align:center;
+	border-style:solid;
+ 	border-width:thin;
+ 	border-color:gray;
+
+}
+.patientInfo {
+	position:relative;
+	text-align:center;
+	border-bottom:solid;
+	border-right:solid;
+	border-left:solid;
+	border-color:#999;
+	border-width:thin;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	height: 220px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	overflow:hidden;
+
+
+	
+	.icon {
+		float:left;
+		width:150px;
+		height:125px;
+		.btn-group {
+			margin-left:15px;
+		}
+	}
+
+	h3 {
+		font-size: small;
+		top:1px;
+	}
+
+	.patientImage {
+		float:left;
+		width:100px;
+		height:100px;
+		overflow:none;
+		background-color:#CCC;
+	}
+	
+	.elementLayoutMargin {
+		margin-top:20px;
+	}
+
+	.message{
+		width:250px;
+		margin:25px auto;
+		
+		div, span {
+			float:left
+		}
+
+		div {
+			width:200px;
+			text-align:left;
+			padding-left:5px;
+		}
+	}
+	.bottom {
+		bottom:2px;
+	}
+}
+
+div.patientInfo table {
+	text-align:center;
+}
+
+#visits, #intakeDocs, #lab_and_diagnostic_reports, #visits_header, #intake_documentation_header, #lab_and_diagnostic_reports_header { 
+margin-left: 10px; 
+}
+
+#lab_and_diagnostic_report_release_delay {
+	width:75px;
+}
+
+
+
+ #mode_status {
+ 	text-align:center;
+ 	Color:red;
+ 	width:500px;
+ 	margin-bottom:10px;
+ 	z-index: 2;
+ 	display: block;
+ 	position: absolute;
+ 	top:-0px;
+ 	right:0px;
+ 	border-color:black;
+ 	border-style:solid;
+ 	background-color: #DDD;
+ }
+
+#patient-info {
+	margin-top:10px;
+	padding-right:10px;
+    border-style:solid;
+    border-width:thin;	
+    border-color:gray;
+	color:#EDEDED;
+	width:500px;
+}
+
+#instruction {
+	border-color:gray;
+	border-width:thin;
+	border-style:solid;
+	font-size:medium;
+	margin:10px;
+	padding:10px;
+	width:500px;
+	background-color: #DDD;
+}
+
+ .dataField {
+ 	margin-top: 5px;
+ 	margin-bottom: 5px;
+ 	border-radius: 5px;
+ 	background-color: #EEE;
+
+ }
+
+ .dataRow, .dataRowDark{
+ 	background-color:white;
+ 	border-bottom:solid;
+ 	border-width:thin;
+ 	border-color:gray;
+}
+ .dataRowDark {
+
+ 	border-color:black;
+}
+
+.selected {
+	background-color: #DDD;
+}
+
+.bottomButton {
+	margin-right:10px;
+	position:absolute;
+	bottom:5px;
+	right:5px;
+}
+
+.bottom {
+	position:absolute;
+	bottom:5px;
+
+}
+
+.alternateGray1 {
+	background:#DDD;
+}
+
+.alternateGray2 {
+	background-color: #EEE;
+}
+
+
+.float-left {
+	float:left;
+}
+
+.clear-both {
+	clear:both;
+}
+
+.uneditable-data {
+	border-color:gray;
+	border-width:thin;
+	border-style:solid;
+	margin-bottom:20px;
+	min-width:100px;
+	width:50%;
+}
+
+
 

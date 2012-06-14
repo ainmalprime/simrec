@@ -1,19 +1,22 @@
-    <div id="orders" class="patientInfo span6"> <h3>Pending Orders</h3> 
-  <%if @clinician_orders.any? %>
-    <div class="row-fluid">
 
-      <%= render @clinician_orders %>
-
-    </div>
-<% else %>
-  <div class="message">
-  <span class="label label-info">Note:</span> 
-  	<div> 
-  	  No clinician orders are associated with this vist.</br>
-      Use the "New order" button below to write an order.
-	</div>
+  <div class="patient-info-header" >   
+    <h3>Pending Orders</h3> 
   </div>
-<%end%>
+  <div id="orders" class="patientInfo" > 
+    <%if @clinician_orders.any? %>
+      <div class="row-fluid">
+        <%= render @clinician_orders %>
+      </div>
+    <% else %>
+      <div class="message">
+        <span class="label label-info">Note:</span> 
+      	 <div> 
+      	    No clinician orders are associated with this vist.</br>
+            Use the "New order" button below to write an order.
+    	   </div>
+      </div>
+    <%end%>
 
-  <div class="btn bottomButton"><%= link_to 'New order', new_clinician_order_path(:visit_id => @selectedVisit.id), remote: true %></div>
+    <div class="btn bottomButton"><%= link_to 'New order', new_clinician_order_path(visit_id:  @selectedVisit.id), remote: true %>
     </div>
+  </div>

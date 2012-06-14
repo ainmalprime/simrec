@@ -1,18 +1,25 @@
-    <div id="lab_and_diagnostic_reports" class="patientInfo span6"> <h3>Lab and diagnostic study reports</h3> 
-	 <%if @lab_and_diagnostic_reports.any? %>
-	    <div >
-	      <%= render @lab_and_diagnostic_reports %>
-	    </div>
-	<% else %>
-	  <div class="message">
-	  <span class="label label-info">Note:</span> 
-	  	<div> 
-	  	  No lab or diagnostic reports have been released for this visit</br>
+
+	<div class="patient-info-header" id="lab_and_diagnostic_reports_header">
+	  	<h3>Lab and diagnostic study reports</h3>
+	</div> 
+	<div id="lab_and_diagnostic_reports" class="patientInfo"> 
+		<%if @lab_and_diagnostic_reports.any? %>
+			<div>
+				<%= render @lab_and_diagnostic_reports %>
+			</div>
+		<% else %>
+			<div class="message">
+			  <span class="label label-info">Note:</span> 
+			  <div> 
+			  	No lab or diagnostic reports have been released for this visit</br>
+				</div>
+		  </div>
+		<%end%>
+		<div class="bottom">
+			As of <%= Time.now().to_s %>
 		</div>
-	  </div>
-	<%end%>
-	<div class="bottom">As of <%= Time.now().to_s %></div>
-		<% unless session[:simulation_mode] %>
-	  	<div class="btn bottomButton"> <%= link_to 'New report',  new_lab_and_diagnostic_report_path(:visit_id => @selectedVisit.id)%></div>
+			<% unless session[:simulation_mode] %>
+		  	<div class="btn bottomButton"> <%= link_to 'New report',  new_lab_and_diagnostic_report_path(:visit_id => @selectedVisit.id)%>
+		  	</div>
 	  	<% end %>
-    </div>
+		</div>

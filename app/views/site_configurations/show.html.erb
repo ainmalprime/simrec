@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Location name:</b>
+  <%= @site_configuration.location_name %>
+</p>
+
+<p>
+  <b>Image file:</b>
+  <%= @site_configuration.image_file_id %>
+</p>
+
+<p>
+  <b>Logo text:</b>
+  <%= @site_configuration.logo_text %>
+</p>
+
+<p>
+  <b>Logo text color:</b>
+  <%= @site_configuration.logo_text_color %>
+</p>
+
+<p>
+  <b>Top bar gradient start color:</b>
+  <%= @site_configuration.top_bar_gradient_start_color %>
+</p>
+
+<p>
+  <b>Top bar gradient end color:</b>
+  <%= @site_configuration.top_bar_gradient_end_color %>
+</p>
+
+<p>
+  <b>Secondary bar gradient start color:</b>
+  <%= @site_configuration.secondary_bar_gradient_start_color %>
+</p>
+
+<p>
+  <b>Secondary bar gradient end color:</b>
+  <%= @site_configuration.secondary_bar_gradient_end_color %>
+</p>
+
+<p>
+  <b>Page background color:</b>
+  <%= @site_configuration.page_background_color %>
+</p>
+
+<p>
+  <b>Secondary header text color:</b>
+  <%= @site_configuration.secondary_header_text_color %>
+</p>
+
+<p>
+  <b>Page background color:</b>
+  <%= @site_configuration.page_background_color %>
+</p>
+
+<p>
+  <b>Patient info box background color:</b>
+  <%= @site_configuration.patient_info_box_background_color %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_configuration_path(@site_configuration) %> |
+<%= link_to 'Back', site_configurations_path %>
