@@ -56,15 +56,15 @@ module DeVryEHR
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    Rails.configuration.location_name = 'DeVry Healthcare'
-    Rails.configuration.logo_text = 'Simulation EHR'
-    Rails.configuration.logo_text_color = 'FFFFFF'
-    Rails.configuration.top_bar_gradient_start_color = '444444'
-    Rails.configuration.top_bar_gradient_end_color = '111111'
-    Rails.configuration.secondary_bar_gradient_start_color = '999999' 
-    Rails.configuration.secondary_bar_gradient_end_color = 'CCCCCC'
-    Rails.configuration.secondary_header_text_color = '282842' 
-    Rails.configuration.page_background_color = 'FFFFFF'
-    Rails.configuration.patient_info_box_background_color = 'FFFFFF'
+    # Rails.configuration.location_name = 'DeVry Healthcare'
+    # Rails.configuration.logo_text = 'Simulation EHR'
+    # Rails.configuration.logo_text_color = 'FFFFFF'
+    # Rails.configuration.top_bar_gradient_start_color = '444444'
+    # Rails.configuration.top_bar_gradient_end_color = '111111'
+    # Rails.configuration.secondary_bar_gradient_start_color = '999999' 
+    # Rails.configuration.secondary_bar_gradient_end_color = 'CCCCCC'
+    # Rails.configuration.secondary_header_text_color = '282842' 
+    # Rails.configuration.page_background_color = 'FFFFFF'
+    # Rails.configuration.patient_info_box_background_color = 'FFFFFF'
   end
 end

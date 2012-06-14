@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     end
 
     if @site_configuration.nil?
-      @site_configuration = SiteConfiguration.new(location_name: Rails.configuration.location_name, logo_text: Rails.configuration.logo_text, logo_text_color: Rails.configuration.logo_text_color, top_bar_gradient_start_color: Rails.configuration.top_bar_gradient_start_color, top_bar_gradient_end_color: Rails.configuration.top_bar_gradient_end_color, secondary_bar_gradient_start_color: Rails.configuration.secondary_bar_gradient_start_color, secondary_bar_gradient_end_color: Rails.configuration.secondary_bar_gradient_end_color, secondary_header_text_color: Rails.configuration.secondary_header_text_color, page_background_color: Rails.configuration.page_background_color, patient_info_box_background_color: Rails.configuration.patient_info_box_background_color)
+      @site_configuration = SiteConfiguration.new(location_name: "Simulation EHR", logo_text: "Simulation EHR", logo_text_color: "FFFFFF", top_bar_gradient_start_color: "111111", top_bar_gradient_end_color: "444444", secondary_bar_gradient_start_color: "999999", secondary_bar_gradient_end_color: "CCCCCC", secondary_header_text_color: "282842", page_background_color: "FFFFFF", patient_info_box_background_color: "FFFFFF")
     end
 
   	session[:simulation_mode] = true if session[:simulation_mode].nil?
