@@ -5,8 +5,8 @@ gem 'bootstrap-sass', '2.0.0'
 gem 'jquery-rails', '2.0.0'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
-gem 'tinymce-rails', '3.5.2'
-#gem 'bcrypt-ruby', '~> 3.0.1'
+#gem 'tinymce-rails', '3.5.2'
+gem 'bcrypt-ruby', '~> 3.0.1'
 
 group :development do
   gem 'sqlite3', '1.3.5'
