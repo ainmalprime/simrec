@@ -53,6 +53,16 @@
 	}
 }
 
+#main_page_logo {
+	text-align: center;
+	
+	#main_page_text {
+		width: 500px;
+		text-align: left;
+		margin: 0 auto;
+	}
+}
+
  .field, .actions{ 
  float: left;
  margin: 10px;
@@ -236,7 +246,6 @@ margin-left: 10px;
     border-style:solid;
     border-width:thin;	
     border-color:gray;
-	color:#EDEDED;
 	width:500px;
 }
 

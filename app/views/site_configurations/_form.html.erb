@@ -10,53 +10,74 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="row-fluid">
+  <div class="span4">
     <%= f.label :location_name %><br />
     <%= f.text_field :location_name %>
   </div>
-  <div class="field">
-    <%= f.label :image_file_id %><br />
-    <%= f.number_field :image_file_id %>
-  </div>
-  <div class="field">
+    <div class="span4">
     <%= f.label :logo_text %><br />
     <%= f.text_field :logo_text %>
   </div>
-  <div class="field">
+  <div class="span4">
     <%= f.label :logo_text_color %><br />
     <%= f.text_field :logo_text_color, class: "color" %>
   </div>
-  <div class="field">
+</div>
+<div class="row-fluid">
+  <div class="span12">
+    <% unless params[:action] == "new" %>
+      <%= f.label :image_file_id %><br />
+      <%= f.hidden_field :image_file_id %>
+      <% if @site_configuration.image_file_id.blank? %>
+        <%= link_to "Add Image", new_image_file_path(:site_configuration_id => @site_configuration.id), :class => "btn" %>
+    <% else %>
+        <%= image_tag("/image/#{@site_configuration.image_file_id}", :alt => "Image") %>
+        <div class="btn-toolbar" style="position:relative;">
+          <div class="btn-group" style="top:-9px;">
+          <%= link_to "change image", edit_image_file_path(:id => @site_configuration.image_file_id, :site_configuration_id => @site_configuration.id), :class => "btn"%> 
+          <%= link_to 'Delete image', image_file_path(:id => @site_configuration.image_file_id, :site_configuration_id => @site_configuration.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="row-fluid">
+
+</div>
+<div class="row-fluid">
+  <div class="span3">
     <%= f.label :top_bar_gradient_start_color %><br />
     <%= f.text_field :top_bar_gradient_start_color, class: "color" %>
   </div>
-  <div class="field">
+  <div class="span3">
     <%= f.label :top_bar_gradient_end_color %><br />
     <%= f.text_field :top_bar_gradient_end_color, class: "color" %>
   </div>
-  <div class="field">
+  <div class="span3">
     <%= f.label :secondary_bar_gradient_start_color %><br />
     <%= f.text_field :secondary_bar_gradient_start_color, class: "color" %>
   </div>
-  <div class="field">
+  <div class="span3">
     <%= f.label :secondary_bar_gradient_end_color %><br />
     <%= f.text_field :secondary_bar_gradient_end_color, class: "color" %>
   </div>
-  <div class="field">
+</div>
+<div class="row-fluid">
+  <div class="span4">
     <%= f.label :page_background_color %><br />
     <%= f.text_field :page_background_color, class: "color" %>
   </div>
-  <div class="field">
+  <div class="span4">
     <%= f.label :secondary_header_text_color %><br />
     <%= f.text_field :secondary_header_text_color, class: "color" %>
   </div>
-  <div class="field">
+  <div class="span4">
     <%= f.label :patient_info_box_background_color %><br />
     <%= f.text_field :patient_info_box_background_color, class: "color" %>
   </div>
-
-  <div class="actions btn-group">
+</div>
+<div class="row-fluid">
+  <div class="span12 btn-group">
     <%= f.submit "save configuration", class: "btn" %>
-  </div>
 <% end %>

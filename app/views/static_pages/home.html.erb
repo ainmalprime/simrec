@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
-   <span class="secondary_header_text"> <h1>Electronic Health Record</h1> </span>
-        <p>For educational and training purposes only. <br /> Only simulated patient information is available from this application. 
-        <br /> Do not enter actual patient information. </p>
-        
+<div id="main_page_logo">
+	<%= image_tag("/image/#{@site_configuration.image_file_id}", :alt => "Logo Image")%>
+	
+	<div id="main_page_text">
+		<h1>Electronic Health Record</h1>
+		<p>For educational and training purposes only. <br /> Only simulated patient information is available from this application. 
+		<br /> Do not enter actual patient information. </p>
+	</div>
+</div>
 

@@ -24,7 +24,7 @@ class SiteConfigurationsController < ApplicationController
   # GET /site_configurations/new
   # GET /site_configurations/new.json
   def new
-    @site_configuration = SiteConfiguration.new
+    @site_configuration = SiteConfiguration.new(location_name: Rails.configuration.location_name, logo_text: Rails.configuration.logo_text, logo_text_color: Rails.configuration.logo_text_color, top_bar_gradient_start_color: Rails.configuration.top_bar_gradient_start_color, top_bar_gradient_end_color: Rails.configuration.top_bar_gradient_end_color, secondary_bar_gradient_start_color: Rails.configuration.secondary_bar_gradient_start_color, secondary_bar_gradient_end_color: Rails.configuration.secondary_bar_gradient_end_color, secondary_header_text_color: Rails.configuration.secondary_header_text_color, page_background_color: Rails.configuration.page_background_color, patient_info_box_background_color: Rails.configuration.patient_info_box_background_color)
 
     respond_to do |format|
       format.html # new.html.erb

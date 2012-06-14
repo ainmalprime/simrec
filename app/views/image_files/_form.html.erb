@@ -26,6 +26,8 @@
       <%= hidden_field_tag "intake_document_id", params[:intake_document_id] %>
     <%elsif params.has_key?(:lab_and_diagnostic_report_id)%>
       <%= hidden_field_tag "lab_and_diagnostic_report_id", params[:lab_and_diagnostic_report_id] %>
+    <%elsif params.has_key?(:site_configuration_id)%>
+      <%= hidden_field_tag "site_configuration_id", params[:site_configuration_id] %>
     <%end%>
     </div>
   </div>

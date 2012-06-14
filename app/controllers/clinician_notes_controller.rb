@@ -1,5 +1,7 @@
 class ClinicianNotesController < ApplicationController
-  layout "popover", only: [:ajax_new]
+   include SessionsHelper
+   before_filter :check_site_configuration
+   layout "popover", only: [:ajax_new]
 
   # GET /clinician_notes
   # GET /clinician_notes.json

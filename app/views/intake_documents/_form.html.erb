@@ -33,22 +33,18 @@
   </div>
 
   <% unless params[:action] == "new" %>
-    
-    
-        <%= f.label :image_file_id %><br />
-        <%= f.hidden_field :image_file_id %>
-        <% if @intake_document.image_file_id.blank? %>
-          <%= link_to "Add Image", new_image_file_path(:intake_document_id => @intake_document.id), :class => "btn" %>
-        <% else %>
-          <%= image_tag("/image/#{@intake_document.image_file_id}", :alt => "Image") %>
-          <div class="btn-toolbar" style="position:relative;">
-            <div class="btn-group" style="top:-9px;">
-            <%= link_to "change image", edit_image_file_path(:id => @intake_document.image_file_id, :intake_document_id => @intake_document.id), :class => "btn"%> 
-            <%= link_to 'Delete image', image_file_path(:id => @intake_document.image_file_id, :intake_document_id => @intake_document.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
-            </div>
-        <% end %>
-
-    
+    <%= f.label :image_file_id %><br />
+    <%= f.hidden_field :image_file_id %>
+    <% if @intake_document.image_file_id.blank? %>
+      <%= link_to "Add Image", new_image_file_path(:intake_document_id => @intake_document.id), :class => "btn" %>
+    <% else %>
+      <%= image_tag("/image/#{@intake_document.image_file_id}", :alt => "Image") %>
+      <div class="btn-toolbar" style="position:relative;">
+        <div class="btn-group" style="top:-9px;">
+        <%= link_to "change image", edit_image_file_path(:id => @intake_document.image_file_id, :intake_document_id => @intake_document.id), :class => "btn"%> 
+        <%= link_to 'Delete image', image_file_path(:id => @intake_document.image_file_id, :intake_document_id => @intake_document.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
+        </div>
+    <% end %>
   <% end %>
 
   <div class="btn-group" style="top:0px;">

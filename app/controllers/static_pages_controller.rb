@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
+   include SessionsHelper
+   before_filter :check_site_configuration
    before_filter :record_referrer
+
   def record_referrer
     session[:return_to] = request.url
   end
@@ -7,9 +10,7 @@ class StaticPagesController < ApplicationController
   def home
   	session[:current_patient_id] = false
     @patient = nil
-    if !cookies[:site_configuration_id]
-      redirect_to site_configurations_path
-    end
+
   end
 
   def search

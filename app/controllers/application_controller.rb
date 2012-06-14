@@ -1,24 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  include SessionsHelper
   before_filter :prepare_session
 
-  def review
-    @action_log_entries = ActionLogEntry.find :all, conditions: ["sim_session = ?",  (request.session_options[:id])]
-  end
 
-  def reset_sim
-    back_to = session[:return_to]
-    ClinicianNote.destroy_all(sim_session: request.session_options[:id])
-    ClinicianOrder.destroy_all(sim_session: request.session_options[:id])
-    FlowSheetRecord.destroy_all(sim_session: request.session_options[:id])
-    MedicalAdministrationRecord.destroy_all(sim_session: request.session_options[:id])
-    LabAndDiagnosticReport.destroy_all(sim_session: request.session_options[:id])
-    reset_session
-    session[:return_to] = root_url
-    respond_to do |format|
-      format.html {redirect_to back_to, :notice => 'simulation session reset'}
-    end
-  end
 
 
   def prepare_session
@@ -41,19 +26,4 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def simulation_mode
-    reset_sim
-  end
- 
-  def edit_mode
-  	session[:simulation_mode] = false
-
-  	respond_to do |format|
-      format.html {redirect_to session[:return_to], :notice => 'edit mode activated'}
-    end
-  end
-
-  def end_session
-  	reset_session
-  end
 end

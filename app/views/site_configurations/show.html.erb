@@ -5,11 +5,12 @@
   <%= @site_configuration.location_name %>
 </p>
 
-<p>
-  <b>Image file:</b>
-  <%= @site_configuration.image_file_id %>
-</p>
-
+<% unless @site_configuration.image_file_id.blank? %> 
+  <p>
+    <b>Image file:</b><br/>
+    <%= image_tag("/image/#{@site_configuration.image_file_id}", :alt => "Logo Image") %>
+  </p>
+<% end %>
 <p>
   <b>Logo text:</b>
   <%= @site_configuration.logo_text %>
@@ -17,17 +18,23 @@
 
 <p>
   <b>Logo text color:</b>
-  <%= @site_configuration.logo_text_color %>
+  <span style="background-color:#<%=@site_configuration.logo_text_color%>;">
+    <%= @site_configuration.logo_text_color %>
+  </span>
 </p>
 
 <p>
   <b>Top bar gradient start color:</b>
-  <%= @site_configuration.top_bar_gradient_start_color %>
+  <span style="background-color:#<%=@site_configuration.top_bar_gradient_start_color%>;">
+    <%= @site_configuration.top_bar_gradient_start_color %>
+  </span>
 </p>
 
 <p>
   <b>Top bar gradient end color:</b>
-  <%= @site_configuration.top_bar_gradient_end_color %>
+  <span style="background-color:#<%=@site_configuration.top_bar_gradient_end_color%>;">
+    <%= @site_configuration.top_bar_gradient_end_color %>
+  </span>
 </p>
 
 <p>

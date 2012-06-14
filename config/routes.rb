@@ -3,8 +3,14 @@ DeVryEHR::Application.routes.draw do
   resources :site_configurations
   match "config/:id", to: 'site_configurations#set_config', as: :config
 
-  get "users/new"
-
+  resources :users
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#signout', via: :delete
+  match '/simulation', :to => 'sessions#simulation_mode'
+  match '/edit', :to => 'sessions#edit_mode'
+  match '/reset_sim', to: 'sessions#reset_sim'
+  match '/review', to: 'sessions#review'
+  
   resources :lab_report_templates
 
   match '/home',    :to => 'static_pages#home'
@@ -13,10 +19,7 @@ DeVryEHR::Application.routes.draw do
 
   match '/patients/lab_reports/:id', :to => 'patients#lab_reports'
 
-  match '/simulation', :to => 'Application#simulation_mode'
-  match '/edit', :to => 'Application#edit_mode'
-  match '/reset_sim', to: 'Application#reset_sim'
-  match '/review', to: 'Application#review'
+
   
   resources :order_types
 

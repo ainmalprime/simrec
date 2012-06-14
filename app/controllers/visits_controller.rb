@@ -1,4 +1,6 @@
 class VisitsController < ApplicationController
+  include SessionsHelper
+  before_filter :check_site_configuration
   before_filter :record_referrer
   def record_referrer
     session[:return_to] = request.url

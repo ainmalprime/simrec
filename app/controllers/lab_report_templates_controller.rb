@@ -1,4 +1,6 @@
 class LabReportTemplatesController < ApplicationController
+  include SessionsHelper
+  before_filter :check_site_configuration
   # GET /lab_report_templates
   # GET /lab_report_templates.json
   def index

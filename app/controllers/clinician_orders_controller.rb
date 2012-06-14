@@ -1,4 +1,6 @@
-class ClinicianOrdersController < ApplicationController
+class ClinicianOrdersController < ApplicationController   
+  include SessionsHelper
+  before_filter :check_site_configuration
   layout "popover", :only => [:ajax_new]
 
 

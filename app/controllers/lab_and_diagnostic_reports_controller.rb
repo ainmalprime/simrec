@@ -1,5 +1,6 @@
 class LabAndDiagnosticReportsController < ApplicationController
-
+  include SessionsHelper
+  before_filter :check_site_configuration
   # GET /lab_and_diagnostic_reports
   # GET /lab_and_diagnostic_reports.json
   def index

@@ -1,4 +1,6 @@
 class PatientsController < ApplicationController
+  include SessionsHelper
+  before_filter :check_site_configuration
   before_filter :record_referrer, except: [:lab_reports]
   before_filter :create_resetable_simulation, except: [:index]
 

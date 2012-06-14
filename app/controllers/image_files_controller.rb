@@ -1,4 +1,6 @@
 class ImageFilesController < ApplicationController
+  include SessionsHelper
+  before_filter :check_site_configuration
   before_filter :record_referrer, except: [:code_image, :edit]
   def record_referrer
     session[:return_to] = request.url
@@ -69,6 +71,11 @@ class ImageFilesController < ApplicationController
       @lab_and_diagnostic_report.image_file_id = @image_file.id
       @lab_and_diagnostic_report.save
       redirect_location = edit_lab_and_diagnostic_report_path(@lab_and_diagnostic_report)
+    elsif params.has_key?(:site_configuration_id)
+      @site_configuration_id = SiteConfiguration.find(params[:site_configuration_id]) 
+      @site_configuration_id.image_file_id = @image_file.id
+      @site_configuration_id.save
+      redirect_location = edit_site_configuration_path(@site_configuration_id)
     else
       redirect_location = @image_file
     end
