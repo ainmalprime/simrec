@@ -7,38 +7,29 @@
   <%= csrf_meta_tags %>
 
 <style>
-<%  
-  logo_text_color = @site_configuration.logo_text_color
-  top_bar_gradient_start_color = @site_configuration.top_bar_gradient_start_color
-  top_bar_gradient_end_color = @site_configuration.top_bar_gradient_end_color
-  secondary_bar_gradient_start_color = @site_configuration.secondary_bar_gradient_start_color 
-  secondary_bar_gradient_end_color = @site_configuration.secondary_bar_gradient_end_color
-  secondary_header_text_color = @site_configuration.secondary_header_text_color 
-  page_background_color = @site_configuration.page_background_color
-  patient_info_box_background_color = 'FFFFFF'
-%>
+
 .main {
-  background-color:#<%= page_background_color %>;
+  background-color:#<%= @site_configuration.page_background_color %>;
 }
 
-  h1, h2, h3, h4, h5, h6 {
-    color:#<%= secondary_header_text_color %>
+ h1, h2, h3 {
+    color:#<%= @site_configuration.secondary_header_text_color %>;
   }
 
 .navbar-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, from(#<%= top_bar_gradient_start_color %>), to(#<%= top_bar_gradient_end_color %>));
+  background: -webkit-gradient(linear, left top, left bottom, from(#<%= @site_configuration.top_bar_gradient_start_color %>), to(#<%= @site_configuration.top_bar_gradient_end_color %>));
 }
 
 .patient-info-header {
-  background: -webkit-gradient(linear, left top, left bottom, from(#<%= secondary_bar_gradient_start_color %>), to(#<%= secondary_bar_gradient_end_color %>));
+  background: -webkit-gradient(linear, left top, left bottom, from(#<%= @site_configuration.secondary_bar_gradient_start_color %>), to(#<%= @site_configuration.secondary_bar_gradient_end_color %>));
 }
 
 .patientInfo {
-  background-color:#<%= patient_info_box_background_color %>;
+  background-color:#<%= @site_configuration.patient_info_box_background_color %>;
 }
 
 #logo {
-  Color:#<%= logo_text_color %>;
+  Color:#<%= @site_configuration.logo_text_color %>;
 }
 
 </style>
