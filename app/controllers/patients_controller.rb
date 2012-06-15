@@ -69,14 +69,24 @@ class PatientsController < ApplicationController
   end
 
 
+
   # GET /patients
   # GET /patients.json
   def index
     session[:current_patient_id] = false
     @patient = nil
     
-    if params.has_key?(:search)
-      @patients = Patient.find :all, :conditions => ["lower(last_name) like ?", "%" + params[:search].downcase + "%"]
+    conditions = []
+    conditions.add_condition!(['lower(last_name) like ?', '%' + params[:last_name].downcase + '%']) unless params[:last_name].blank?
+    conditions.add_condition!(['lower(first_name) like ?', '%' + params[:first_name].downcase + '%']) unless params[:first_name].blank?
+    conditions.add_condition!(['lower(middle_initial) like ?', '%' + params[:middle_initial].downcase + '%']) unless params[:middle_initial].blank?
+    conditions.add_condition!(['lower(date_of_birth) = ?',  params[:date_of_birth]]) unless params[:date_of_birth].blank?
+    conditions.add_condition!(['lower(patient_number) like ?', '%' + params[:patient_number].downcase + '%']) unless params[:patient_number].blank?
+
+    if conditions.size > 0
+
+      @patients = Patient.find :all, :conditions => conditions
+
     else
       @patients = Patient.all
     end

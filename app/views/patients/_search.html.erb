@@ -1,5 +1,26 @@
 <%= form_tag 'patients', :controler => 'patients', :method => 'get' do %>
-	<div class="search-field-label">patient last name</div>
-	<%= text_field_tag :search, params[:search], :id => "search_field" %>
-	<%= submit_tag "search", :name => nil, class: "btn"%>
+	<div class="row-fluid">
+		<div class="span4">
+			<div class="search-field-label">last name</div>
+			<%= text_field_tag :last_name, params[:last_name], :id => "search_field" %>
+		</div>
+		<div class="span4">
+			<div class="search-field-label">first name</div>
+			<%= text_field_tag :first_name, params[:first_name], :id => "search_field" %>
+		</div>
+		<div class="span4">
+			<div class="search-field-label">middle initial</div>
+			<%= text_field_tag :middle_initial, params[:middle_initial], :id => "search_field" %>
+		</div>
+	<div class="row-fluid">
+		<div class="span4">
+			<div class="search-field-label">date of birth</div>
+			<%= text_field_tag :date_of_birth, params[:date_of_birth], :id => "search_field" %>
+		</div>
+		<div class="span4">
+			<div class="search-field-label">patient number</div>
+			<%= text_field_tag :patient_number, params[:patient_number], :id => "search_field" %>
+		</div>
+	</div>
+	<%= submit_tag "search", :name => nil, class: "btn btn-large"%>
 <% end %>

@@ -1,7 +1,14 @@
 <% content_for :title, "Patients"%>
-<h1>Patient Census</h1>
-<br />
-<br />
+<%unless params.has_key?(:last_name) %>
+    <h1>Patient Census</h1>
+<% else %>
+    <h1>Patient Search</h1>
+    <div>
+        <%= render "search"%>
+    </div>
+<% end %>
+
+
 <% if @patients.any? %>
     <div class="row dataRowDark">
     
