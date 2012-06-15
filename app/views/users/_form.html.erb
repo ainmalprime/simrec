@@ -10,22 +10,31 @@
     </div>
   <% end %>
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span6">
     <%= form_for(@user) do |f| %>
+      <% if !params[:password] || params[:action] == "new"  %>
+        
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+        <%= f.label :privileges %>
+        <%= f.select :privileges, ["editor", "administrator"]%>
+      <% else %>
+      <h2><%= @user.name %></h2>
+      <% end %>
+      <% if params[:password] || params[:action] == "new"  %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+      <% end %>
 
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+      <div style="btn-group">
+        <%= f.submit "Save account", class: "btn" %>
+
     <% end %>
-  </div>
-</div>

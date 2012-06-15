@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div id="main_page_logo">
+	<% unless @site_configuration.image_file_id.blank? %>
 	<%= image_tag("/image/#{@site_configuration.image_file_id}", :alt => "Logo Image")%>
+	<% end %>
 	
 	<div id="main_page_text">
 		<h1>Electronic Health Record</h1>

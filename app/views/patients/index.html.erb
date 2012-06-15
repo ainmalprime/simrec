@@ -2,32 +2,36 @@
 <h1>Patient Census</h1>
 <br />
 <br />
-<div class="row dataRowDark">
+<% if @patients.any? %>
+    <div class="row dataRowDark">
     
-    <div class="span2"><strong>Last Name</strong></div>
-    <div class="span2"><strong>First Name</strong></div>
-    <div class="span2"><strong>Middle Initial </strong></div>
-    <div class="span2"><strong>DOB</strong></div>
-    <div class="span2"><strong>Patient Number</strong></div>
-    <div class="span2"><strong>Action</strong></div>
-  </div>
-
-<% @patients.each do |patient| %>
-<div class="row dataRowDark">
-    
-    <div class="span2"><%= patient.last_name %></div>
-    <div class="span2"><%= patient.first_name %></div>
-    <div class="span2"><%= patient.middle_initial %></div>
-    <div class="span2"><%= patient.date_of_birth %></div>
-    <div class="span2"><%= patient.patient_number %></div>
-    <div class="span2 btn-group"><span class="btn"><%= link_to 'Show', patient%></span>
-    <% if !session[:simulation_mode] %>
-        <span class="btn"><%= link_to 'Delete', patient, :confirm => 'Are you sure?', :method => :delete%></span>
-    <% end %>
+        <div class="span2"><strong>Last Name</strong></div>
+        <div class="span2"><strong>First Name</strong></div>
+        <div class="span2"><strong>Middle Initial </strong></div>
+        <div class="span2"><strong>DOB</strong></div>
+        <div class="span2"><strong>Patient Number</strong></div>
+        <div class="span2"><strong>Action</strong></div>
     </div>
-  </div>
-<% end %>
 
+
+    <% @patients.each do |patient| %>
+    <div class="row dataRowDark">
+        
+        <div class="span2"><%= patient.last_name %></div>
+        <div class="span2"><%= patient.first_name %></div>
+        <div class="span2"><%= patient.middle_initial %></div>
+        <div class="span2"><%= patient.date_of_birth %></div>
+        <div class="span2"><%= patient.patient_number %></div>
+        <div class="span2 btn-group"><span class="btn"><%= link_to 'Show', patient%></span>
+        <% if !session[:simulation_mode] %>
+            <span class="btn"><%= link_to 'Delete', patient, :confirm => 'Are you sure?', :method => :delete%></span>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+<% else %>
+    <p> no patients found </p>
+<% end %>
 <% if !session[:simulation_mode] %>
     <%= link_to 'New Patient', new_patient_path, :class => "btn" %>
 <% end %>

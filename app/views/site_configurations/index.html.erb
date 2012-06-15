@@ -13,7 +13,13 @@
   <div class="row-fluid">
  <% end %>
     <div class="span3"><%= site_configuration.location_name %></div>
-    <div class="span3"><%= image_tag("/image/#{site_configuration.image_file_id}", :alt => "Logo Image", width: 200)%></div>
+    <div class="span3">
+      <% unless site_configuration.image_file_id.blank? %>
+        <%= image_tag("/image/#{site_configuration.image_file_id}", :alt => "Logo Image", width: 200)%>
+      <% else %>
+        no image yet
+      <% end %>
+    </div>
     <div class="span3"><%= site_configuration.logo_text %></div>
     <div class="span3 btn-group">
 

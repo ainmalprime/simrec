@@ -24,7 +24,7 @@ class SiteConfigurationsController < ApplicationController
   # GET /site_configurations/new
   # GET /site_configurations/new.json
   def new
-    @site_configuration = SiteConfiguration.new(location_name: "Simulation EHR", logo_text: "Simulation EHR", logo_text_color: "FFFFFF", top_bar_gradient_start_color: "111111", top_bar_gradient_end_color: "444444", secondary_bar_gradient_start_color: "999999", secondary_bar_gradient_end_color: "CCCCCC", secondary_header_text_color: "282842", page_background_color: "FFFFFF", patient_info_box_background_color: "FFFFFF")
+    @site_configuration = SiteConfiguration.new(location_name: "DeVry", logo_text: "Simulation EHR", logo_text_color: "FFFFFF", top_bar_gradient_start_color: "111111", top_bar_gradient_end_color: "444444", secondary_bar_gradient_start_color: "999999", secondary_bar_gradient_end_color: "CCCCCC", secondary_header_text_color: "282842", page_background_color: "FFFFFF", patient_info_box_background_color: "FFFFFF")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -81,6 +81,9 @@ class SiteConfigurationsController < ApplicationController
   def destroy
     @site_configuration = SiteConfiguration.find(params[:id])
     @site_configuration.destroy
+    if @site_configuration == cookies[:site_configuration_id]
+      cookies.delete :site_configuration_id
+    end
 
     respond_to do |format|
       format.html { redirect_to site_configurations_url }

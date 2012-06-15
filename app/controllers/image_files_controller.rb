@@ -1,6 +1,6 @@
 class ImageFilesController < ApplicationController
   include SessionsHelper
-  before_filter :check_site_configuration
+  before_filter :check_site_configuration, except: [:code_image]
   before_filter :record_referrer, except: [:code_image, :edit]
   def record_referrer
     session[:return_to] = request.url
