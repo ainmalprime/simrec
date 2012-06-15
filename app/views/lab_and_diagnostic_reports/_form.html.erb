@@ -25,6 +25,7 @@ function filter(selector, query) {
 
 function noenter() {
   return !(window.event && window.event.keyCode == 13); }"%>
+ <%= form_for(@lab_and_diagnostic_report) do |f| %>
   <% if @lab_and_diagnostic_report.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@lab_and_diagnostic_report.errors.count, "error") %> prohibited this lab_and_diagnostic_report from being saved:</h2>
@@ -132,6 +133,7 @@ function noenter() {
   </div>
     
   <% end %>
+
   <div class="row-fluid">
     <div class="span12">
     <%= f.submit "save", class: "btn" %>

@@ -2,10 +2,7 @@ class FlowSheetRecordsController < ApplicationController
   include SessionsHelper
   before_filter :check_site_configuration
   layout "popover", :only => [:ajax_new]
-  before_filter :record_referrer
-  def record_referrer
-    session[:return_to] = request.url
-  end
+
 
   # GET /flow_sheet_records
   # GET /flow_sheet_records.json
@@ -77,7 +74,7 @@ class FlowSheetRecordsController < ApplicationController
 
     respond_to do |format|
       if @flow_sheet_record.update_attributes(params[:flow_sheet_record])
-        format.html { redirect_to @flow_sheet_record, notice: 'Flow sheet record was successfully updated.' }
+        format.html { redirect_to session[:return_to], notice: 'Flow sheet record was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -93,7 +90,7 @@ class FlowSheetRecordsController < ApplicationController
     @flow_sheet_record.destroy
 
     respond_to do |format|
-      format.html { redirect_to flow_sheet_records_url }
+      format.html { redirect_to session[:return_to] }
       format.json { head :no_content }
     end
   end

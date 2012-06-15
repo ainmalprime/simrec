@@ -1,10 +1,7 @@
 class VisitsController < ApplicationController
   include SessionsHelper
   before_filter :check_site_configuration
-  before_filter :record_referrer
-  def record_referrer
-    session[:return_to] = request.url
-  end
+
   # GET /visits
   # GET /visits.json
   def index
@@ -72,7 +69,7 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.update_attributes(params[:visit])
-        format.html { redirect_to @visit, :notice => 'Visit was successfully updated.' }
+        format.html { redirect_to session[:return_to], :notice => 'Visit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -88,7 +85,7 @@ class VisitsController < ApplicationController
     @visit.destroy
 
     respond_to do |format|
-      format.html { redirect_to visits_url }
+      format.html { redirect_to session[:return_to] }
       format.json { head :no_content }
     end
   end
