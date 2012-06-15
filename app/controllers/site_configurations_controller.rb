@@ -1,7 +1,11 @@
 class SiteConfigurationsController < ApplicationController
+  include SessionsHelper
+  before_filter :clear_patient
+
   # GET /site_configurations
   # GET /site_configurations.json
   def index
+    clear_patient
     @site_configurations = SiteConfiguration.all
 
     respond_to do |format|

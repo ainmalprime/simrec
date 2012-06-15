@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
   include SessionsHelper
   before_filter :check_site_configuration
+  before_filter :clear_patient
+
   def show
+
     @user = User.find(params[:id])
   end
 
@@ -19,14 +22,17 @@ class UsersController < ApplicationController
   end
 
   def index
+
     @users = User.all
   end
 
   def edit
+
     @user = User.find(params[:id])
   end
 
-    def update
+  def update
+
     @user = User.find(params[:id])
 
     respond_to do |format|

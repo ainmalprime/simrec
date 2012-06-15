@@ -8,6 +8,11 @@ module SessionsHelper
     @current_user = user
   end
 
+  def clear_patient
+    session[:current_patient_id] = nil
+    @patient = nil
+  end
+
   def current_user
     @current_user ||= User.find_by_remember_token(cookies[:remember_token])
   end
