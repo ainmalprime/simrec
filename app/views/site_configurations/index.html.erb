@@ -1,27 +1,34 @@
-<h1>Listing site_configurations</h1>
+<h1>available location configurations</h1>
 
-<table>
-  <tr>
-    <th>Location name</th>
-    <th>Image file</th>
-    <th>Logo text</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row-fluid">
+    <div class="span3"><h3>Location name</h3></div>
+    <div class="span3"><h3>Image file</h3></div>
+    <div class="span3"><h3>Header logo text</h3></div>
+</div>
 
 <% @site_configurations.each do |site_configuration| %>
-  <tr>
-    <td><%= site_configuration.location_name %></td>
-    <td><%= site_configuration.image_file_id %></td>
-    <td><%= site_configuration.logo_text %></td>
-    <td><%= link_to 'Select', config_path(site_configuration) %></td>
-    <td><%= link_to 'Edit', edit_site_configuration_path(site_configuration) %></td>
-    <td><%= link_to 'Destroy', site_configuration, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+ <% if @site_configuration.image_file_id == site_configuration.image_file_id %> 
+  <div class="row-fluid selected">
+ <% else %>
+  <div class="row-fluid">
+ <% end %>
+    <div class="span3"><%= site_configuration.location_name %></div>
+    <div class="span3"><%= image_tag("/image/#{site_configuration.image_file_id}", :alt => "Logo Image", width: 200)%></div>
+    <div class="span3"><%= site_configuration.logo_text %></div>
+    <div class="span3 btn-group">
+
+      <%= link_to 'Select', config_path(site_configuration), class: "btn" %>
+      <%= link_to 'Edit', edit_site_configuration_path(site_configuration), class: "btn"  %>
+      <%= link_to 'Delete', site_configuration, confirm: 'Are you sure?', method: :delete, class: "btn"  %>
+    </div>
+  </div>
 <% end %>
-</table>
 
-<br />
+<br/>
+<br/>
 
-<%= link_to 'New Site configuration', new_site_configuration_path %>
+<div class="row-fluid">
+  <div class="offset6 span6">
+    <%= link_to 'New location', new_site_configuration_path, class: "btn" %>
+  </div>
+</div>
