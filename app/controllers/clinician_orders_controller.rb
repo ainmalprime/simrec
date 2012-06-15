@@ -34,6 +34,7 @@ class ClinicianOrdersController < ApplicationController
   def new
     @clinician_order = ClinicianOrder.new
     @clinician_order.visit_id = params[:visit_id]
+    @clinician_order.time_recorded = Time.Now unless params[:time_recorded].blank?
     @order_types = OrderType.all
     @order_type_categories = @order_types.group_by(&:category)
 

@@ -44,7 +44,7 @@ class SiteConfigurationsController < ApplicationController
   def set_config
     @site_configuration = SiteConfiguration.find(params[:id])
     cookies.delete :site_configuration_id
-    cookies[:site_configuration_id] = params[:id] 
+    cookies.permanent[:site_configuration_id] = params[:id] 
     redirect_to site_configurations_path
   end
 

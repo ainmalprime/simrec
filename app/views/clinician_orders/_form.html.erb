@@ -82,12 +82,15 @@ function noenter() {
     </div>
   </div>
  <%end%>
-  <div class="row-fluid">
-    <div class="span12">
-      <%= f.label :time_recorded %><br />
-      <%= f.datetime_select :time_recorded %>
+
+   <% if !session[:simulation_mode] %>
+    <div class="row-fluid">
+      <div class="span12">
+        <%= f.label :time_recorded %><br />
+        <%= f.datetime_select :time_recorded %>
+      </div>
     </div>
-  </span>
+  <% end %>
   <div class="row-fluid">
     <div class="span12">
       <%= f.label :note %><br />
