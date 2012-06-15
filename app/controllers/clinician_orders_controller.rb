@@ -34,7 +34,7 @@ class ClinicianOrdersController < ApplicationController
   def new
     @clinician_order = ClinicianOrder.new
     @clinician_order.visit_id = params[:visit_id]
-    @clinician_order.time_recorded = Time.Now unless params[:time_recorded].blank?
+
     @order_types = OrderType.all
     @order_type_categories = @order_types.group_by(&:category)
 
@@ -61,7 +61,10 @@ class ClinicianOrdersController < ApplicationController
     params[:order_types].each do |order_type|
       @clinician_order = ClinicianOrder.new(params[:clinician_order])
       @clinician_order.order_type = order_type
+
       if session[:simulation_mode] 
+
+        @clinician_order.time_recorded = Time.now()
         @clinician_order.sim_session = request.session_options[:id]
         @action_log_entry = ActionLogEntry.create({description: "order entered", content: "<h3>type:</h3> #{@clinician_order.order_type} <h3> note: </h3> #{@clinician_order.note} <h3> signature: </h3> #{@clinician_order.clincian_signature}", sim_session: request.session_options[:id]}) 
       end   
