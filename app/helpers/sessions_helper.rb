@@ -41,36 +41,14 @@ module SessionsHelper
     end
   end 
 
-  def force_login_with_message_and_redirect(message, return_to = '/')
-    session[:return_to] = return_to if !return_to.empty?
-    return redirect_to '/signin', :notice =>  message 
-  end
-
-  def edit_mode
-    return force_login_with_message_and_redirect('Please log in to permanently edit simulation medical records.', '/edit') if !signed_in?
-    session[:simulation_mode] = false
-
-    respond_to do |format|
-      format.html {redirect_to session[:return_to], :notice => 'edit mode activated'}
+  def log_action (object)
+    log_content = " "
+    object.attributes.each do |key, value|
+      if key != "sim_session" && key != "created_at" && key != "updated_at" && !key.include?("_id") && !key.nil? && !value.nil?  && !value.blank?
+        log_content += "<h3>" + key.humanize + "</h3>" + "<p>" + value.to_s + "</p>"
+      end
     end
-  end
-
-  def review
-    @action_log_entries = ActionLogEntry.find :all, conditions: ["sim_session = ?",  (request.session_options[:id])]
-  end
-
-  def reset_sim
-    back_to = session[:return_to]
-    ClinicianNote.destroy_all(sim_session: request.session_options[:id])
-    ClinicianOrder.destroy_all(sim_session: request.session_options[:id])
-    FlowSheetRecord.destroy_all(sim_session: request.session_options[:id])
-    MedicalAdministrationRecord.destroy_all(sim_session: request.session_options[:id])
-    LabAndDiagnosticReport.destroy_all(sim_session: request.session_options[:id])
-    reset_session
-    session[:return_to] = root_url
-    respond_to do |format|
-      format.html {redirect_to back_to, :notice => 'simulation session reset'}
-    end
+    ActionLogEntry.create({description: "<h2>" + object.class.name.titleize + "</h2>", content: log_content, sim_session: request.session_options[:id]})
   end
 
 end

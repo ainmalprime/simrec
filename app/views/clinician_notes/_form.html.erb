@@ -23,12 +23,18 @@
       </div>
     <% end %>
   </div>
+<% if !session[:simulation_mode] %>
   <div class="row_fluid">
-    <div class="span10">
+    <div class="span8">
       <%= f.label :time_recorded, "Time of note entry" %><br />
       <%= f.datetime_select :time_recorded %>
     </div>
+    <div class="span4">
+      <%= f.label :minutes_after_start_of_visit %><br />
+      <%= f.text_field :minutes_after_start_of_visit %>
+    </div>
   </div>
+<% end %>
   <div class="row_fluid"> 
     <div class="span12">
       <%= f.label :note_type, "Type of note" %><br />
@@ -37,8 +43,8 @@
   </div>
   <div class="row_fluid">
     <div class="span12">
-      <%= f.label :note_text, "Note Text" %><br />
-      <%= f.text_area :note_text, :class => "tinymce", :rows => 15%>
+      <%= f.label :note, "Note Text" %><br />
+      <%= f.text_area :note, :class => "tinymce", :rows => 15%>
       <%= tinymce %>
     </div>
     </div>

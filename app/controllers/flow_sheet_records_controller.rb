@@ -56,6 +56,13 @@ class FlowSheetRecordsController < ApplicationController
     @Visit = Visit.find(@flow_sheet_record.visit_id) #reconstruct patient and visit to redirect back to patient view
     @Patient = Patient.find(@Visit.patient_id)
 
+    if session[:simulation_mode] 
+      @flow_sheet_record.time_recorded = Time.now()
+      @flow_sheet_record.sim_session = request.session_options[:id]
+      log_action @flow_sheet_record
+    end
+    
+
     respond_to do |format|
       if @flow_sheet_record.save
         format.html { redirect_to @Patient, notice: 'Flow sheet record was successfully created.' }

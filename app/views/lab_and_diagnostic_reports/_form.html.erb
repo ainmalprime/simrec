@@ -52,10 +52,14 @@ function noenter() {
   </div>
 
   <div class="row-fluid">
-    <div class="span12">
+    <div class="span8">
       <%= f.label :time_released %><br />
       <%= f.datetime_select :time_released %>
     </div> 
+    <div class="span4">
+      <%= f.label :minutes_after_start_of_visit %><br />
+      <%= f.text_field :minutes_after_start_of_visit %>
+    </div>
   </div>
 
   <div class="row-fluid">

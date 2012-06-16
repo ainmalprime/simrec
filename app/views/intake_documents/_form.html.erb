@@ -22,11 +22,14 @@
     </div>
   <% end %>
   
-  <div class="span12">
-    <%= f.label :timerecorded, "Document time stamp" %><br />
-    <%= f.datetime_select :timerecorded %>
+  <div class="span8">
+    <%= f.label :time_recorded, "Document time stamp" %><br />
+    <%= f.datetime_select :time_recorded %>
   </div>
-
+  <div class="span4">
+    <%= f.label :minutes_after_start_of_visit %><br />
+    <%= f.text_field :minutes_after_start_of_visit %>
+  </div>
   <div class="span12">
     <%= f.label :description %><br />
     <%= f.text_field :description %>

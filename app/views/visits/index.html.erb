@@ -3,8 +3,8 @@
 <table>
   <tr>
     <th>Patient</th>
-    <th>Mrnumber</th>
-    <th>Chiefcomplaint</th>
+    <th>Mr Number</th>
+    <th>Chief Complaint</th>
     <th>Discharge Diagnosis</th>
     <th></th>
     <th></th>
@@ -14,9 +14,9 @@
 <% @visits.each do |visit| %>
   <tr>
     <td><%= visit.patient_id %></td>
-    <td><%= visit.mrNumber %></td>
-    <td><%= visit.chiefComplaint %></td>
-    <td><%= visit.dischargeDiagnosis %></td>
+    <td><%= visit.mr_number %></td>
+    <td><%= visit.chief_complaint %></td>
+    <td><%= visit.discharge_diagnosis %></td>
     <td><%= link_to 'Show', visit %></td>
     <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
     <td><%= link_to 'Destroy', visit, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -26,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Visit', new_visit_path %>
+<%= link_to 'New Visit', new_visit_path, class: "btn" %>

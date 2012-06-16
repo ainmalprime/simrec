@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615005729) do
+ActiveRecord::Schema.define(:version => 20120616185138) do
 
   create_table "action_log_entries", :force => true do |t|
     t.string    "description"
@@ -22,65 +22,52 @@ ActiveRecord::Schema.define(:version => 20120615005729) do
   end
 
   create_table "clinician_notes", :force => true do |t|
-    t.integer   "visit_id"
-    t.timestamp "time_recorded"
-    t.string    "note_type"
-    t.text      "note_text"
-    t.string    "clinician_signature"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "sim_session"
+    t.integer  "visit_id"
+    t.datetime "time_recorded"
+    t.string   "note_type"
+    t.text     "note"
+    t.string   "clinician_signature"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "sim_session"
+    t.integer  "minutes_after_start_of_visit"
   end
 
   create_table "clinician_orders", :force => true do |t|
-    t.integer   "visit_id"
-    t.string    "order_type"
-    t.string    "note"
-    t.timestamp "time_recorded"
-    t.string    "status"
-    t.timestamp "time_processed"
-    t.timestamp "created_at",         :null => false
-    t.timestamp "updated_at",         :null => false
-    t.string    "clincian_signature"
-    t.string    "sim_session"
-  end
-
-  create_table "configurations", :force => true do |t|
-    t.string   "location_name"
-    t.integer  "image_file_id"
-    t.string   "logo_text"
-    t.string   "logo_text_color"
-    t.string   "top_bar_gradient_start_color"
-    t.string   "top_bar_gradient_end_color"
-    t.string   "secondary_bar_gradient_start_color"
-    t.string   "secondary_bar_gradient_end_color"
-    t.string   "page_background_color"
-    t.string   "secondary_header_text_color"
-    t.string   "patient_info_box_background_color"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.integer  "visit_id"
+    t.string   "order_type"
+    t.string   "note"
+    t.datetime "time_recorded"
+    t.string   "status"
+    t.datetime "time_processed"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "clinician_signature"
+    t.string   "sim_session"
+    t.integer  "minutes_after_start_of_visit"
   end
 
   create_table "flow_sheet_records", :force => true do |t|
-    t.integer   "visit_id"
-    t.timestamp "time_recorded"
-    t.string    "temp"
-    t.string    "blood_pressure"
-    t.string    "respiratory_rate"
-    t.string    "oxygen_saturation"
-    t.string    "intake_po"
-    t.string    "intake_iv"
-    t.string    "intake_other"
-    t.string    "intake_other_description"
-    t.string    "output_urine"
-    t.string    "output_feces"
-    t.string    "output_blood"
-    t.string    "output_other"
-    t.string    "output_other_description"
-    t.timestamp "created_at",               :null => false
-    t.timestamp "updated_at",               :null => false
-    t.string    "heart_rate"
-    t.string    "sim_session"
+    t.integer  "visit_id"
+    t.datetime "time_recorded"
+    t.integer  "minutes_after_start_of_visit"
+    t.string   "temp"
+    t.string   "blood_pressure"
+    t.string   "heart_rate"
+    t.string   "respiratory_rate"
+    t.string   "oxygen_saturation"
+    t.string   "intake_po"
+    t.string   "intake_iv"
+    t.string   "intake_other"
+    t.string   "intake_other_description"
+    t.string   "output_urine"
+    t.string   "output_feces"
+    t.string   "output_blood"
+    t.string   "output_other"
+    t.string   "output_other_description"
+    t.string   "sim_session"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "image_files", :force => true do |t|
@@ -93,12 +80,13 @@ ActiveRecord::Schema.define(:version => 20120615005729) do
   end
 
   create_table "intake_documents", :force => true do |t|
-    t.integer   "visit_id"
-    t.integer   "image_file_id"
-    t.string    "description"
-    t.timestamp "timerecorded"
-    t.timestamp "created_at",    :null => false
-    t.timestamp "updated_at",    :null => false
+    t.integer  "visit_id"
+    t.integer  "image_file_id"
+    t.string   "description"
+    t.datetime "time_recorded"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "minutes_after_start_of_visit"
   end
 
   create_table "lab_and_diagnostic_reports", :force => true do |t|
@@ -108,11 +96,12 @@ ActiveRecord::Schema.define(:version => 20120615005729) do
     t.integer   "release_delay"
     t.integer   "visible"
     t.text      "result_text"
-    t.timestamp "created_at",         :null => false
-    t.timestamp "updated_at",         :null => false
+    t.timestamp "created_at",                   :null => false
+    t.timestamp "updated_at",                   :null => false
     t.string    "order_type"
     t.timestamp "time_released"
     t.string    "sim_session"
+    t.integer   "minutes_after_start_of_visit"
   end
 
   create_table "lab_report_fields", :force => true do |t|
@@ -129,14 +118,15 @@ ActiveRecord::Schema.define(:version => 20120615005729) do
   end
 
   create_table "medical_administration_records", :force => true do |t|
-    t.integer   "visit_id"
-    t.timestamp "timeRecorded"
-    t.string    "actionDescription"
-    t.string    "actionDetails"
-    t.string    "clinicianSignature"
-    t.timestamp "created_at",         :null => false
-    t.timestamp "updated_at",         :null => false
-    t.string    "sim_session"
+    t.integer  "visit_id"
+    t.datetime "time_recorded"
+    t.string   "description"
+    t.string   "note"
+    t.string   "clinician_signature"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "sim_session"
+    t.integer  "minutes_after_start_of_visit"
   end
 
   create_table "order_types", :force => true do |t|
@@ -210,13 +200,14 @@ ActiveRecord::Schema.define(:version => 20120615005729) do
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
   create_table "visits", :force => true do |t|
-    t.integer   "patient_id",         :null => false
-    t.string    "mrNumber"
-    t.string    "chiefComplaint"
-    t.string    "dischargeDiagnosis"
-    t.timestamp "created_at",         :null => false
-    t.timestamp "updated_at",         :null => false
-    t.timestamp "visittime"
+    t.integer  "patient_id",             :null => false
+    t.string   "mr_number"
+    t.string   "chief_complaint"
+    t.string   "discharge_diagnosis"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.datetime "visit_time"
+    t.integer  "duration_til_now_hours"
   end
 
 end

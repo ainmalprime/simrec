@@ -59,8 +59,9 @@ class ClinicianNotesController < ApplicationController
     #it is only available to the current sim session and will be deleted 
     #when the sim session is reset -tg
     if session[:simulation_mode] 
+      @clinician_note.time_recorded = Time.now()
       @clinician_note.sim_session = request.session_options[:id]
-      @action_log_entry = ActionLogEntry.create({description: "clinician note entered", content: "type: #{@clinician_note.note_type}<br /> note: <br /> #{@clinician_note.note_text} <br /> signature: <br /> #{@clinician_note.clinician_signature}", sim_session: request.session_options[:id]})
+      log_action @clinician_note
     end
     
     @Visit = Visit.find(@clinician_note.visit_id) #reconstruct patient and visit to redirect back to patient  -tg

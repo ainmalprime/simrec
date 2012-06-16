@@ -1,18 +1,18 @@
 <div class="row-fluid dataRow">
 	<div class="span2">
-	  <%= medical_administration_record.timeRecorded %>
+	  <%= medical_administration_record.time_recorded %>
 	</div>
 
 	<div class="span3">
-	  <%= medical_administration_record.actionDescription %>
+	  <%=raw medical_administration_record.description %>
 	</div>
 
 	<div class="span3">
-	  <%= medical_administration_record.actionDetails %>
+	  <%=raw medical_administration_record.note %>
 	</div>
 
 	<div class="span2">
-	  <%= medical_administration_record.clinicianSignature %>
+	  <%= medical_administration_record.clinician_signature %>
 	</div>
 	<div class="span2">
 		<%= link_to 'Show', medical_administration_record %>

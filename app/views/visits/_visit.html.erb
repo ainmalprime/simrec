@@ -4,13 +4,13 @@
 <div class="row-fluid">
 <%end%>
   <div class="span4">
-    <%= visit.visittime %>
+    <%= visit.visit_time %>
   </div>
   <div class="span3">
-    <strong><%= visit.chiefComplaint %></strong>
+    <strong><%= visit.chief_complaint %></strong>
   </div>
   <div class="span2">
-    <strong><%= visit.dischargeDiagnosis %></strong>
+    <strong><%= visit.discharge_diagnosis %></strong>
   </div>
   <div class="span3">
     <% if visit.id == @selectedVisit.id %>

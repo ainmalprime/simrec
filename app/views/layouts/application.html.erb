@@ -98,10 +98,10 @@
 <% if Rails.env.development? %>
 </div class="debug">
   <h1> debug info </h1>
+  <%= debug(Time.now())  %>
   <%= debug(params)  %>
   <%= debug(cookies) %>
   <%= debug(session) %>
-  <%= debug @site_configuration %>
 </div>
 <% end %>
 <div id="pop" class="popover" align="center"><a href="javascript:closePopOver('pop');">CLOSE ME</a>

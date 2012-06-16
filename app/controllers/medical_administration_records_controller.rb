@@ -51,9 +51,17 @@ class MedicalAdministrationRecordsController < ApplicationController
   # POST /medical_administration_records
   # POST /medical_administration_records.json
   def create
+
+
     @medical_administration_record = MedicalAdministrationRecord.new(params[:medical_administration_record])
     @Visit = Visit.find(@medical_administration_record.visit_id) #reconstruct patient and visit to redirect back to patient  -tg
     @Patient = Patient.find(@Visit.patient_id)
+    
+    if session[:simulation_mode] 
+      @medical_administration_record.time_recorded = Time.now()
+      @medical_administration_record.sim_session = request.session_options[:id]
+      log_action @medical_administration_record
+    end
     
     respond_to do |format|
       if @medical_administration_record.save

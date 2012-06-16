@@ -2,15 +2,16 @@
 #
 # Table name: medical_administration_records
 #
-#  id                 :integer         primary key
-#  visit_id           :integer
-#  timeRecorded       :timestamp
-#  actionDescription  :string(255)
-#  actionDetails      :string(255)
-#  clinicianSignature :string(255)
-#  created_at         :timestamp       not null
-#  updated_at         :timestamp       not null
-#  sim_session        :string(255)
+#  id                           :integer         not null, primary key
+#  visit_id                     :integer
+#  time_recorded                :datetime
+#  description                  :string(255)
+#  note                         :string(255)
+#  clinician_signature          :string(255)
+#  created_at                   :datetime        not null
+#  updated_at                   :datetime        not null
+#  sim_session                  :string(255)
+#  minutes_after_start_of_visit :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

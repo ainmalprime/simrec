@@ -22,12 +22,18 @@
     <%= f.hidden_field :visit_id %>
   </div>
 <% end %>
-<div class="row-fluid alternateGray2 dataRowDark">
-  <div class="span10">
-    <%= f.label :time_recorded, "Time of flowsheet record entry" %><br />
-    <%= f.datetime_select :time_recorded %>
+<% if !session[:simulation_mode] %>
+  <div class="row-fluid alternateGray2 dataRowDark">
+    <div class="span8">
+      <%= f.label :time_recorded, "Time of flowsheet record entry" %><br />
+      <%= f.datetime_select :time_recorded %>
+    </div>
+    <div class="span4">
+      <%= f.label :minutes_after_start_of_visit %><br />
+      <%= f.text_field :minutes_after_start_of_visit %>
+    </div>  
   </div>
-</div>
+<% end %>
 <div class="row-fluid alternateGray1 ">
   <div class="span4">
     <%= f.label :temp, "Tempurature" %><br />

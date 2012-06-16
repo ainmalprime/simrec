@@ -22,32 +22,37 @@
       </div>
     <% end %>
   </div>
+  <% if !session[:simulation_mode] %>
+    <div class="row-fluid">
+      <div class="span8">
+        <%= f.label :time_recorded, "time recorded" %><br />
+        <%= f.datetime_select :time_recorded %>
+      </div>
+      <div class="span4">
+        <%= f.label :minutes_after_start_of_visit %><br />
+        <%= f.text_field :minutes_after_start_of_visit %>
+      </div>
+    </div>
+    <%end%>
   <div class="row-fluid">
-    <div class="span12">
-      <%= f.label :timeRecorded, "time recorded" %><br />
-      <%= f.datetime_select :timeRecorded %>
+    <div class="span6">
+      <%= f.label :description, "description"%><br />
+      <%= f.text_field :description %>
     </div>
   </div>
   <div class="row-fluid">
     <div class="span6">
-      <%= f.label :actionDescription, "Description"%><br />
-      <%= f.text_area :actionDescription %>
-    </div>
-
-    <div class="span6">
-      <%= f.label :actionDetails, "Details" %><br />
-      <%= f.text_area :actionDetails %>
-      <%= f.text_area :actionDetails, :class => "tinymce textarea"%>
+      <%= f.label :note, "details" %><br />
+      <%= f.text_area :note, :class => "tinymce "%>
       <%= tinymce %>
     </div>
   </div>
   <div class="row-fluid">
     <div class="span12">
-      <%= f.label :clinicianSignature, "Clinician Signature" %><br />
-      <%= f.text_field :clinicianSignature %>
+      <%= f.label :clinician_signature, "clinician signature" %><br />
+      <%= f.text_field :clinician_signature %>
     </div>
   <div class="row-fluid">
     <div class="span12 btn-group">
-      <%= f.submit "Record MAR Entry", :class => "btn" %>
-
+      <%= f.submit "save", :class => "btn" %>
 <% end %>

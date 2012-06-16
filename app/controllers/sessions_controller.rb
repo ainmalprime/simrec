@@ -55,20 +55,6 @@ class SessionsController < ApplicationController
   def review
     @action_log_entries = ActionLogEntry.find :all, conditions: ["sim_session = ?",  (request.session_options[:id])]
   end
-
-  def reset_sim
-    back_to = session[:return_to]
-    ClinicianNote.destroy_all(sim_session: request.session_options[:id])
-    ClinicianOrder.destroy_all(sim_session: request.session_options[:id])
-    FlowSheetRecord.destroy_all(sim_session: request.session_options[:id])
-    MedicalAdministrationRecord.destroy_all(sim_session: request.session_options[:id])
-    LabAndDiagnosticReport.destroy_all(sim_session: request.session_options[:id])
-    reset_session
-    session[:return_to] = root_url
-    respond_to do |format|
-      format.html {redirect_to back_to, :notice => 'simulation session reset'}
-    end
-  end
   
   def simulation_mode
     reset_sim
@@ -78,4 +64,43 @@ class SessionsController < ApplicationController
   def end_session
     reset_session
   end
+
+  def reset_sim
+    back_to = session[:return_to]
+    ClinicianNote.destroy_all(sim_session: request.session_options[:id])
+    ClinicianOrder.destroy_all(sim_session: request.session_options[:id])
+    FlowSheetRecord.destroy_all(sim_session: request.session_options[:id])
+    MedicalAdministrationRecord.destroy_all(sim_session: request.session_options[:id])
+    LabAndDiagnosticReport.destroy_all(sim_session: request.session_options[:id])
+    
+    @visits_to_change = Visit.find :all, conditions: ["duration_til_now_hours > 0"] 
+    
+    @visits_to_change.each do |visit|
+      visit.visit_time = visit.duration_til_now_hours.hours.ago
+      visit.save  
+      update_times_on_child_records(visit, 'clinician_notes')
+      update_times_on_child_records(visit, 'clinician_orders')
+      update_times_on_child_records(visit, 'flow_sheet_records')
+      update_times_on_child_records(visit, 'medical_administration_records')
+      #update_times_on_child_records(visit, 'lab_and_diagnostic_reports')
+    end
+
+    reset_session
+    session[:return_to] = root_url
+    respond_to do |format|
+      format.html {redirect_to back_to, :notice => 'simulation session reset'}
+    end
+  end
+
+
+
+  private
+    def update_times_on_child_records(object, collection)
+      object.send(collection).each do |item|
+        if !item.minutes_after_start_of_visit.nil?
+          item.time_recorded = object.visit_time + item.minutes_after_start_of_visit.minutes
+          item.save
+        end 
+      end 
+    end
 end

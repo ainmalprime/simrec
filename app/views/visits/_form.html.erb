@@ -27,24 +27,29 @@
     <% end %>
   </div>
   <div class="row_fluid">
-     <div class="span12">
-      <%= f.label :visittime, "Date and time of visit" %><br />
-      <%= f.datetime_select :visittime, :id => "datetimeselect"%>
+     <div class="span10">
+      <%= f.label :visit_time, "Date and time of visit" %><br />
+      <%= f.datetime_select :visit_time, :id => "datetimeselect"%>
+    </div>
+    <div class="span2">
+      <%= f.label :duration_til_now_hours, "visit time auto resets to how many hours ago?" %><br />
+      <%= f.number_field :duration_til_now_hours%>
     </div>
   </div>
   <div class="row_fluid">
     <div class="span4">
-      <%= f.label :mrNumber, "Medical record number" %><br />
-      <%= f.text_field :mrNumber %>
+      <%= f.label :mr_number, "Medical record number" %><br />
+      <%= f.text_field :mr_number %>
     </div>
     <div class="span4">
-      <%= f.label :chiefComplaint, "Chief complaint" %><br />
-      <%= f.text_field :chiefComplaint %>
+      <%= f.label :chief_complaint, "Chief complaint" %><br />
+      <%= f.text_field :chief_complaint %>
     </div>
     <div class="span4">
-      <%= f.label :dischargeDiagnosis, "Discharge diagnosis/subject of case"%><br />
-      <%= f.text_field :dischargeDiagnosis %>
+      <%= f.label :discharge_diagnosis, "Discharge diagnosis"%><br />
+      <%= f.text_field :discharge_diagnosis %>
     </div>
+
   </div>
   <div style="row_fluid">
     <div class="btn-group span12" >

@@ -66,7 +66,7 @@ class ClinicianOrdersController < ApplicationController
 
         @clinician_order.time_recorded = Time.now()
         @clinician_order.sim_session = request.session_options[:id]
-        @action_log_entry = ActionLogEntry.create({description: "order entered", content: "<h3>type:</h3> #{@clinician_order.order_type} <h3> note: </h3> #{@clinician_order.note} <h3> signature: </h3> #{@clinician_order.clincian_signature}", sim_session: request.session_options[:id]}) 
+        log_action @clinician_order
       end   
       success = @clinician_order.save
     end

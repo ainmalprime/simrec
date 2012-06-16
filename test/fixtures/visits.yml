@@ -2,14 +2,15 @@
 #
 # Table name: visits
 #
-#  id                 :integer         primary key
-#  patient_id         :integer         not null
-#  mrNumber           :string(255)
-#  chiefComplaint     :string(255)
-#  dischargeDiagnosis :string(255)
-#  created_at         :timestamp       not null
-#  updated_at         :timestamp       not null
-#  visittime          :timestamp
+#  id                     :integer         not null, primary key
+#  patient_id             :integer         not null
+#  mr_number              :string(255)
+#  chief_complaint        :string(255)
+#  discharge_diagnosis    :string(255)
+#  created_at             :datetime        not null
+#  updated_at             :datetime        not null
+#  visit_time             :datetime
+#  duration_til_now_hours :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

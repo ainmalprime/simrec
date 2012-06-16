@@ -3,10 +3,10 @@
 <table>
   <tr>
     <th>Visit</th>
-    <th>Timerecorded</th>
-    <th>Actiondescription</th>
-    <th>Actiondetails</th>
-    <th>Cliniciansignature</th>
+    <th>Time recorded</th>
+    <th>Action description</th>
+    <th>Action details</th>
+    <th>Clinician signature</th>
 
     <th></th>
     <th></th>
@@ -16,10 +16,10 @@
 <% @medical_administration_records.each do |medical_administration_record| %>
   <tr>
     <td><%= medical_administration_record.visit_id %></td>
-    <td><%= medical_administration_record.timeRecorded %></td>
-    <td><%= medical_administration_record.actionDescription %></td>
-    <td><%= medical_administration_record.actionDetails %></td>
-    <td><%= medical_administration_record.clinicianSignature %></td>
+    <td><%= medical_administration_record.time_recorded %></td>
+    <td><%= medical_administration_record.description %></td>
+    <td><%= medical_administration_record.note %></td>
+    <td><%= medical_administration_record.clinician_signature %></td>
 
     <td><%= link_to 'Show', medical_administration_record %></td>
     <td><%= link_to 'Edit', edit_medical_administration_record_path(medical_administration_record) %></td>
