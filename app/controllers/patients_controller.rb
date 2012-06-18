@@ -57,19 +57,19 @@ class PatientsController < ApplicationController
 
   def create_resetable_simulation
     get_emr_objects_from_database
-    if session[:simulation_mode] && !session[:emr_objects_in_simulation] 
+    if session[:simulation_mode] && !session[:emr_objects_in_simulation] && !@selectedVisit.nil?
       copy_objects [@clinician_notes, @clinician_orders, @flow_sheet_records, @lab_and_diagnostic_reports, @medical_administration_records]
       session[:emr_objects_in_simulation] = true
     end
   end
 
   def copy_objects(objects)
-    objects.each do |collection|
-      collection.each do |item|
-        unless item.nil?
-          item_copy = item.dup
-          item_copy.sim_session = request.session_options[:id]
-          item_copy.save
+    unless objects.nil?
+      objects.each do |collection|
+        collection.each do |item|
+            item_copy = item.dup
+            item_copy.sim_session = request.session_options[:id]
+            item_copy.save
         end
       end
     end
