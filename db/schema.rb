@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120616185138) do
+ActiveRecord::Schema.define(:version => 20120618172550) do
 
   create_table "action_log_entries", :force => true do |t|
     t.string    "description"
