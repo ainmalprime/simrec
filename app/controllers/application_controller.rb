@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 	  
 
     if session[:current_patient_id]
-      @patient = Patient.find(session[:current_patient_id])
+      @patient = Patient.find(session[:current_patient_id]) rescue nil
     else
       @patient = nil
     end
