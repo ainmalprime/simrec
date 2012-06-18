@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618172550) do
+ActiveRecord::Schema.define(:version => 20120618174050) do
 
   create_table "action_log_entries", :force => true do |t|
     t.string    "description"
@@ -137,22 +137,22 @@ ActiveRecord::Schema.define(:version => 20120618172550) do
   end
 
   create_table "patients", :force => true do |t|
-    t.string    "first_name"
-    t.string    "last_name"
-    t.string    "date_of_birth"
-    t.string    "patient_number"
-    t.string    "address"
-    t.string    "telephone_1"
-    t.string    "telephone_1_type"
-    t.string    "telephone_2"
-    t.string    "telephone_2_type"
-    t.string    "insurance_carrier"
-    t.string    "primary_care_physician"
-    t.string    "drug_allergies"
-    t.timestamp "created_at",             :null => false
-    t.timestamp "updated_at",             :null => false
-    t.string    "middle_initial"
-    t.integer   "image_file_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "date_of_birth",          :limit => 255
+    t.string   "patient_number"
+    t.string   "address"
+    t.string   "telephone_1"
+    t.string   "telephone_1_type"
+    t.string   "telephone_2"
+    t.string   "telephone_2_type"
+    t.string   "insurance_carrier"
+    t.string   "primary_care_physician"
+    t.string   "drug_allergies"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "middle_initial"
+    t.integer  "image_file_id"
   end
 
   create_table "searches", :force => true do |t|

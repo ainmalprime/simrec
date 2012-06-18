@@ -24,11 +24,11 @@
     <% @patients.each do |patient| %>
     <div class="row dataRowDark">
         
-        <div class="span2"><%= patient.last_name %></div>
-        <div class="span2"><%= patient.first_name %></div>
-        <div class="span2"><%= patient.middle_initial %></div>
-        <div class="span2"><%= patient.date_of_birth %></div>
-        <div class="span2"><%= patient.patient_number %></div>
+        <div class="span2"><%= patient.last_name %>&nbsp;</div>
+        <div class="span2"><%= patient.first_name %>&nbsp;</div>
+        <div class="span2"><%= patient.middle_initial %>&nbsp;</div>
+        <div class="span2"><%= patient.date_of_birth %>&nbsp;</div>
+        <div class="span2"><%= patient.patient_number %>&nbsp;</div>
         <div class="span2 btn-group"><span class="btn"><%= link_to 'Show', patient%></span>
         <% if !session[:simulation_mode] %>
             <span class="btn"><%= link_to 'Delete', patient, :confirm => 'Are you sure?', :method => :delete%></span>
