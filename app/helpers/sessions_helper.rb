@@ -41,6 +41,10 @@ module SessionsHelper
     end
   end 
 
+  def force_login_with_message_and_redirect (message, path)
+    redirect_to "/signin", notice: message
+  end
+
   def log_action (object)
     log_content = " "
     object.attributes.each do |key, value|
