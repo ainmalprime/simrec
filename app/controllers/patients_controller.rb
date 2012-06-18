@@ -66,9 +66,11 @@ class PatientsController < ApplicationController
   def copy_objects(objects)
     objects.each do |collection|
       collection.each do |item|
-        item_copy = item.dup
-        item_copy.sim_session = request.session_options[:id]
-        item_copy.save
+        unless item.nil?
+          item_copy = item.dup
+          item_copy.sim_session = request.session_options[:id]
+          item_copy.save
+        end
       end
     end
   end
