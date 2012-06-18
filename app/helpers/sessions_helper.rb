@@ -43,6 +43,7 @@ module SessionsHelper
 
   def force_login_with_message_and_redirect (message, path)
     redirect_to "/signin", notice: message
+    session[:return_to] = path
   end
 
   def log_action (object)
