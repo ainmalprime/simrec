@@ -243,7 +243,8 @@ margin-left: 10px;
     border-style:solid;
     border-width:thin;	
     border-color:gray;
-	width:500px;
+	min-width:520px;
+	display:inline-block;
 }
 
 #instruction {

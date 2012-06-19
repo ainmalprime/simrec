@@ -8,7 +8,7 @@
             <%= @patient.last_name %></strong>
             DOB: 
             <strong><%= @patient.date_of_birth %></strong>
-            <%= link_to 'display', @patient, class: "nav pull-right" %>
+            <%= link_to 'display', @patient %>
           </div>
         <% end %>
         <% if !session[:simulation_mode] %>
