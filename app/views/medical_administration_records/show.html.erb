@@ -1,3 +1,4 @@
+<% content_for :title, "Medical administration record"%>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,13 +12,13 @@
 </p>
 
 <p>
-  <b>Actiondescription:</b>
-  <%= @medical_administration_record.description %>
+  <b>Actiondescription:</b><br />
+  <%=raw @medical_administration_record.description %>
 </p>
 
 <p>
-  <b>Actiondetails:</b>
-  <%= @medical_administration_record.note %>
+  <b>Actiondetails:</b><br />
+  <%=raw @medical_administration_record.note %>
 </p>
 
 <p>
