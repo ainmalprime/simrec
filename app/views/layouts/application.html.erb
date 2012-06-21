@@ -70,11 +70,10 @@
                   <li><%= link_to "Switch to simulation mode", '/simulation' %></li>
                 <% end %>
                 <li><%= link_to "Review case", '/review' %></li>
-                <li class="divider"></li>
-
-                <li><%= link_to "Site Configuration", site_configurations_path %></li>
-
+                
                 <% if administrator? %>
+                <li class="divider"></li>
+                  <li><%= link_to "Location configuration", site_configurations_path %></li>
                   <li><%= link_to "Manage users", '/users' %></li>
                 <% end %>
                 <li class="divider"></li>
