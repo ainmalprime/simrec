@@ -32,7 +32,6 @@
 		<% end %>
 	</div>
 	<div class="span3">
-		<%= link_to 'Show', flow_sheet_record %>
 		<% unless session[:simulation_mode] %>
 			<%= link_to 'Edit', edit_flow_sheet_record_path(flow_sheet_record) %>
 			<%= link_to 'Delete', flow_sheet_record, confirm: 'Are you sure?', method: :delete %>

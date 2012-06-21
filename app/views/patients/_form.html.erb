@@ -10,22 +10,25 @@
       </ul>
     </div>
   <% end %>
-  <div style="float:left;margin-right:10px;">
+<div class="row-fluid">
   <% unless params[:action] == "new" %>
-    <div class="field">
-      <%= f.label :image_file_id %><br />
-      <%= f.hidden_field :image_file_id %>
-      <% if @patient.image_file_id.blank? %>
-        <%= link_to "Add Image", new_image_file_path(:patient_id => @patient.id), :class => "btn" %>
-      <% else %>
-        <%= image_tag("/image/#{@patient.image_file_id}", :alt => "Image") %></br>
-        <span class="btn-group">
-        <%= link_to "Edit", edit_image_file_path(:id => @patient.image_file_id, :patient_id => @patient.id), :class => "btn"%> 
-        <%= link_to 'Delete', image_file_path(:id => @patient.image_file_id, :patient_id => @patient.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
-        </span>
-      <% end %>
-    </div>
+    
+      <div class="field">
+        <%= f.label :image_file_id %><br />
+        <%= f.hidden_field :image_file_id %>
+        <% if @patient.image_file_id.blank? %>
+          <%= link_to "Add Image", new_image_file_path(:patient_id => @patient.id), :class => "btn" %>
+        <% else %>
+          <%= image_tag("/image/#{@patient.image_file_id}", :alt => "Image") %></br>
+          <span class="btn-group">
+          <%= link_to "Edit", edit_image_file_path(:id => @patient.image_file_id, :patient_id => @patient.id), :class => "btn"%> 
+          <%= link_to 'Delete', image_file_path(:id => @patient.image_file_id, :patient_id => @patient.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
+          </span>
+        <% end %>
+      </div>
+
   <% end %>
+
     <div class="field">
       <%= f.label :first_name %><br />
       <%= f.text_field :first_name %>
@@ -50,8 +53,8 @@
       <%= f.label :address %><br />
       <%= f.text_field :address %>
     </div>
-  </div>  
-  <div style="float:left;">
+</div>
+<div class="row-fluid">
   <div class="field">
     <%= f.label :telephone_1 %><br />
     <%= f.text_field :telephone_1 %>
@@ -81,9 +84,9 @@
     <%= f.text_field :drug_allergies %>
   </div>
 
-  </div>
+</div>
 
-  <div class="actions" style="clear:both">
-    <%= f.submit %>
-  </div>
+  <div class="btn-group">
+    <%= f.submit "Save", class: "btn" %>
+  
 <% end %>
