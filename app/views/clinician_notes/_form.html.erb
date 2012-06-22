@@ -38,7 +38,22 @@
   <div class="row_fluid"> 
     <div class="span12">
       <%= f.label :note_type, "Type of note" %><br />
-      <%= f.select(:note_type, options_for_select([['Progress'], ['H&P']])) %>
+      <%= f.select(:note_type, options_for_select(
+        [['Progress'], 
+        ['SOAP']
+        ['History and Physical examination'], 
+        ['Consultation'], 
+        ['Operative report'],
+        ['Radiology report'],
+        ['Pathology report'],
+        ['Emergency report'],
+        ['Therapy report'],
+        ['Autopsy report'],
+        ['Biopsy report'],
+        ['Psychiatric observations'],
+        ['Discharge summary']]))%>
+
+
     </div>
   </div>
   <div class="row_fluid">
