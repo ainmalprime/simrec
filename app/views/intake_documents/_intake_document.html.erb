@@ -4,6 +4,6 @@
   <%= intake_document.time_recorded %> <br />
   <% unless session[:simulation_mode] %>
   	<%= link_to 'Edit', edit_intake_document_path(intake_document), class: "btn" %> 
-  	<%= link_to 'Delete', intake_document, confirm: 'Are you sure?', method: :delete %>
+  	<%= link_to 'Delete', intake_document, confirm: 'Are you sure?', method: :delete, class: "btn" %>
   <% end %>
 </div>
