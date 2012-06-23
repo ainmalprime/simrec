@@ -84,7 +84,7 @@ class IntakeDocumentsController < ApplicationController
     @intake_document.destroy
 
     respond_to do |format|
-      format.html { redirect_to intake_documents_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
