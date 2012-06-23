@@ -1,9 +1,16 @@
 <div class="icon">
-  <%= link_to image_tag("Document.png", :border=>0), intake_document %><br />
+	<% unless intake_document.image_file_id.blank? %>
+		<%= link_to image_tag("/image/#{intake_document.image_file_id}", width: 50, height: 65), intake_document %>
+	<% else %>
+ 		<%= link_to image_tag("Document.png", border: 0), intake_document %>
+	<% end %>
+	<br />
   <%= intake_document.description %> <br />
   <%= intake_document.time_recorded %> <br />
   <% unless session[:simulation_mode] %>
-  	<%= link_to 'Edit', edit_intake_document_path(intake_document), class: "btn" %> 
-  	<%= link_to 'Delete', intake_document, confirm: 'Are you sure?', method: :delete, class: "btn" %>
+	  <div class="btn-group">
+	  	<%= link_to 'Edit', edit_intake_document_path(intake_document), class: "btn" %> 
+	  	<%= link_to 'Delete', intake_document, confirm: 'Are you sure?', method: :delete, class: "btn" %>
+	  </div>
   <% end %>
 </div>
