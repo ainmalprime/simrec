@@ -4,12 +4,228 @@
 		"selected_items":
 		[
 			[
-				"in",
-				"input	Tag"
+				"st",
+				"style"
+			],
+			[
+				"sign",
+				"sign_in"
+			],
+			[
+				"clic",
+				"clinician_order"
+			],
+			[
+				"crea",
+				"created_at"
+			],
+			[
+				"flow",
+				"flow_sheet_record"
+			],
+			[
+				"visit",
+				"visit_time"
+			],
+			[
+				"clini",
+				"clinician_signature"
+			],
+			[
+				"re",
+				"rename_column"
+			],
+			[
+				"number",
+				"number_field"
+			],
+			[
+				"sess",
+				"session"
+			],
+			[
+				"ti",
+				"time_recorded"
+			],
+			[
+				"image",
+				"image_file_id"
+			],
+			[
+				"sit",
+				"site_configurations_path"
+			],
+			[
+				"simulation",
+				"simulation_mode"
+			],
+			[
+				"site",
+				"site_configuration"
+			],
+			[
+				"se",
+				"secondary_header_text_color"
+			],
+			[
+				"pATIENT",
+				"patient-info-header"
+			],
+			[
+				"si",
+				"site_configuration"
+			],
+			[
+				"config",
+				"configuration"
+			],
+			[
+				"site_con",
+				"site_configuration"
+			],
+			[
+				"pa",
+				"patient_number"
+			],
+			[
+				"tele",
+				"telephone2type"
+			],
+			[
+				"telep",
+				"telephone1"
+			],
+			[
+				"te",
+				"telephone_1"
+			],
+			[
+				"no",
+				"note_text"
+			],
+			[
+				"has",
+				"has_key"
+			],
+			[
+				"la",
+				"lab_reports"
+			],
+			[
+				"clinic",
+				"clinician_orders"
+			],
+			[
+				"find",
+				"find_releasable_reports"
+			],
+			[
+				"lab",
+				"lab_report"
+			],
+			[
+				"cl",
+				"clinician_orders"
+			],
+			[
+				"visi",
+				"visible"
+			],
+			[
+				"time",
+				"time_delay"
+			],
+			[
+				"up",
+				"update"
+			],
+			[
+				"La",
+				"LabAndDiagnosticReport"
 			],
 			[
 				"order",
-				"order_types"
+				"order_type"
+			],
+			[
+				"clinc",
+				"clinician_order"
+			],
+			[
+				"item",
+				"item_copy"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"rev",
+				"review"
+			],
+			[
+				"clin",
+				"clinician_note"
+			],
+			[
+				"res",
+				"reset_session"
+			],
+			[
+				"per",
+				"per_page"
+			],
+			[
+				"get",
+				"get_from_session"
+			],
+			[
+				"cre",
+				"create_resetable_session"
+			],
+			[
+				"cli",
+				"clinician_orders"
+			],
+			[
+				"sear",
+				"search-window"
+			],
+			[
+				"check",
+				"checkbox"
+			],
+			[
+				"redir",
+				"redirect_location"
+			],
+			[
+				"in",
+				"IntakeDocument"
+			],
+			[
+				"int",
+				"intake_document_id"
+			],
+			[
+				"co",
+				"code_image"
+			],
+			[
+				"border",
+				"border-color"
+			],
+			[
+				"ba",
+				"background	background-color: hex"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"bo",
+				"border-color"
 			],
 			[
 				"or",
@@ -32,32 +248,8 @@
 				"Cardiology"
 			],
 			[
-				"clin",
-				"clinician_notes"
-			],
-			[
 				"border-",
 				"border-width"
-			],
-			[
-				"se",
-				"session"
-			],
-			[
-				"int",
-				"intake_documents"
-			],
-			[
-				"clinic",
-				"clinician_notes"
-			],
-			[
-				"la",
-				"lab_and_diagnostic_reports"
-			],
-			[
-				"clini",
-				"clinician_orders"
 			],
 			[
 				"sim",
@@ -86,14 +278,6 @@
 			[
 				"par",
 				"params"
-			],
-			[
-				"st",
-				"strong	Tag"
-			],
-			[
-				"pa",
-				"patient"
 			],
 			[
 				"Cl",
@@ -152,10 +336,6 @@
 				"visit"
 			],
 			[
-				"visit",
-				"visit_id"
-			],
-			[
 				"fin",
 				"find"
 			],
@@ -172,10 +352,6 @@
 				"routes"
 			],
 			[
-				"re",
-				"resources"
-			],
-			[
 				"me",
 				"medical_administration_records"
 			]
@@ -184,82 +360,18 @@
 	"buffers":
 	[
 		{
-			"file": "app/views/patients/_demographics.html.erb",
+			"file": "app/views/intake_documents/_intake_document.html.erb",
 			"settings":
 			{
-				"buffer_size": 311,
+				"buffer_size": 656,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/patients/_flow_sheet_records.html.erb",
+			"file": "app/controllers/intake_documents_controller.rb",
 			"settings":
 			{
-				"buffer_size": 833,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/patients/show.html.erb",
-			"settings":
-			{
-				"buffer_size": 1137,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/patients/_medical_administration_record.html.erb",
-			"settings":
-			{
-				"buffer_size": 616,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/patients/_lab_and_diagnostic_reports.html.erb",
-			"settings":
-			{
-				"buffer_size": 683,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/patients/_intake_documents.html.erb",
-			"settings":
-			{
-				"buffer_size": 621,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/patients/_clinician_orders.html.erb",
-			"settings":
-			{
-				"buffer_size": 568,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/patients/_clinician_notes.html.erb",
-			"settings":
-			{
-				"buffer_size": 573,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/patients.css.scss",
-			"settings":
-			{
-				"buffer_size": 1066,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/custom.css.scss",
-			"settings":
-			{
-				"buffer_size": 536,
+				"buffer_size": 2543,
 				"line_ending": "Unix"
 			}
 		}
@@ -288,134 +400,134 @@
 	},
 	"file_history":
 	[
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/routes.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/clinician_orders.css.scss",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/_form.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/application.css",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/clinician_order.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/clinician_orders_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/custom.css.scss",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/patients.css.scss",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/clinician_notes.css.scss",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/index.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120602002834_drop_create_modified_order_types_repopulate.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120602003342_populate_order_types_with_categories.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/order_type.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/order_types/_form.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/order_types/index.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/order_types/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120528145813_populate_order_types.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/_form.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/new.js.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/javascripts/clinician_orders.js.coffee",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/medical_administration_records_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/order_types_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/ajax_new.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_medical_administration_record.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/clinician_notes_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/flow_sheet_record.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/new.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/_form.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_clinician_orders.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/new.js.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/new.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/ajax_new.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/edit.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_flow_sheet_records.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/_form.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/flow_sheet_records_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/new.js.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/ajax_new.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_clinician_notes.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/environment.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/initializers/session_store.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/patients_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/index.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/layouts/application.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/application_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_visits.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_patient.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_demographics.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_lab_and_diagnostic_reports.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_intake_documents.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/layouts/popover.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/ajax_new.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/new.js.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/visits_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/clinician_note.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/new.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/schema.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/javascripts/application.js",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/scaffolds.css.scss",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/show.js.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/index.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/patient.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/intake_documents_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120528220445_create_sim_clinician_notes.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/application/simulation_mode.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/sim_clinician_note.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/_simulation_mode.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/static_pages/home.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/_clinician_order.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/medical_administration_record.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/_medical_administration_record.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/index.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/_lab_and_diagnostic_report.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/intake_documents/_intake_document.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/_form.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/lab_and_diagnostic_report.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/javascripts/intake_documents.js.coffee",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/javascripts/patients.js.coffee",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/create.js.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/layouts/patient.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/lab_and_diagnostic_reports_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/javascripts/lab_timer.js",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/timer_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/_flow_sheet_record.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/javascripts/sessions.js.coffee",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120526033827_rename_flow_sheet_records_columns_to_postgres_friendly2.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/index.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120525214316_rename_flow_sheet_records_columns_to_postgres_friendly.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120525212700_rename_clinican_orders_columns_to_postgres_friendly.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/_clinician_note.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120525211500_rename_clinican_notes_columns_to_postgres_friendly.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120525205555_rename_clinican_note_columns_to_postgres_friendly.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/search.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_search.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/static_pages/search.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120525204300_change_patient_last_nametolast_name.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_form.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/_visit.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/intake_document.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/visit.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120524212133_create_intake_documents.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/image_file.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/image_files_controller.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/_form.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120522234514_rename_visit_time_on_visits_tovisittime.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/_form.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/index.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/new.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/show.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/new.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/initializers/time_formats.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/image_files/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/show.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/new.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/edit.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120521174041_make_recording_times_standard.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120519180410_change_recording_time_name_to_time_recorded.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120521173122_change_recording_time_clinician_note.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120520043458_add_column_heart_rateto_flow_sheet_record.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120520042733_add_column_heart_rateto_flow_sheet_record.rb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120519233331_change_clinician_note_note_typeto_text.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/static_pages/home.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/layouts/application.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/new.html.erb",
 		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/edit.html.erb",
-		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/edit.html.erb"
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/_flow_sheet_record.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_clinician_notes.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/_clinician_note.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/ajax_new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/_visit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/site_configurations/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/site_configurations/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/site_configurations/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/site_configurations/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/order_types/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/order_types/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/order_types/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/order_types/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_report_templates/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_report_templates/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_report_templates/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_report_templates/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/intake_documents/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/intake_documents/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/intake_documents/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/intake_documents/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/users/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/users/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/users/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/users/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/application_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/initializers/time_formats.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/layouts/_header_controls.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/application.css.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/custom.css.scss",
+		"/Users/administrator/Downloads/jscolor/demo.html",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/javascripts/jscolor/jscolor.js",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/sessions_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120618174050_change_patient_dob_to_date.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/patients_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_search.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/helpers/sessions_helper.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/visit.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/application/review.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/clinician_notes_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/clinician_orders_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/flow_sheet_records_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/medical_administration_records_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_orders/_clinician_order.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120612183150_create_users.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120616185138_change_flow_sheet_records_column_order.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120618172550_add_patients.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/schema.rb",
+		"/Users/administrator/Developer/DeVry EHR/Content etc/patients.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/intake_documents/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/medical_administration_records/_medical_administration_record.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/medical_administration_record.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/lab_and_diagnostic_report.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/intake_document.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/flow_sheet_record.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/clinician_order.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/clinician_note.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/intake_documents_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/application.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120615204808_add_minutes_after_start_of_visit_to_children.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120615190508_fix_column_misspellings.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/index.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/clinician_notes/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/intake_documents/_intake_document.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120615184353_improve_visit_names.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/visits_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/visits/show.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120615185613_improve_visit_names_again.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120615185845_drop_configurations.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/session.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/sessions.css.scss",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/site_configurations_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/initializers/add_condition.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/flow_sheet_records/edit.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/lab_and_diagnostic_reports_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/patients/_visits.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/static_pages_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/users_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/static_pages/search.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/user.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/users/_form.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/models/site_configuration.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/image_files_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/.gitignore",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/assets/stylesheets/scaffolds.css.scss",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/order_types_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/lab_and_diagnostic_reports/_lab_and_diagnostic_report.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/Gemfile",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/views/sessions/new.html.erb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/config/routes.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/script/rails",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/helpers/application_helper.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/controllers/lab_report_templates_controller.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/db/migrate/20120614190658_add_remember_token_to_users.rb",
+		"/Users/administrator/Developer/DeVry EHR/DeVryEHR/app/helpers/users_helper.rb"
 	],
 	"find":
 	{
@@ -423,9 +535,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"",
 			"*.rb,*.erb,-migrate/*,-db/*",
 			"*.rb,*.erb,-migrate/,-db/",
 			""
@@ -436,6 +549,54 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"link_to",
+			"site",
+			"create_resetable_simulation",
+			"medical_administration_record",
+			"clinician_signature",
+			":",
+			"lab_and_diagnostic_reports",
+			"')",
+			"update_times_on_child_records(visit, '",
+			"timerecorded",
+			"_text",
+			"details",
+			"action_",
+			"clincian_signature",
+			"dischargeDiagnosis",
+			"chiefComplaint",
+			"mrNumber",
+			"starts_hours_ago",
+			"visittime",
+			"starts_hours_ago",
+			"visittime",
+			"mrNumber",
+			"dischargeDiagnosis",
+			"chiefComplaint",
+			"order_type",
+			"site_configuration",
+			"</td>",
+			"<td>",
+			"def",
+			">",
+			"intake_document",
+			"class=\"field\"",
+			"color:",
+			"gray",
+			"rails",
+			"<%",
+			"start",
+			"end",
+			"header_text_color",
+			"top_bar",
+			"intake_document",
+			"  </div> \n\n  <div class=\"field\">",
+			"retain",
+			"isActiveSim",
+			"drop_column",
+			"      ",
+			"redirect_to",
+			"patient",
 			"margin",
 			".create",
 			"class=\"field\"",
@@ -494,6 +655,20 @@
 		"regex": false,
 		"replace_history":
 		[
+			"chief_complaint",
+			"user",
+			"</div>",
+			"<div class=\"span3\">",
+			"site_configuration",
+			"class=\"span3\"",
+			"Rails",
+			"start_color",
+			"secondary_header_text_color",
+			"secondary_bar",
+			"lab_and_diagnostic_report",
+			"  </div> \n  </div>\n\n  <div class=\"row-fluid\">\n  <div class=\"span12\">",
+			"remove_column",
+			"intake_document",
 			".create category: \"Lab Test\", ",
 			"class=\"span12\"",
 			"OrderType",
@@ -542,23 +717,22 @@
 	"groups":
 	[
 		{
-			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/patients/_demographics.html.erb",
+					"file": "app/views/intake_documents/_intake_document.html.erb",
 					"settings":
 					{
-						"buffer_size": 311,
+						"buffer_size": 656,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								32,
-								32
+								233,
+								233
 							]
 						],
 						"settings":
@@ -573,251 +747,25 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/views/patients/_flow_sheet_records.html.erb",
+					"file": "app/controllers/intake_documents_controller.rb",
 					"settings":
 					{
-						"buffer_size": 833,
+						"buffer_size": 2543,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								43,
-								43
+								2483,
+								2483
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/views/patients/show.html.erb",
-					"settings":
-					{
-						"buffer_size": 1137,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								891,
-								865
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/patients/_medical_administration_record.html.erb",
-					"settings":
-					{
-						"buffer_size": 616,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								43,
-								43
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/views/patients/_lab_and_diagnostic_reports.html.erb",
-					"settings":
-					{
-						"buffer_size": 683,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								41,
-								41
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/views/patients/_intake_documents.html.erb",
-					"settings":
-					{
-						"buffer_size": 621,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								45,
-								45
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/views/patients/_clinician_orders.html.erb",
-					"settings":
-					{
-						"buffer_size": 568,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								40,
-								40
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/views/patients/_clinician_notes.html.erb",
-					"settings":
-					{
-						"buffer_size": 573,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								573,
-								573
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 8,
-					"file": "app/assets/stylesheets/patients.css.scss",
-					"settings":
-					{
-						"buffer_size": 1066,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1038,
-								1038
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/assets/stylesheets/custom.css.scss",
-					"settings":
-					{
-						"buffer_size": 536,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								51,
-								51
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -845,18 +793,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -891,6 +832,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 435.0,
+	"side_bar_width": 378.0,
 	"status_bar_visible": true
 }

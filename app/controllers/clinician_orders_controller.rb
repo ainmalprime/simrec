@@ -1,7 +1,7 @@
 class ClinicianOrdersController < ApplicationController   
-  include SessionsHelper
-  before_filter :check_site_configuration
-  layout "popover", :only => [:ajax_new]
+  include SessionsHelper #load up the SessionsHelper functions to help manage the user session
+  before_filter :check_site_configuration #make sure a location configuration has been selected.
+  layout "popover", :only => [:ajax_new] #use the ajax_new layout template that is designed for being displayed within a popover div
 
 
   # GET /clinician_orders

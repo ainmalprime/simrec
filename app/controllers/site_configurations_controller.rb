@@ -1,6 +1,6 @@
 class SiteConfigurationsController < ApplicationController
-  include SessionsHelper
-  before_filter :clear_patient
+  include SessionsHelper #load up the SessionsHelper functions to help manage the user session
+  before_filter :clear_patient  #clear out the selected patient because the user has browsed away from the patient detail page
 
   # GET /site_configurations
   # GET /site_configurations.json
@@ -28,6 +28,8 @@ class SiteConfigurationsController < ApplicationController
   # GET /site_configurations/new
   # GET /site_configurations/new.json
   def new
+
+    #set up some devault settings the user can edit
     @site_configuration = SiteConfiguration.new(location_name: "DeVry", logo_text: "Simulation EHR", logo_text_color: "FFFFFF", top_bar_gradient_start_color: "111111", top_bar_gradient_end_color: "444444", secondary_bar_gradient_start_color: "999999", secondary_bar_gradient_end_color: "CCCCCC", secondary_header_text_color: "282842", page_background_color: "FFFFFF", patient_info_box_background_color: "FFFFFF")
 
     respond_to do |format|
@@ -43,8 +45,8 @@ class SiteConfigurationsController < ApplicationController
 
   def set_config
     @site_configuration = SiteConfiguration.find(params[:id])
-    cookies.delete :site_configuration_id
-    cookies.permanent[:site_configuration_id] = params[:id] 
+    cookies.delete :site_configuration_id #this step might not be necessary
+    cookies.permanent[:site_configuration_id] = params[:id] #save the site configuration ID in a permanent cookie so it won't be necessary to reconfigure the site the next time the browser goes to it
     redirect_to site_configurations_path
   end
 

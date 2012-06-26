@@ -1,7 +1,7 @@
 class ImageFilesController < ApplicationController
-  include SessionsHelper
-  before_filter :check_site_configuration, except: [:code_image]
-  before_filter :record_referrer, except: [:code_image, :edit]
+  include SessionsHelper #load up the SessionsHelper functions to help manage the user session
+  before_filter :check_site_configuration, except: [:code_image] #make sure a location configuration has been selected. Exclude displaying an image from the databse because it is necessary to be able to display images in the location configuration page before a configuration is selected.
+  before_filter :record_referrer, except: [:code_image, :edit] #record referrer in a session varable for the purposes of navigating back to start point after an action is performed.
   def record_referrer
     session[:return_to] = request.url
   end

@@ -1,3 +1,4 @@
+#extend the Array base class in order to simplify the way search conditions are constructed
 class Array
   def add_condition! (condition, conjunction = 'AND')
     if String === condition
@@ -16,24 +17,24 @@ end
 
 
 class PatientsController < ApplicationController
-  include SessionsHelper
-  before_filter :check_site_configuration
-  before_filter :record_referrer, except: [:lab_reports]
-  before_filter :create_resetable_simulation, except: [:index]
+  include SessionsHelper #load up the SessionsHelper functions to help manage the user session
+  before_filter :check_site_configuration #make sure a location configuration has been selected.
+  before_filter :record_referrer, except: [:lab_reports] #record referrer in a session varable for the purposes of navigating back to start point after an action is performed.
+  before_filter :create_resetable_simulation, except: [:index] # create a copy of the databse records the user is going to use if the app is in simulation mode so that modifications will be made to the copy and not the original. this facilitates the case reset functionality of the site.
 
 
   def record_referrer
     session[:return_to] = request.url
   end
   
-
+  #The function used to get the patient master and child data:
   def get_emr_objects_from_database
     if params.has_key?(:id)
       @patient = Patient.find(params[:id])
     else
       @patient = Patient.new
     end
-    session[:current_patient_id] = @patient.id
+    session[:current_patient_id] = @patient.id #save the patient id in a session variable so patient data can be retreived and displayed in the top header bar and for other purposes
     
     @visits = @patient.visits
     if params.has_key?(:selectedVisit) 
@@ -43,7 +44,7 @@ class PatientsController < ApplicationController
       @selectedVisit = @patient.visits.first
     end
     
-    unless @selectedVisit.nil?
+    unless @selectedVisit.nil? #if there is a selected visit, get all of the data that is related to the visit
       @clinician_notes = get_sim_or_edit_version("clinician_notes", false)
       @clinician_orders = get_sim_or_edit_version("clinician_orders", false)
       @flow_sheet_records = get_sim_or_edit_version("flow_sheet_records", false)
@@ -55,15 +56,15 @@ class PatientsController < ApplicationController
     end
   end
 
-  def create_resetable_simulation
-    get_emr_objects_from_database
+  def create_resetable_simulation #gets copies of the instructor-created patient data for use within a simulation session
+    get_emr_objects_from_database 
     if session[:simulation_mode] && !session[:emr_objects_in_simulation] && !@selectedVisit.nil?
       copy_objects [@clinician_notes, @clinician_orders, @flow_sheet_records, @lab_and_diagnostic_reports, @medical_administration_records]
       session[:emr_objects_in_simulation] = true
     end
   end
 
-  def copy_objects(objects)
+  def copy_objects(objects) #iterated through a colelction of collections and makes copies of them for the present simulation session
     unless objects.nil?
       objects.each do |collection|
         collection.each do |item|
@@ -75,7 +76,7 @@ class PatientsController < ApplicationController
     end
   end
 
-  def get_sim_or_edit_version(collection, checkvisibility)
+  def get_sim_or_edit_version(collection, checkvisibility) #determines whether the app is in edit or simulation mode and ether returns the orginal record or the sim session-specific copy of it,
     if !session[:simulation_mode] or !session[:emr_objects_in_simulation]
       object = @selectedVisit.send(collection).find(:all, conditions: ["sim_session IS NULL"])
     else
@@ -91,10 +92,12 @@ class PatientsController < ApplicationController
 
   # GET /patients
   # GET /patients.json
-  def index
+  def index #returns data for the patient census or selects records based on a patient search
     session[:current_patient_id] = false
     @patient = nil
     
+
+    #if index is being accessed from the search page, filter the data based on user input
     conditions = []
     conditions.add_condition!(['lower(last_name) like ?', '%' + params[:last_name].downcase + '%']) unless params[:last_name].blank?
     conditions.add_condition!(['lower(first_name) like ?', '%' + params[:first_name].downcase + '%']) unless params[:first_name].blank?
@@ -103,7 +106,7 @@ class PatientsController < ApplicationController
     conditions.add_condition!(['lower(patient_number) like ?', '%' + params[:patient_number].downcase + '%']) unless params[:patient_number].blank?
 
     if conditions.size > 0
-
+      #if there are no conditions, the user must be wanting all the patients, as in the patient census.
       @patients = Patient.find :all, :conditions => conditions
 
     else

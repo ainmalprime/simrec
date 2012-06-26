@@ -5,7 +5,7 @@
 #  id          :integer         primary key
 #  description :string(255)
 #  content     :text
-#  sim_session :text
+#  sim_session :text 
 #  created_at  :timestamp       not null
 #  updated_at  :timestamp       not null
 #

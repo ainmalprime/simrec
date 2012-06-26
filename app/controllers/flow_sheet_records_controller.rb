@@ -1,7 +1,8 @@
 class FlowSheetRecordsController < ApplicationController
-  include SessionsHelper
-  before_filter :check_site_configuration
-  layout "popover", :only => [:ajax_new]
+  #controls the functionality of the Vitals and Ins and Outs section of patient detail. The class is called "FlowSheet" because this is a shorter name some healthcare professionals use for that type of patient record.
+  include SessionsHelper #load up the SessionsHelper functions to help manage the user session
+  before_filter :check_site_configuration #make sure a location configuration has been selected.
+  layout "popover", :only => [:ajax_new] #use the ajax_new layout template that is designed for being displayed within a popover div when learners are entering a new flow sheet record
 
 
   # GET /flow_sheet_records

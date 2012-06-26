@@ -1,6 +1,6 @@
 class LabAndDiagnosticReportsController < ApplicationController
-  include SessionsHelper
-  before_filter :check_site_configuration
+  include SessionsHelper #load up the SessionsHelper functions to help manage the user session
+  before_filter :check_site_configuration #make sure a location configuration has been selected.
   # GET /lab_and_diagnostic_reports
   # GET /lab_and_diagnostic_reports.json
   def index

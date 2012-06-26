@@ -1,7 +1,7 @@
 class OrderTypesController < ApplicationController
-   include SessionsHelper
-  before_filter :check_site_configuration
-  before_filter :record_referrer
+   include SessionsHelper #load up the SessionsHelper functions to help manage the user session
+  before_filter :check_site_configuration #make sure a location configuration has been selected.
+  before_filter :record_referrer #record referrer in a session varable for the purposes of navigating back to start point after an action is performed.
   def record_referrer
     session[:return_to] = request.url
   end
