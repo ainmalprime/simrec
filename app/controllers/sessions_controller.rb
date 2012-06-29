@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
     FlowSheetRecord.destroy_all(sim_session: session_id)
     LabAndDiagnosticReport.destroy_all(sim_session: session_id)
     MedicalAdministrationRecord.destroy_all(sim_session: session_id)
+    RecentActivities.destroy_all(sim_session: session_id)
 
     respond_to do |format|
       format.html { redirect_to sessions_url }
@@ -82,13 +83,13 @@ class SessionsController < ApplicationController
       update_times_on_child_records(visit, 'clinician_orders')
       update_times_on_child_records(visit, 'flow_sheet_records')
       update_times_on_child_records(visit, 'medical_administration_records')
-      #update_times_on_child_records(visit, 'lab_and_diagnostic_reports')
+      update_times_on_child_records(visit, 'lab_and_diagnostic_reports')
     end
 
     reset_session
     session[:return_to] = root_url
     respond_to do |format|
-      format.html {redirect_to back_to, :notice => 'simulation session reset'}
+      format.html {redirect_to back_to, :notice => 'simulation session reset'} rescue redirect_to root_url
     end
   end
 
@@ -98,9 +99,13 @@ class SessionsController < ApplicationController
     def update_times_on_child_records(object, collection)
       object.send(collection).each do |item|
         if !item.minutes_after_start_of_visit.nil?
-          item.time_recorded = object.visit_time + item.minutes_after_start_of_visit.minutes
-          item.save
-        end 
+          if collection == 'lab_and_diagnostic_reports'
+            item.time_released = object.visit_time + item.minutes_after_start_of_visit.minutes
+          else
+            item.time_recorded = object.visit_time + item.minutes_after_start_of_visit.minutes
+          end
+        end
+        item.save
       end 
     end
 end

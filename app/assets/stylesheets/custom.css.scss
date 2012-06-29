@@ -144,6 +144,8 @@
  	border-color:gray;
 
 }
+
+
 .patientInfo {
 	position:relative;
 	text-align:center;
@@ -162,7 +164,9 @@
 	overflow:hidden;
 
 
-	
+
+
+
 	.icon {
 		float:left;
 		width:150px;
@@ -206,6 +210,19 @@
 	.bottom {
 		bottom:2px;
 	}
+}
+
+
+#recent_activties {
+	height: 100px;
+}	
+
+.recent_activity {
+	float:left;
+	width: 100px;
+	border-style: solid;
+	border-color: gray;
+	border-width: thin;
 }
 
 div.patientInfo table {

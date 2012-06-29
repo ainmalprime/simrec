@@ -49,7 +49,10 @@ class PatientsController < ApplicationController
       @clinician_orders = get_sim_or_edit_version("clinician_orders", false)
       @flow_sheet_records = get_sim_or_edit_version("flow_sheet_records", false)
       @medical_administration_records = get_sim_or_edit_version("medical_administration_records", false)
+      
       find_releasable_reports
+      
+      @recent_activities = get_sim_or_edit_version("recent_activities", true)
       @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports", true)
 
       @intake_documents = @selectedVisit.intake_documents.paginate(page: params[:intake_documents_page], per_page:4)
@@ -59,8 +62,8 @@ class PatientsController < ApplicationController
   def create_resetable_simulation #gets copies of the instructor-created patient data for use within a simulation session
     get_emr_objects_from_database 
     if session[:simulation_mode] && !session[:emr_objects_in_simulation] && !@selectedVisit.nil?
-      copy_objects [@clinician_notes, @clinician_orders, @flow_sheet_records, @lab_and_diagnostic_reports, @medical_administration_records]
-      session[:emr_objects_in_simulation] = true
+      copy_objects [@clinician_notes, @clinician_orders, @flow_sheet_records, @lab_and_diagnostic_reports, @medical_administration_records, @recent_activities]
+      session[:emr_objects_in_simulation] = true #let the app kn ow that there are emr record copies available
     end
   end
 
@@ -131,19 +134,25 @@ class PatientsController < ApplicationController
 
   def find_releasable_reports
     @clinician_orders = @selectedVisit.clinician_orders.find(:all, conditions: ["sim_session = ?", request.session_options[:id]])
-   
+    @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports", false)
+   @recent_activities = get_sim_or_edit_version("recent_activities", false)
    @clinician_orders.each do |clinician_order|
       #if a clinician order's order_type matches the lab report's order_type, 
       #check to see if the proper amount of time has elapsed since the order
       #was placed -tg
-      @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports", false)
+
       if @lab_and_diagnostic_reports 
         @lab_and_diagnostic_reports.each do |lab_report|
-          if (clinician_order.time_recorded < lab_report.release_delay.to_i.minutes.ago)
+          if clinician_order.time_recorded < lab_report.release_delay.to_i.minutes.ago  && clinician_order.order_type == lab_report.order_type
             lab_report.visible = true
             lab_report.time_released = Time.now
             lab_report.save
+            if @recent_activity = RecentActivity.where(resource: 'lab_and_diagnostic_report', resource_id: lab_report.id).first
+              @recent_activity.visible = true
+              @recent_activity.save
+            end
           end
+
         end
       end
     end

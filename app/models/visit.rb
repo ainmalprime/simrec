@@ -25,6 +25,7 @@ class Visit < ActiveRecord::Base
   	has_many :lab_and_diagnostic_reports, foreign_key: "visit_id", dependent: :destroy
   	has_many :medical_administration_records, foreign_key: "visit_id", dependent: :destroy
   	has_many :intake_documents, foreign_key: "visit_id", dependent: :destroy
+    has_many :recent_activities, foreign_key: "visit_id", dependent: :destroy
 
  	default_scope order: '"visits"."visit_time" DESC' 
 

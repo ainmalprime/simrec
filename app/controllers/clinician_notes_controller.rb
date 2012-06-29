@@ -63,12 +63,14 @@ class ClinicianNotesController < ApplicationController
       @clinician_note.sim_session = request.session_options[:id]
       log_action @clinician_note
     end
+
+   
     
-    @Visit = Visit.find(@clinician_note.visit_id) #reconstruct patient and visit to redirect back to patient  -tg
-    @Patient = Patient.find(@Visit.patient_id)
 
     respond_to do |format|
       if @clinician_note.save
+         #show the clinician note in the recent activities section
+        add_recent_activity @clinician_note.note_type + ' note added by ' + @clinician_note.clinician_signature, 'clinician_note', @clinician_note.id, @clinician_note.visit_id, request.session_options[:id]
         format.html { redirect_to session[:return_to], :notice => 'Clinician note was successfully created.' }
         format.json { render :json => @clinician_note, :status => :created, :location => @clinician_note }
       else
@@ -99,6 +101,7 @@ class ClinicianNotesController < ApplicationController
   def destroy
     @clinician_note = ClinicianNote.find(params[:id])
     @clinician_note.destroy
+    RecentActivity.destroy_all resource_id: params[:id], resource: "clinician_note"
 
     respond_to do |format|
       format.html { redirect_to session[:return_to] }

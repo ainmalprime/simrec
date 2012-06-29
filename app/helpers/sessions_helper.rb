@@ -57,4 +57,18 @@ module SessionsHelper
     ActionLogEntry.create({description: "<h2>" + object.class.name.titleize + "</h2>", content: log_content, sim_session: request.session_options[:id]})
   end
 
+  def add_recent_activity (description, resource, resource_id, visit_id, sim_session, visible=true) 
+    @recent_activity = RecentActivity.new
+    @recent_activity.description = description 
+    @recent_activity.resource = resource
+    @recent_activity.resource_id = resource_id
+    @recent_activity.visit_id = visit_id
+    @recent_activity.time_recorded = Time.now
+    @recent_activity.visible = visible
+    if session[:simulation_mode]
+      @recent_activity.sim_session = sim_session 
+    end
+    @recent_activity.save
+  end
+
 end

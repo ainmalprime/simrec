@@ -14,7 +14,7 @@
 
       <% if @lab_and_diagnostic_report.image_file_id.blank? %> 
       <% unless session[:simulation_mode] %>
-        <div id="instruction">Step 2: Upload intake document image</div>
+        <div id="instruction">Step 2: Upload diagnostic image (optional)</div>
           <%= link_to "Add Image", new_image_file_path(:lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), :class => "btn" %>  
       <% end %>
       <%else%> 
@@ -36,5 +36,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_lab_and_diagnostic_report_path(@lab_and_diagnostic_report) %> |
-<%= link_to 'Back', :back %>
+<%= link_to 'Edit', edit_lab_and_diagnostic_report_path(@lab_and_diagnostic_report), class: "btn"%> 
+<%= link_to 'Cancel', session[:return_to], class: "btn" %>

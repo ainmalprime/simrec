@@ -1,5 +1,7 @@
 DeVryEHR::Application.routes.draw do
 
+  resources :recent_activities
+
   resources :site_configurations
   match "config/:id", to: 'site_configurations#set_config', as: :config
 

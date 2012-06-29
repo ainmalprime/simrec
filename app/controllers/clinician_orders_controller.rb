@@ -68,7 +68,6 @@ class ClinicianOrdersController < ApplicationController
         @clinician_order.sim_session = request.session_options[:id]
         log_action @clinician_order
       end   
-      success = @clinician_order.save
     end
     #if simulation mode is active, add the session id to the note so that 
     #it is only available to the current sim session and will be deleted 
@@ -80,7 +79,7 @@ class ClinicianOrdersController < ApplicationController
 
 
     respond_to do |format|
-      if 
+      if @clinician_order.save
         format.html { redirect_to @Patient, notice: 'Clinician order was successfully created.' }
         format.json { render json: @clinician_order, status: :created, location: @clinician_order }
       else

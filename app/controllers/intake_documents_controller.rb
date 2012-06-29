@@ -52,6 +52,7 @@ class IntakeDocumentsController < ApplicationController
 
     respond_to do |format|
       if @intake_document.save
+        add_recent_activity 'intake document: ' + @intake_document.description, 'intake_document', @intake_document.id, @intake_document.visit_id, request.session_options[:id]
         format.html { redirect_to @intake_document, notice: 'Intake document was successfully created.' }
         format.json { render json: @intake_document, status: :created, location: @intake_document }
       else
@@ -82,6 +83,7 @@ class IntakeDocumentsController < ApplicationController
   def destroy
     @intake_document = IntakeDocument.find(params[:id])
     @intake_document.destroy
+    RecentActivity.destroy_all resource_id: params[:id], resource: "intake_document"
 
     respond_to do |format|
       format.html { redirect_to :back }

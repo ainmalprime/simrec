@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618174050) do
+ActiveRecord::Schema.define(:version => 20120629002623) do
 
   create_table "action_log_entries", :force => true do |t|
     t.string    "description"
@@ -153,6 +153,19 @@ ActiveRecord::Schema.define(:version => 20120618174050) do
     t.datetime "updated_at",                            :null => false
     t.string   "middle_initial"
     t.integer  "image_file_id"
+  end
+
+  create_table "recent_activities", :force => true do |t|
+    t.datetime "time_recorded"
+    t.string   "description"
+    t.string   "resource"
+    t.integer  "resource_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "visit_id"
+    t.string   "sim_session"
+    t.integer  "visible"
+    t.string   "order_type"
   end
 
   create_table "searches", :force => true do |t|
