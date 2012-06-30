@@ -2,11 +2,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Visit:</b><br />
-  <%= @medical_administration_record.visit_id %>
-</p>
-
-<p>
   <b>Time recorded:</b><br />
   <%= @medical_administration_record.time_recorded %>
 </p>
@@ -26,6 +21,7 @@
   <%= @medical_administration_record.clinician_signature %>
 </p>
 
-
-<%= link_to 'Edit', edit_medical_administration_record_path(@medical_administration_record) %> |
-<%= link_to 'Back', :back %>
+<% unless session[:simulation_mode] %>
+  <%= link_to 'Edit', edit_medical_administration_record_path(@medical_administration_record), class: "btn" %> 
+<% end %>
+<%= link_to 'Back', :back, class: "btn" %>
