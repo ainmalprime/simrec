@@ -1,0 +1,37 @@
+<%= form_for(@recent_activity) do |f| %>
+  <% if @recent_activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recent_activity.errors.count, "error") %> prohibited this recent_activity from being saved:</h2>
+
+      <ul>
+      <% @recent_activity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :time_recorded %><br />
+    <%= f.datetime_select :time_recorded %>
+  </div>
+    <div class="field">
+    <%= f.label :visit_id %><br />
+    <%= f.number_field :visit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :resource %><br />
+    <%= f.text_field :resource %>
+  </div>
+  <div class="field">
+    <%= f.label :resource_id %><br />
+    <%= f.number_field :resource_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

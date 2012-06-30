@@ -1,0 +1,4 @@
+<div class="recent_activity">
+  <%= recent_activity.time_recorded %> <br/>
+  <%= link_to recent_activity.description, '/' +  recent_activity.resource.pluralize + '/' + recent_activity.resource_id.to_s  %>
+</div>

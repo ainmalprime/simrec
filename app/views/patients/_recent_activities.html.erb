@@ -1,0 +1,20 @@
+  <div class="patient-info-header" id="recent_activities_header">
+    <h3>Recent activity</h3>
+  </div>
+  <div id="recent_activties" class="patientInfo">
+    <%if @recent_activities.any? %>
+      <div class="row-fluid">
+        <%= render @recent_activities %>
+      </div>
+    <% else %>
+      <div class="message">
+        <span class="label label-info">Note:</span> 
+      	<div> 
+      	  No recent activity is associated with this vist.
+        </div>
+      </div>
+    <%end%>
+    <div class="bottom">
+      As of <%= Time.now().to_s %>
+    </div>
+  </div>

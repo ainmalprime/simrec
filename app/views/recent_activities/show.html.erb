@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Time recorded:</b>
+  <%= @recent_activity.time_recorded %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @recent_activity.description %>
+</p>
+
+<p>
+  <b>Resource:</b>
+  <%= @recent_activity.resource %>
+</p>
+
+<p>
+  <b>Resource:</b>
+  <%= @recent_activity.resource_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_recent_activity_path(@recent_activity) %> |
+<%= link_to 'Back', recent_activities_path %>
