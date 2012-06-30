@@ -83,7 +83,6 @@ class IntakeDocumentsController < ApplicationController
   def destroy
     @intake_document = IntakeDocument.find(params[:id])
     @intake_document.destroy
-    RecentActivity.destroy_all resource_id: params[:id], resource: "intake_document"
 
     respond_to do |format|
       format.html { redirect_to :back }

@@ -55,7 +55,7 @@ function noenter() {
 <% unless params[:action] == "edit" %>
 
   <div id="search">
-    <label for="filter">Search Order Types</label> <input type="text" name="filter" value="" id="filter" onkeypress="return noenter()"/>
+    <label for="filter">Search Order Types</label> <input type="text" name="filter" value="" id="filter" utocomplete="off" onkeypress="return noenter()"/>
   </div>
     <div id="search-window">
           <h2>Order Type</h2>

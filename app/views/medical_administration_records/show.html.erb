@@ -2,30 +2,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Visit:</b>
+  <b>Visit:</b><br />
   <%= @medical_administration_record.visit_id %>
 </p>
 
 <p>
-  <b>Timerecorded:</b>
+  <b>Time recorded:</b><br />
   <%= @medical_administration_record.time_recorded %>
 </p>
 
 <p>
-  <b>Actiondescription:</b><br />
+  <b>Description:</b><br />
   <%=raw @medical_administration_record.description %>
 </p>
 
 <p>
-  <b>Actiondetails:</b><br />
+  <b>Details:</b><br />
   <%=raw @medical_administration_record.note %>
 </p>
 
 <p>
-  <b>Cliniciansignature:</b>
+  <b>Clinician signature:</b><br />
   <%= @medical_administration_record.clinician_signature %>
 </p>
 
 
 <%= link_to 'Edit', edit_medical_administration_record_path(@medical_administration_record) %> |
-<%= link_to 'Back', medical_administration_records_path %>
+<%= link_to 'Back', :back %>

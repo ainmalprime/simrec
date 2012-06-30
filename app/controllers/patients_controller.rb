@@ -62,7 +62,7 @@ class PatientsController < ApplicationController
   def create_resetable_simulation #gets copies of the instructor-created patient data for use within a simulation session
     get_emr_objects_from_database 
     if session[:simulation_mode] && !session[:emr_objects_in_simulation] && !@selectedVisit.nil?
-      copy_objects [@clinician_notes, @clinician_orders, @flow_sheet_records, @lab_and_diagnostic_reports, @medical_administration_records, @recent_activities]
+      copy_objects [@clinician_notes, @clinician_orders, @flow_sheet_records, @lab_and_diagnostic_reports, @medical_administration_records]
       session[:emr_objects_in_simulation] = true #let the app kn ow that there are emr record copies available
     end
   end
@@ -74,6 +74,13 @@ class PatientsController < ApplicationController
             item_copy = item.dup
             item_copy.sim_session = request.session_options[:id]
             item_copy.save
+            #show the lab report in the recent activities section
+            if item_copy.class.name == "LabAndDiagnosticReport"
+              add_recent_activity "report: " + item_copy.order_type, item_copy.class.name.underscore, item_copy.id, item_copy.visit_id, request.session_options[:id], false, item_copy.time_released
+            else
+              add_recent_activity item_copy.class.name.titleize, item_copy.class.name.underscore, item_copy.id, item_copy.visit_id, request.session_options[:id], true, item_copy.time_recorded
+            end
+
         end
       end
     end
@@ -156,10 +163,12 @@ class PatientsController < ApplicationController
             lab_report.visible = true
             lab_report.time_released = Time.now
             lab_report.save
-            @recent_acts = RecentActivity.where(resource: 'lab_and_diagnostic_report', resource_id: lab_report.id, sim_session: request.session_options[:id])
+            @recent_acts = RecentActivity.all
             @recent_acts.each do |activity|
-              activity.visible = true
-              activity.save
+              if activity.sim_session == request.session_options[:id] && activity.resource_id == lab_report.id
+                activity.visible = true
+                activity.save
+              end
             end
           end
 

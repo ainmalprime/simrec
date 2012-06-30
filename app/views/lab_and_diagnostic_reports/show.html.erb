@@ -38,4 +38,4 @@
 <% unless session[:simulation_mode] %>
   <%= link_to 'Edit', edit_lab_and_diagnostic_report_path(@lab_and_diagnostic_report), class: "btn"%> 
 <% end %>
-<%= link_to 'Cancel', session[:return_to], class: "btn" %>
+<%= link_to 'Done', session[:return_to], class: "btn" %>

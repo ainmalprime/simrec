@@ -219,10 +219,14 @@
 
 .recent_activity {
 	float:left;
+	margin: 2px;
 	width: 100px;
+	height: 80px;
+	font-size: 10px;
 	border-style: solid;
 	border-color: gray;
 	border-width: thin;
+	overflow: hidden;
 }
 
 div.patientInfo table {

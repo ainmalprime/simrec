@@ -101,7 +101,6 @@ class ClinicianNotesController < ApplicationController
   def destroy
     @clinician_note = ClinicianNote.find(params[:id])
     @clinician_note.destroy
-    RecentActivity.destroy_all resource_id: params[:id], resource: "clinician_note"
 
     respond_to do |format|
       format.html { redirect_to session[:return_to] }

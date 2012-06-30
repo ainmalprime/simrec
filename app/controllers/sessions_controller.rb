@@ -73,6 +73,7 @@ class SessionsController < ApplicationController
     FlowSheetRecord.destroy_all(sim_session: request.session_options[:id])
     MedicalAdministrationRecord.destroy_all(sim_session: request.session_options[:id])
     LabAndDiagnosticReport.destroy_all(sim_session: request.session_options[:id])
+    RecentActivity.destroy_all(sim_session: request.session_options[:id])
     
     @visits_to_change = Visit.find :all, conditions: ["duration_til_now_hours > 0"] 
     
