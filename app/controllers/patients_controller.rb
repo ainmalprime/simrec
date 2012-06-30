@@ -137,7 +137,6 @@ class PatientsController < ApplicationController
     #are available -tg
     @selectedVisit = Visit.find(params[:id])
     find_releasable_reports
-    @recent_activities = get_sim_or_edit_version("recent_activities", true)
     render :partial => "recent_activities"
   end
 
