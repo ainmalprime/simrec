@@ -19,7 +19,7 @@ end
 class PatientsController < ApplicationController
   include SessionsHelper #load up the SessionsHelper functions to help manage the user session
   before_filter :check_site_configuration #make sure a location configuration has been selected.
-  before_filter :record_referrer, except: [:lab_reports] #record referrer in a session varable for the purposes of navigating back to start point after an action is performed.
+  before_filter :record_referrer, except: [:lab_reports, :recents] #record referrer in a session varable for the purposes of navigating back to start point after an action is performed.
   before_filter :create_resetable_simulation, except: [:index] # create a copy of the databse records the user is going to use if the app is in simulation mode so that modifications will be made to the copy and not the original. this facilitates the case reset functionality of the site.
 
 
@@ -130,6 +130,15 @@ class PatientsController < ApplicationController
     find_releasable_reports
     @lab_and_diagnostic_reports = get_sim_or_edit_version("lab_and_diagnostic_reports", true)
     render :partial => "lab_and_diagnostic_reports"
+  end
+
+  def recents
+    #called by the recent activities pane when it automatically refreshes to see if any reports
+    #are available -tg
+    @selectedVisit = Visit.find(params[:id])
+    find_releasable_reports
+    @lab_and_diagnostic_reports = get_sim_or_edit_version("recent_activities", true)
+    render :partial => "recent_activities"
   end
 
   def find_releasable_reports

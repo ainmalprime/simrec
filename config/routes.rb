@@ -20,7 +20,7 @@ DeVryEHR::Application.routes.draw do
   match '/search',  :to => 'static_pages#search'
 
   match '/patients/lab_reports/:id', :to => 'patients#lab_reports'
-
+  match '/patients/recents/:id', :to => 'patients#recents'
 
   
   resources :order_types
