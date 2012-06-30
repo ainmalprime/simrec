@@ -52,7 +52,7 @@ class LabAndDiagnosticReportsController < ApplicationController
       @lab_and_diagnostic_report.order_type = order_type
       @lab_and_diagnostic_report.save
       #show the lab report in the recent activities section
-      add_recent_activity 'report: ' + @lab_and_diagnostic_report.order_type, 'lab_and_diagnostic_report', @lab_and_diagnostic_report.id, @lab_and_diagnostic_report.visit_id, request.session_options[:id], @lab_and_diagnostic_report.visible
+      add_recent_activity 'report: ' + @lab_and_diagnostic_report.order_type, 'lab_and_diagnostic_report', @lab_and_diagnostic_report.id, @lab_and_diagnostic_report.visit_id, nil, @lab_and_diagnostic_report.visible
     end
 
     respond_to do |format|
