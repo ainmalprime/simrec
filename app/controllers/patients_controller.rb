@@ -156,7 +156,7 @@ class PatientsController < ApplicationController
             lab_report.visible = true
             lab_report.time_released = Time.now
             lab_report.save
-            if @recent_activity = RecentActivity.where(resource: 'lab_and_diagnostic_report', resource_id: lab_report.id).first
+            if @recent_activity = RecentActivity.where(resource: 'lab_and_diagnostic_report', resource_id: lab_report.id, sim_session: request.session_options[:id]).first
               @recent_activity.visible = true
               @recent_activity.save
             end
