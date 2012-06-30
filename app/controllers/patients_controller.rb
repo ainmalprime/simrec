@@ -137,7 +137,7 @@ class PatientsController < ApplicationController
     #are available -tg
     @selectedVisit = Visit.find(params[:id])
     find_releasable_reports
-    @recent_activities = RecentActivity.where(sim_session: request.session_options[:id], visible: true)
+    @recent_activities = get_sim_or_edit_version("recent_activities", true)
     render :partial => "recent_activities"
   end
 
@@ -156,9 +156,10 @@ class PatientsController < ApplicationController
             lab_report.visible = true
             lab_report.time_released = Time.now
             lab_report.save
-            if @recent_activity = RecentActivity.where(resource: 'lab_and_diagnostic_report', resource_id: lab_report.id, sim_session: request.session_options[:id]).first
-              @recent_activity.visible = true
-              @recent_activity.save
+            @recent_acts = RecentActivity.where(resource: 'lab_and_diagnostic_report', resource_id: lab_report.id, sim_session: request.session_options[:id])
+            @recent_acts.each do |activity|
+              activity.visible = true
+              activity.save
             end
           end
 

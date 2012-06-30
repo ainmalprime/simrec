@@ -9,6 +9,10 @@
   <b>Description:</b>
   <%= @recent_activity.description %>
 </p>
+<p>
+  <b>visible:</b>
+  <%= @recent_activity.visible %>
+</p>
 
 <p>
   <b>Resource:</b>
@@ -16,9 +20,15 @@
 </p>
 
 <p>
-  <b>Resource:</b>
+  <b>Resource id:</b>
   <%= @recent_activity.resource_id %>
 </p>
+
+<p>
+  <b>sim session:</b>
+  <%= @recent_activity.sim_session %>
+</p>
+
 
 
 <%= link_to 'Edit', edit_recent_activity_path(@recent_activity) %> |
