@@ -12,22 +12,22 @@
 
 
 
-      <% if @lab_and_diagnostic_report.image_file_id.blank? %> 
-      <% unless session[:simulation_mode] %>
-        <div id="instruction">Step 2: Upload diagnostic image (optional)</div>
-          <%= link_to "Add Image", new_image_file_path(:lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), :class => "btn" %>  
-      <% end %>
-      <%else%> 
-      <div class="intake-doc-image">
-        <%= image_tag("/image/#{@lab_and_diagnostic_report.image_file_id}", :alt => "Image") %> </div>
-        <div class="btn-toolbar">
-        <% unless session[:simulation_mode] %>
-          <div class="btn-group">
-          <%= link_to "Change Image", edit_image_file_path(:id => @lab_and_diagnostic_report.image_file_id, :lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), :class => "btn"%> 
-          <%= link_to 'Delete Image', image_file_path(:id => @lab_and_diagnostic_report.image_file_id, :lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
-          </div>
-        <% end %>
-      <% end %>
+<% if @lab_and_diagnostic_report.image_file_id.blank? %> 
+<% unless session[:simulation_mode] %>
+  <div id="instruction">Step 2: Upload diagnostic image (optional)</div>
+    <%= link_to "Add Image", new_image_file_path(:lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), :class => "btn" %>  
+<% end %>
+<%else%> 
+<div class="intake-doc-image">
+  <%= image_tag("/image/#{@lab_and_diagnostic_report.image_file_id}", :alt => "Image") %> </div>
+  <div class="btn-toolbar">
+  <% unless session[:simulation_mode] %>
+    <div class="btn-group">
+    <%= link_to "Change Image", edit_image_file_path(:id => @lab_and_diagnostic_report.image_file_id, :lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), :class => "btn"%> 
+    <%= link_to 'Delete Image', image_file_path(:id => @lab_and_diagnostic_report.image_file_id, :lab_and_diagnostic_report_id => @lab_and_diagnostic_report.id), confirm: 'Are you sure?', method: :delete, :class => "btn"%> 
+    </div>
+  <% end %>
+<% end %>
 <p>
   <h3>Note</h3>
   <div class="note">
